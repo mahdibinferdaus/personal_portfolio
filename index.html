@@ -1,953 +1,3156 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<script>
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.documentElement.classList.add('js-anim');
-  }
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mahdi Bin Ferdaus — Robotics Builder, Innovator &amp; Mentor</title>
-<meta name="description" content="Portfolio of Mahdi Bin Ferdaus — robotics and embedded-systems builder, STEM competitor, and mentor. Explore projects, achievements, and request a free introductory mentoring call.">
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mahdi Bin Ferdaus — Robotics Builder, Innovator & Mentor">
-<meta property="og:description" content="Robotics and embedded-systems builder, STEM competitor, and mentor. Projects, achievements, and mentoring for competitions.">
-<meta property="og:url" content="https://mahdibinferdaus.com">
-
-<!-- Structured data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Mahdi Bin Ferdaus",
-  "url": "https://mahdibinferdaus.com",
-  "jobTitle": "Robotics Builder & Mentor",
-  "sameAs": ["https://www.linkedin.com/in/mahdibinferdaus/", "https://github.com/mahdibinferdaus"]
-}
-</script>
-
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232F6F52'/%3E%3Ctext x='32' y='42' font-family='Arial,Helvetica,sans-serif' font-weight='700' font-size='26' fill='%23FAFAF8' text-anchor='middle'%3EMF%3C/text%3E%3C/svg%3E">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-  /* ---------- Tokens ---------- */
-  :root{
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Mahdi Bin Ferdaus — Robotics Builder, Innovator &amp; Mentor
+  </title>
+  <meta content="A visual portfolio of Mahdi Bin Ferdaus — projects, achievements, experiences, journey, news and moments." name="description"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+  <style>
+:root {
     --paper:#FAFAF8;
-    --paper-dim:#F1EEE4;
+    --paper2:#F1EEE4;
     --ink:#14171B;
     --slate:#5B6472;
     --line:#E3E0D4;
     --signal:#2F6F52;
+    --signal2:#3D8565;
     --signal-dim:#E6F1EA;
-    --signal-ink:#FAFAF8;
-    --font-display:'Space Grotesk', system-ui, sans-serif;
-    --font-body:'Inter', system-ui, sans-serif;
-    --font-mono:'JetBrains Mono', 'Courier New', monospace;
-    --maxw:1120px;
-    --nav-h:76px;
-    --radius:14px;
-    --shadow:0 10px 30px -12px rgba(20,23,27,0.18);
-  }
-
-  /* ---------- Reset ---------- */
-  *,*::before,*::after{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3,p,ul,figure{margin:0;}
-  ul{padding:0;list-style:none;}
-  a{color:inherit;text-decoration:none;}
-  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
-  img{max-width:100%;display:block;}
-  section{scroll-margin-top:calc(var(--nav-h) + 12px);}
-
-  /* ---------- Layout helpers ---------- */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
-  .section{padding:112px 0;border-top:1px solid var(--line);}
-  .section--alt{background:var(--paper-dim);}
-  .section__head{margin-bottom:56px;max-width:640px;}
-  .eyebrow{display:inline-block;font-family:var(--font-mono);font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--signal);margin-bottom:14px;}
-  .section__title{font-family:var(--font-display);font-weight:600;font-size:clamp(28px,4vw,38px);letter-spacing:-0.01em;}
-  .section__sub{color:var(--slate);margin-top:12px;font-size:16.5px;max-width:56ch;}
-  .subhead{font-family:var(--font-display);font-weight:600;font-size:22px;margin-bottom:4px;}
-
-  /* ---------- Reveal animation ---------- */
-  .js-anim [data-reveal]{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1);}
-  .js-anim [data-reveal].is-visible{opacity:1;transform:none;}
-  .d1{transition-delay:.05s !important;} .d2{transition-delay:.13s !important;}
-  .d3{transition-delay:.21s !important;} .d4{transition-delay:.29s !important;}
-  .d5{transition-delay:.37s !important;}
-
-  /* ---------- Buttons ---------- */
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:14.5px;transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;white-space:nowrap;}
-  .btn--primary{background:var(--signal);color:var(--signal-ink);}
-  .btn--primary:hover{transform:translateY(-2px);box-shadow:var(--shadow);}
-  .btn--ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
-  .btn--ghost:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-2px);}
-  .btn svg{width:16px;height:16px;transition:transform .25s ease;}
-  .btn:hover svg{transform:translate(3px,-3px);}
-
-  /* ---------- Nav ---------- */
-  .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;z-index:100;transition:background .35s ease, box-shadow .35s ease, backdrop-filter .35s ease;}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;}
-  .nav--scrolled{background:rgba(250,250,248,0.82);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);}
-  .nav__brand{font-family:var(--font-display);font-weight:700;font-size:19px;letter-spacing:-0.02em;}
-  .nav__brand span{color:var(--signal);}
-  .nav__links{display:flex;align-items:center;gap:30px;}
-  .nav__link{font-size:14.5px;font-weight:500;color:var(--slate);position:relative;padding:4px 0;transition:color .25s ease;}
-  .nav__link::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:1.5px;background:var(--signal);transition:width .25s ease;}
-  .nav__link:hover,.nav__link.is-active{color:var(--ink);}
-  .nav__link.is-active::after{width:100%;}
-  .nav__cta{display:flex;align-items:center;gap:14px;}
-  .nav__resume{font-size:14px;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px;}
-  .nav__toggle{display:none;padding:8px;}
-  .nav__toggle svg{width:22px;height:22px;}
-
-  @media (max-width:860px){
-    .nav__links{position:fixed;top:var(--nav-h);left:0;right:0;background:var(--paper);flex-direction:column;align-items:flex-start;gap:0;padding:8px 28px 20px;border-bottom:1px solid var(--line);transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;}
-    .nav__links.is-open{opacity:1;transform:none;pointer-events:auto;}
-    .nav__links .nav__link{padding:12px 0;width:100%;border-bottom:1px solid var(--line);}
-    .nav__resume{display:none;}
-    .nav__toggle{display:block;}
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{padding:calc(var(--nav-h) + 92px) 0 96px;position:relative;overflow:hidden;}
-  .hero__grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
-  .hero__title{font-family:var(--font-display);font-weight:700;font-size:clamp(40px,6vw,64px);line-height:1.05;letter-spacing:-0.02em;margin:18px 0 22px;}
-  .hero__bio{color:var(--slate);font-size:18px;max-width:52ch;margin-bottom:34px;}
-  .hero__actions{display:flex;gap:14px;flex-wrap:wrap;}
-
-  .status-card{background:var(--ink);border-radius:var(--radius);padding:22px 22px 26px;color:#E9ECEF;box-shadow:var(--shadow);}
-  .status-card__bar{display:flex;gap:6px;margin-bottom:16px;}
-  .status-card__bar span{width:9px;height:9px;border-radius:50%;background:#3B4048;}
-  .status-card__body{font-family:var(--font-mono);font-size:14px;line-height:2;}
-  .status-card .prompt{color:#6FE3A6;margin-right:8px;}
-  .status-card .verdict{color:#6FE3A6;font-weight:600;}
-  .status-card__cursor{display:inline-block;width:7px;height:14px;background:#6FE3A6;margin-left:4px;vertical-align:middle;}
-  .js-anim .status-card__cursor{animation:blink 1s steps(1) infinite;}
-  @keyframes blink{50%{opacity:0;}}
-
-  /* ---------- Highlights strip ---------- */
-  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-dim);}
-  .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);}
-  .stat{padding:40px 20px;text-align:center;border-left:1px solid var(--line);}
-  .stat:first-child{border-left:none;}
-  .stat__value{font-family:var(--font-display);font-weight:700;font-size:clamp(30px,4vw,42px);color:var(--signal);}
-  .stat__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-top:6px;}
-  @media (max-width:700px){.stats__grid{grid-template-columns:repeat(2,1fr);} .stat:nth-child(3){border-left:none;}}
-
-  /* ---------- About ---------- */
-  .about-layout{display:grid;grid-template-columns:0.55fr 1.45fr;gap:52px;align-items:center;}
-  .about-photo{position:relative;aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:var(--signal-dim);border:1px solid var(--line);}
-  .about-photo img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;}
-  .about-photo__fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:56px;color:var(--signal);}
-  .about__text{font-size:18px;color:var(--slate);max-width:64ch;}
-  .about__text strong{color:var(--ink);font-weight:600;}
-  .about__linkedin{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-weight:600;font-size:14.5px;color:var(--signal);}
-  .about__linkedin svg{width:14px;height:14px;}
-  @media (max-width:760px){.about-layout{grid-template-columns:1fr;} .about-photo{max-width:240px;margin:0 auto;}}
-
-  /* ---------- Education timeline ---------- */
-  .timeline{position:relative;padding-left:32px;}
-  .timeline::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line);}
-  .timeline::after{content:'';position:absolute;left:5px;top:6px;width:2px;height:0;background:var(--signal);transition:height 1.1s cubic-bezier(.2,.7,.2,1);}
-  .timeline.is-drawn::after{height:calc(100% - 12px);}
-  .timeline__item{position:relative;padding-bottom:44px;}
-  .timeline__item:last-child{padding-bottom:0;}
-  .timeline__dot{position:absolute;left:-32px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:2px solid var(--signal);}
-  .timeline__period{font-family:var(--font-mono);font-size:12.5px;color:var(--signal);letter-spacing:.05em;}
-  .timeline__degree{font-family:var(--font-display);font-weight:600;font-size:20px;margin:6px 0 2px;}
-  .timeline__inst{color:var(--slate);font-size:15px;}
-  .timeline__detail{margin-top:8px;color:var(--slate);font-size:15px;}
-
-  /* ---------- Cards grid (achievements/projects) ---------- */
-  .grid{display:grid;gap:22px;}
-  .grid--3{grid-template-columns:repeat(3,1fr);}
-  .grid--2{grid-template-columns:repeat(2,1fr);}
-  @media (max-width:860px){.grid--3{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:640px){.grid--3,.grid--2{grid-template-columns:1fr;}}
-
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;}
-  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent;}
-  .card__img{width:100%;height:140px;object-fit:cover;border-radius:9px;margin-bottom:16px;}
-
-  .verdict-badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--signal);background:var(--signal-dim);padding:4px 10px;border-radius:999px;margin-bottom:14px;}
-  .verdict-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--signal);}
-  .card__title{font-family:var(--font-display);font-weight:600;font-size:17px;margin-bottom:4px;}
-  .card__meta{font-size:13.5px;color:var(--slate);margin-bottom:10px;}
-  .card__desc{font-size:14.5px;color:var(--slate);}
-
-  /* ---------- Skills ---------- */
-  .skill-group{margin-bottom:36px;}
-  .skill-group:last-child{margin-bottom:0;}
-  .skill-group__title{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin-bottom:14px;}
-  .pills{display:flex;flex-wrap:wrap;gap:10px;}
-  .pill{font-size:14px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--paper);transition:transform .25s ease, border-color .25s ease, background .25s ease, color .25s ease;}
-  .pill:hover{transform:translateY(-2px);border-color:var(--signal);color:var(--signal);background:var(--signal-dim);}
-
-  /* ---------- Activities ---------- */
-  .activity-list{display:flex;flex-direction:column;}
-  .activity{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);}
-  .activity:first-child{border-top:1px solid var(--line);}
-  .activity__main{display:flex;align-items:center;gap:16px;}
-  .activity__img{width:46px;height:46px;border-radius:10px;object-fit:cover;flex-shrink:0;}
-  .activity__role{font-weight:600;font-size:16px;}
-  .activity__org{color:var(--slate);font-size:14.5px;margin-top:3px;}
-  .activity__period{font-family:var(--font-mono);font-size:12.5px;color:var(--slate);white-space:nowrap;}
-  @media (max-width:600px){.activity{flex-direction:column;align-items:flex-start;gap:10px;}}
-
-  /* ---------- Projects ---------- */
-  .project-card{display:flex;flex-direction:column;height:100%;}
-  .project-card__pitch{font-family:var(--font-display);font-weight:600;font-size:19px;margin-bottom:8px;}
-  .project-card__desc{color:var(--slate);font-size:14.5px;flex-grow:1;margin-bottom:16px;}
-  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px;}
-  .tag{font-family:var(--font-mono);font-size:11.5px;color:var(--slate);background:var(--paper-dim);padding:4px 10px;border-radius:6px;}
-  .project-card__links{display:flex;gap:18px;margin-top:16px;}
-  .project-card__links a{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;font-weight:600;color:var(--signal);}
-  .project-card__links svg{width:13px;height:13px;}
-  .projects-more{text-align:center;margin-top:40px;font-size:14.5px;color:var(--slate);}
-  .projects-more a{font-weight:600;color:var(--signal);}
-
-  /* ---------- Mentoring ---------- */
-  .mentor-intro{max-width:72ch;margin-bottom:52px;}
-  .mentor-intro__text{font-size:17px;color:var(--slate);}
-  .mentor-includes{list-style:none;margin-top:20px;}
-  .mentor-includes li{display:flex;gap:10px;padding:9px 0;font-size:15px;color:var(--ink);}
-  .mentor-includes svg{width:18px;height:18px;color:var(--signal);flex-shrink:0;margin-top:1px;}
-
-  .testimonials{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-bottom:56px;}
-  @media (max-width:700px){.testimonials{grid-template-columns:1fr;}}
-  .testimonial{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px;}
-  .testimonial__quote{font-size:15.5px;color:var(--ink);}
-  .testimonial__quote::before{content:'"';color:var(--signal);font-family:var(--font-display);}
-  .testimonial__quote::after{content:'"';color:var(--signal);font-family:var(--font-display);}
-  .testimonial__meta{margin-top:14px;font-size:13px;color:var(--slate);font-family:var(--font-mono);}
-
-  .faq{max-width:760px;margin-bottom:56px;}
-  .faq details{border-bottom:1px solid var(--line);padding:18px 0;}
-  .faq summary{cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
-  .faq summary::-webkit-details-marker{display:none;}
-  .faq summary svg{width:18px;height:18px;color:var(--slate);transition:transform .3s ease;flex-shrink:0;}
-  .faq details[open] summary svg{transform:rotate(180deg);}
-  .faq__answer{color:var(--slate);font-size:14.5px;margin-top:12px;max-width:64ch;}
-
-  .mentor-action{display:grid;grid-template-columns:0.85fr 1.15fr;gap:28px;align-items:start;}
-  @media (max-width:860px){.mentor-action{grid-template-columns:1fr;}}
-  .mentor-side{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;height:fit-content;}
-  .mentor-side__label{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);}
-  .mentor-side__row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px;gap:12px;}
-  .mentor-side__row:last-child{border-bottom:none;}
-  .mentor-side__row strong{font-weight:600;text-align:right;}
-  .mentor-side__note{margin-top:16px;font-size:13.5px;color:var(--slate);}
-
-  /* ---------- Forms ---------- */
-  .form-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px;}
-  .form__row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px;}
-  @media (max-width:560px){.form__row{grid-template-columns:1fr;}}
-  .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px;}
-  .field label{font-size:13px;font-weight:600;font-family:var(--font-mono);letter-spacing:.02em;}
-  .field label em{color:var(--slate);font-style:normal;font-weight:400;}
-  .field input,.field select,.field textarea{font:inherit;font-size:15px;padding:12px 14px;border-radius:9px;border:1px solid var(--line);background:var(--paper);color:var(--ink);transition:border-color .25s ease, box-shadow .25s ease;}
-  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--signal);box-shadow:0 0 0 3px var(--signal-dim);}
-  .field textarea{resize:vertical;min-height:100px;}
-  .hp-field{position:absolute;left:-9999px;opacity:0;}
-  .form__submit{display:flex;align-items:center;gap:16px;margin-top:6px;flex-wrap:wrap;}
-  .form__status{font-size:14px;font-weight:500;}
-  .form__status[data-state="success"]{color:var(--signal);}
-  .form__status[data-state="error"]{color:#B3452F;}
-  .btn[disabled]{opacity:.6;cursor:default;}
-  .btn[disabled]:hover{transform:none;box-shadow:none;}
-
-  /* ---------- Contact ---------- */
-  .contact-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:48px;align-items:start;}
-  @media (max-width:860px){.contact-layout{grid-template-columns:1fr;}}
-  .contact-note{font-size:16px;color:var(--slate);max-width:44ch;}
-
-  /* ---------- Footer ---------- */
-  .footer{padding:64px 0 40px;}
-  .footer__top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;padding-bottom:40px;border-bottom:1px solid var(--line);}
-  .footer__brand{font-family:var(--font-display);font-weight:700;font-size:22px;}
-  .footer__tag{color:var(--slate);font-size:14.5px;margin-top:8px;max-width:36ch;}
-  .footer__links{display:flex;gap:24px;flex-wrap:wrap;}
-  .footer__links a{font-size:14.5px;font-weight:600;display:inline-flex;align-items:center;gap:6px;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .25s ease,border-color .25s ease;}
-  .footer__links a:hover{color:var(--signal);border-color:var(--signal);}
-  .footer__links svg{width:13px;height:13px;}
-  .footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;font-size:13px;color:var(--slate);}
-
-  /* ---------- Back to top ---------- */
-  .to-top{position:fixed;right:24px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s ease, transform .3s ease;z-index:90;}
-  .to-top.is-visible{opacity:1;transform:none;pointer-events:auto;}
-  .to-top svg{width:18px;height:18px;}
-
-  @media (max-width:860px){
-    .hero__grid{grid-template-columns:1fr;}
-    .status-card{margin-top:12px;}
-  }
-  @media (max-width:600px){
-    .section{padding:76px 0;}
-    .wrap{padding:0 20px;}
-  }
+    --white:#fff;
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --max:1160px;
+    --radius:16px;
+    --shadow:0 18px 50px -20px rgba(20,23,27,.25);
+    --ease:cubic-bezier(.2,.8,.2,1)
+}
+* {
+    box-sizing:border-box
+}
+html {
+    scroll-behavior:smooth
+}
+body {
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.65
+}
+body.modal-open {
+    overflow:hidden
+}
+a {
+    text-decoration:none;
+    color:inherit
+}
+button {
+    font:inherit;
+    border:0;
+    background:none;
+    color:inherit;
+    cursor:pointer
+}
+img {
+    display:block;
+    max-width:100%
+}
+.wrap {
+    width:min(var(--max),calc(100% - 42px));
+    margin:auto
+}
+.mono {
+    font-family:var(--mono)
+}
+/* NAV */
+.nav {
+    position:fixed;
+    z-index:50;
+    left:0;
+    right:0;
+    top:0;
+    height:76px;
+    background:rgba(250,250,248,.86);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid transparent;
+    transition:.35s var(--ease)
+}
+.nav.scrolled {
+    border-color:var(--line);
+    box-shadow:0 8px 30px rgba(20,23,27,.05)
+}
+.nav-inner {
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px
+}
+.brand {
+    font:700 24px var(--display);
+    letter-spacing:-.04em
+}
+.brand span {
+    color:var(--signal)
+}
+.nav-links {
+    display:flex;
+    align-items:center;
+    gap:23px
+}
+.nav-links a {
+    font-size:12px;
+    color:var(--slate);
+    position:relative
+}
+.nav-links a:after {
+    content:'';
+    position:absolute;
+    left:0;
+    right:100%;
+    bottom:-8px;
+    height:2px;
+    background:var(--signal);
+    transition:.3s
+}
+.nav-links a:hover:after,.nav-links a.active:after {
+    right:0
+}
+.nav-links a:hover,.nav-links a.active {
+    color:var(--ink)
+}
+.nav-cta {
+    padding:9px 15px;
+    border:1px solid var(--signal);
+    border-radius:999px;
+    color:var(--signal)!important
+}
+.menu {
+    display:none;
+    font-size:25px
+}
+/* HERO */
+.hero {
+    min-height:100vh;
+    display:grid;
+    align-items:center;
+    padding:125px 0 85px;
+    background:radial-gradient(circle at 85% 20%,rgba(47,111,82,.08),transparent 30%),var(--paper);
+    overflow:hidden;
+    position:relative
+}
+.hero:before {
+    content:'';
+    position:absolute;
+    right:-180px;
+    top:130px;
+    width:520px;
+    height:520px;
+    border:1px solid rgba(47,111,82,.14);
+    border-radius:50%;
+    box-shadow:0 0 0 65px rgba(47,111,82,.035),0 0 0 130px rgba(47,111,82,.02)
+}
+.hero-grid {
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:65px;
+    align-items:center;
+    position:relative;
+    z-index:1
+}
+.eyebrow {
+    font:11px var(--mono);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--signal);
+    margin:0 0 12px
+}
+.hero h1 {
+    font:700 clamp(62px,8vw,108px)/.86 var(--display);
+    letter-spacing:-.065em;
+    margin:0
+}
+.hero h1 span {
+    color:var(--signal)
+}
+.hero-lead {
+    max-width:650px;
+    color:var(--slate);
+    font-size:18px;
+    margin:28px 0
+}
+.hero-actions {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap
+}
+.btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:12px 18px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    transition:.3s var(--ease)
+}
+.btn-primary {
+    background:var(--signal);
+    color:white
+}
+.btn-primary:hover {
+    background:var(--signal2);
+    transform:translateY(-3px);
+    box-shadow:var(--shadow)
+}
+.btn-outline {
+    border:1px solid var(--line);
+    background:white
+}
+.btn-outline:hover {
+    border-color:var(--signal);
+    color:var(--signal);
+    transform:translateY(-3px)
+}
+.hero-portrait {
+    height:530px;
+    border-radius:26px;
+    overflow:hidden;
+    background:var(--paper2);
+    border:1px solid var(--line);
+    position:relative;
+    box-shadow:var(--shadow)
+}
+.hero-portrait img {
+    width:100%;
+    height:100%;
+    object-fit:cover
+}
+.portrait-fallback {
+    height:100%;
+    display:grid;
+    place-items:center;
+    font:700 140px var(--display);
+    color:rgba(47,111,82,.12)
+}
+.hero-note {
+    position:absolute;
+    left:22px;
+    bottom:22px;
+    background:rgba(250,250,248,.92);
+    border:1px solid var(--line);
+    padding:13px 16px;
+    border-radius:13px;
+    box-shadow:0 10px 30px rgba(20,23,27,.08)
+}
+.hero-note strong {
+    display:block;
+    font:600 16px var(--display)
+}
+.hero-note small {
+    font:10px var(--mono);
+    color:var(--signal);
+    text-transform:uppercase;
+    letter-spacing:.08em
+}
+/* GENERAL */
+.section {
+    padding:110px 0
+}
+.section.alt {
+    background:var(--paper2)
+}
+.section.dark {
+    background:#15191d;
+    color:white
+}
+.section-head {
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:35px;
+    margin-bottom:46px
+}
+.section-head>div {
+    max-width:680px
+}
+.title {
+    font:700 clamp(38px,5vw,65px)/.95 var(--display);
+    letter-spacing:-.05em;
+    margin:0
+}
+.sub {
+    max-width:560px;
+    color:var(--slate);
+    font-size:15px
+}
+.dark .sub {
+    color:#aab2ba
+}
+.rule {
+    height:1px;
+    background:var(--line);
+    margin-top:20px
+}
+/* STATS */
+.stats {
+    background:var(--signal);
+    color:white
+}
+.stats-grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr)
+}
+.stat {
+    text-align:center;
+    padding:30px 15px;
+    border-right:1px solid rgba(255,255,255,.18)
+}
+.stat:last-child {
+    border-right:0
+}
+.stat b {
+    font:700 48px var(--display)
+}
+.stat span {
+    display:block;
+    font:10px var(--mono);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    opacity:.78
+}
+/* ABOUT */
+.about-grid {
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:80px
+}
+.about-lead {
+    font:500 26px/1.35 var(--display);
+    letter-spacing:-.02em
+}
+.about-copy {
+    color:var(--slate);
+    font-size:15px
+}
+.about-list {
+    list-style:none;
+    padding:0;
+    margin:28px 0 0
+}
+.about-list li {
+    display:flex;
+    gap:15px;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14px
+}
+.about-list b {
+    font:10px var(--mono);
+    color:var(--signal);
+    width:80px;
+    flex-shrink:0;
+    text-transform:uppercase
+}
+/* ACHIEVEMENTS */
+.achievement-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px
+}
+.achievement {
+    min-height:350px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    position:relative;
+    background:#25332c;
+    text-align:left;
+    isolation:isolate;
+    transition:.5s var(--ease);
+    box-shadow:0 10px 25px rgba(20,23,27,.04)
+}
+.achievement:hover {
+    transform:translateY(-8px);
+    box-shadow:0 28px 60px rgba(20,23,27,.16)
+}
+.achievement-photo {
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    background:linear-gradient(135deg,#355542,#17251e)
+}
+.achievement-photo img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.7s var(--ease)
+}
+.achievement:hover img {
+    transform:scale(1.06)
+}
+.achievement:after {
+    content:'';
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:linear-gradient(180deg,rgba(10,18,14,.08),rgba(10,18,14,.82) 82%)
+}
+.achievement-content {
+    position:absolute;
+    inset:auto 24px 23px;
+    color:white
+}
+.achievement .mini {
+    font:10px var(--mono);
+    color:#d5eadc;
+    letter-spacing:.1em;
+    text-transform:uppercase
+}
+.achievement h3 {
+    font:700 29px/1 var(--display);
+    letter-spacing:-.04em;
+    margin:10px 0 8px
+}
+.achievement p {
+    font-size:13px;
+    color:#d3dad5;
+    margin:0;
+    max-width:390px
+}
+.achievement-open {
+    display:inline-block;
+    margin-top:17px;
+    font:10px var(--mono);
+    color:white;
+    letter-spacing:.08em;
+    text-transform:uppercase
+}
+.achievement-open:after {
+    content:'  ↗';
+    color:#9ad0ae
+}
+/* PROJECTS */
+.project-grid {
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:18px
+}
+.project {
+    grid-column:span 4;
+    background:white;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    text-align:left;
+    transition:.4s var(--ease)
+}
+.project:nth-child(1),.project:nth-child(4) {
+    grid-column:span 6
+}
+.project:hover {
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+    border-color:#c8d9ce
+}
+.project-photo {
+    height:225px;
+    background:var(--paper2);
+    overflow:hidden
+}
+.project-photo img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.65s var(--ease)
+}
+.project:hover .project-photo img {
+    transform:scale(1.06)
+}
+.fallback {
+    height:100%;
+    display:grid;
+    place-items:center;
+    color:rgba(47,111,82,.18);
+    font:700 60px var(--display)
+}
+.project-body {
+    padding:22px
+}
+.project-body small {
+    font:10px var(--mono);
+    color:var(--signal);
+    letter-spacing:.1em;
+    text-transform:uppercase
+}
+.project-body h3 {
+    font:600 25px/1.05 var(--display);
+    letter-spacing:-.035em;
+    margin:9px 0
+}
+.project-body p {
+    font-size:13.5px;
+    color:var(--slate);
+    margin:0
+}
+.project-arrow {
+    position:absolute;
+    right:18px;
+    bottom:18px;
+    width:34px;
+    height:34px;
+    border:1px solid var(--line);
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    color:var(--signal)
+}
+/* MOMENTS */
+.moments {
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    grid-auto-rows:145px;
+    gap:12px
+}
+.moment {
+    position:relative;
+    overflow:hidden;
+    border-radius:14px;
+    background:var(--paper2);
+    border:1px solid var(--line)
+}
+.moment:nth-child(1) {
+    grid-column:span 5;
+    grid-row:span 2
+}
+.moment:nth-child(2) {
+    grid-column:span 3
+}
+.moment:nth-child(3) {
+    grid-column:span 4
+}
+.moment:nth-child(4) {
+    grid-column:span 4
+}
+.moment:nth-child(5) {
+    grid-column:span 3
+}
+.moment:nth-child(6) {
+    grid-column:span 5
+}
+.moment img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.7s var(--ease)
+}
+.moment:hover img {
+    transform:scale(1.07)
+}
+.moment-label {
+    position:absolute;
+    left:12px;
+    bottom:12px;
+    background:rgba(20,23,27,.75);
+    color:white;
+    border-radius:999px;
+    padding:6px 10px;
+    font:10px var(--mono);
+    opacity:0;
+    transform:translateY(5px);
+    transition:.3s
+}
+.moment:hover .moment-label {
+    opacity:1;
+    transform:none
+}
+/* JOURNEY */
+.journey {
+    position:relative;
+    max-width:950px
+}
+.journey:before {
+    content:'';
+    position:absolute;
+    left:8px;
+    top:8px;
+    bottom:8px;
+    width:1px;
+    background:linear-gradient(var(--signal),rgba(47,111,82,.12))
+}
+.journey-item {
+    display:grid;
+    grid-template-columns:30px 110px 1fr;
+    gap:22px;
+    padding-bottom:45px;
+    position:relative
+}
+.journey-dot {
+    width:17px;
+    height:17px;
+    border:3px solid var(--signal);
+    background:var(--paper);
+    border-radius:50%;
+    z-index:1
+}
+.dark .journey-dot {
+    background:#15191d
+}
+.journey-year {
+    font:10px var(--mono);
+    color:var(--signal2);
+    padding-top:3px
+}
+.dark .journey-year {
+    color:#9ad0ae
+}
+.journey-item h3 {
+    font:700 27px/1.05 var(--display);
+    margin:0 0 7px;
+    letter-spacing:-.03em
+}
+.journey-item p {
+    color:var(--slate);
+    font-size:14px;
+    margin:0
+}
+.dark .journey-item p {
+    color:#aab2ba
+}
+.journey-actions {
+    margin-top:9px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap
+}
+.text-link {
+    font:10px var(--mono);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--signal)
+}
+.dark .text-link {
+    color:#9ad0ae
+}
+/* EXPERIENCE */
+.experience-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px
+}
+.experience-card {
+    background:white;
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:18px;
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:20px;
+    transition:.4s var(--ease)
+}
+.experience-card:hover {
+    transform:translateY(-5px);
+    box-shadow:var(--shadow)
+}
+.experience-photo {
+    height:120px;
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--paper2)
+}
+.experience-photo img {
+    width:100%;
+    height:100%;
+    object-fit:cover
+}
+.experience-main small {
+    font:10px var(--mono);
+    color:var(--signal);
+    letter-spacing:.08em;
+    text-transform:uppercase
+}
+.experience-main h3 {
+    font:600 23px/1.05 var(--display);
+    margin:7px 0 3px
+}
+.experience-org {
+    font-size:13px;
+    color:var(--slate);
+    font-weight:600
+}
+.experience-main p {
+    font-size:13px;
+    color:var(--slate);
+    margin:10px 0
+}
+.experience-links {
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap
+}
+/* NEWS */
+.news-grid {
+    display:grid;
+    grid-template-columns:1.25fr 1fr 1fr;
+    gap:18px
+}
+.news-card {
+    background:white;
+    border:1px solid var(--line);
+    border-radius:18px;
+    overflow:hidden;
+    text-align:left;
+    transition:.4s var(--ease)
+}
+.news-card:hover {
+    transform:translateY(-6px);
+    box-shadow:var(--shadow)
+}
+.news-image {
+    height:190px;
+    background:var(--paper2);
+    overflow:hidden
+}
+.news-image img {
+    width:100%;
+    height:100%;
+    object-fit:cover
+}
+.news-body {
+    padding:20px
+}
+.news-body small {
+    font:10px var(--mono);
+    color:var(--signal);
+    letter-spacing:.1em;
+    text-transform:uppercase
+}
+.news-body h3 {
+    font:600 24px/1.05 var(--display);
+    margin:9px 0
+}
+.news-body p {
+    font-size:13px;
+    color:var(--slate)
+}
+.news-more {
+    font:10px var(--mono);
+    color:var(--signal);
+    text-transform:uppercase;
+    letter-spacing:.08em
+}
+/* SKILLS */
+.skills {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px
+}
+.skill-box {
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px;
+    background:white
+}
+.skill-box h3 {
+    font:600 22px var(--display);
+    margin:0 0 13px
+}
+.pill {
+    display:inline-block;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 10px;
+    margin:3px;
+    font-size:11px;
+    color:var(--slate)
+}
+/* CONTACT */
+.contact {
+    background:#14191d;
+    color:white
+}
+.contact-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px
+}
+.contact .sub {
+    color:#aab2ba
+}
+.form {
+    display:grid;
+    gap:12px
+}
+.form input,.form textarea {
+    width:100%;
+    padding:13px 14px;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:10px;
+    background:rgba(255,255,255,.04);
+    color:white;
+    outline:none
+}
+.form textarea {
+    min-height:145px;
+    resize:vertical
+}
+.form input:focus,.form textarea:focus {
+    border-color:#83b999
+}
+.status {
+    font-size:12px;
+    color:#9eb0a5
+}
+/* MODAL */
+.modal {
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(20,23,27,.58);
+    backdrop-filter:blur(12px);
+    display:grid;
+    place-items:center;
+    padding:20px;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s
+}
+.modal.open {
+    opacity:1;
+    pointer-events:auto
+}
+.modal-panel {
+    width:min(980px,100%);
+    max-height:92vh;
+    overflow:auto;
+    background:var(--paper);
+    border-radius:20px;
+    box-shadow:0 40px 100px rgba(0,0,0,.28);
+    transform:translateY(22px) scale(.985);
+    transition:.4s var(--ease)
+}
+.modal.open .modal-panel {
+    transform:none
+}
+.modal-head {
+    padding:20px 24px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center
+}
+.modal-kicker {
+    font:10px var(--mono);
+    color:var(--signal);
+    letter-spacing:.12em;
+    text-transform:uppercase
+}
+.modal-close {
+    width:38px;
+    height:38px;
+    border:1px solid var(--line);
+    border-radius:50%;
+    font-size:20px
+}
+.modal-content {
+    padding:20px 24px 32px
+}
+.modal-content h2 {
+    font:700 clamp(36px,6vw,62px)/.92 var(--display);
+    letter-spacing:-.055em;
+    margin:5px 0 15px
+}
+.modal-content>p {
+    color:var(--slate);
+    font-size:15px;
+    max-width:760px
+}
+.modal-hero {
+    width:100%;
+    height:360px;
+    border-radius:15px;
+    object-fit:cover;
+    margin-bottom:22px;
+    background:var(--paper2)
+}
+.modal-gallery {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+    margin:22px 0
+}
+.modal-gallery button {
+    height:105px;
+    border-radius:10px;
+    overflow:hidden;
+    background:var(--paper2);
+    border:1px solid var(--line)
+}
+.modal-gallery img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.3s
+}
+.modal-gallery button:hover img {
+    transform:scale(1.06)
+}
+.resource-title {
+    font:700 22px var(--display);
+    margin:30px 0 12px
+}
+.resources {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px
+}
+.resource {
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:13px;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    align-items:center;
+    transition:.3s
+}
+.resource:hover {
+    border-color:#b7d0bf;
+    transform:translateY(-2px)
+}
+.resource small {
+    display:block;
+    color:var(--slate);
+    font-size:11px
+}
+.resource strong {
+    display:block;
+    font-size:14px
+}
+.resource span {
+    color:var(--signal)
+}
+.facts {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:20px
+}
+.fact {
+    border-top:1px solid var(--line);
+    padding:12px 0
+}
+.fact b {
+    display:block;
+    font:10px var(--mono);
+    color:var(--signal);
+    text-transform:uppercase;
+    letter-spacing:.08em
+}
+.fact span {
+    display:block;
+    margin-top:3px;
+    font-size:14px
+}
+.modal-story {
+    margin-top:25px;
+    padding:18px;
+    border-left:3px solid var(--signal);
+    background:var(--signal-dim);
+    color:#34453b;
+    border-radius:0 12px 12px 0
+}
+.modal-story p {
+    margin:0;
+    color:#405148
+}
+/* FOOTER */
+footer {
+    padding:40px 0;
+    background:#0f1418;
+    color:#8d979f
+}
+.footer-grid {
+    display:flex;
+    justify-content:space-between;
+    gap:25px;
+    align-items:center
+}
+.footer-brand {
+    font:600 22px var(--display);
+    color:white
+}
+.socials {
+    display:flex;
+    gap:18px;
+    font:10px var(--mono)
+}
+.socials a:hover {
+    color:#9ad0ae
+}
+/* ANIMATION */
+.reveal {
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s var(--ease),transform .7s var(--ease)
+}
+.reveal.show {
+    opacity:1;
+    transform:none
+}
+.d1 {
+    transition-delay:.07s
+}
+.d2 {
+    transition-delay:.14s
+}
+.d3 {
+    transition-delay:.21s
+}
+.d4 {
+    transition-delay:.28s
+}
+/* CINEMATIC MOTION LAYER */
+html {
+    scroll-behavior:auto
+}
+body:before {
+    content:'';
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:9998;
+    opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E")
+}
+.page-progress {
+    position:fixed;
+    top:0;
+    left:0;
+    height:3px;
+    width:0;
+    background:linear-gradient(90deg,var(--signal),#9ad0ae,var(--signal));
+    z-index:10000;
+    box-shadow:0 0 18px rgba(47,111,82,.55)
+}
+.loader {
+    position:fixed;
+    inset:0;
+    z-index:10001;
+    background:var(--paper);
+    display:grid;
+    place-items:center;
+    transition:opacity .55s var(--ease),visibility .55s;
+    animation:loaderSafety .55s 1.8s forwards
+}
+.loader.hide {
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none
+}
+@keyframes loaderSafety {
+    to {
+        opacity:0;
+        visibility:hidden;
+        pointer-events:none
+    }
+}
+.loader-inner {
+    width:min(460px,80%);
+    text-align:center
+}
+.loader-mark {
+    font:700 64px/.9 var(--display);
+    letter-spacing:-.07em
+}
+.loader-mark span {
+    color:var(--signal)
+}
+.loader-line {
+    height:1px;
+    background:var(--line);
+    margin:25px 0 13px;
+    overflow:hidden
+}
+.loader-line:after {
+    content:'';
+    display:block;
+    width:35%;
+    height:100%;
+    background:var(--signal);
+    animation:loader 1.2s ease-in-out infinite
+}
+.loader-copy {
+    font:10px var(--mono);
+    color:var(--slate);
+    letter-spacing:.16em;
+    text-transform:uppercase
+}
+@keyframes loader {
+    0% {
+        transform:translateX(-120%)
+    }
+    100% {
+        transform:translateX(360%)
+    }
+}
+.cursor-dot,.cursor-ring {
+    position:fixed;
+    pointer-events:none;
+    z-index:10000;
+    border-radius:50%;
+    display:none
+}
+.cursor-dot {
+    width:6px;
+    height:6px;
+    background:var(--signal);
+    transform:translate(-50%,-50%)
+}
+.cursor-ring {
+    width:34px;
+    height:34px;
+    border:1px solid rgba(47,111,82,.45);
+    transform:translate(-50%,-50%);
+    transition:width .25s,height .25s,border-color .25s,background .25s
+}
+.cursor-ring.hover {
+    width:62px;
+    height:62px;
+    background:rgba(47,111,82,.06);
+    border-color:var(--signal)
+}
+@media(pointer:fine) {
+    .cursor-dot,.cursor-ring {
+        display:block
+    }
+}
+.hero {
+    perspective:1200px
+}
+.hero:after {
+    content:'';
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background:linear-gradient(90deg,transparent 0 49.7%,rgba(47,111,82,.045) 50%,transparent 50.3%),linear-gradient(0deg,transparent 0 49.7%,rgba(47,111,82,.045) 50%,transparent 50.3%);
+    background-size:80px 80px;
+    mask-image:linear-gradient(to bottom,black,transparent 78%);
+    opacity:.65;
+    animation:gridDrift 16s linear infinite
+}
+@keyframes gridDrift {
+    to {
+        background-position:80px 80px
+    }
+}
+.hero-grid {
+    transform-style:preserve-3d
+}
+.hero h1 {
+    animation:heroText 1s cubic-bezier(.16,1,.3,1) both
+}
+.hero-portrait {
+    transform:translateZ(0);
+    transition:transform .15s linear;
+    will-change:transform
+}
+.hero-portrait:before {
+    content:'';
+    position:absolute;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+    background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.16) 50%,transparent 70%);
+    transform:translateX(-120%);
+    animation:sweep 5.5s 1.2s infinite
+}
+@keyframes sweep {
+    55%,100% {
+        transform:translateX(120%)
+    }
+}
+@keyframes heroText {
+    from {
+        opacity:0;
+        transform:translateY(40px) scale(.97);
+        filter:blur(8px)
+    }
+    to {
+        opacity:1;
+        transform:none;
+        filter:none
+    }
+}
+.section {
+    position:relative;
+    overflow:hidden
+}
+.section:before {
+    content:attr(id);
+    position:absolute;
+    right:-20px;
+    top:30px;
+    font:700 clamp(90px,16vw,220px)/1 var(--display);
+    letter-spacing:-.08em;
+    color:rgba(47,111,82,.035);
+    pointer-events:none
+}
+.section-head,.wrap {
+    position:relative;
+    z-index:1
+}
+.section-head .title {
+    transition:letter-spacing .7s var(--ease)
+}
+.section-head:hover .title {
+    letter-spacing:-.065em
+}
+.reveal {
+    opacity:0;
+    transform:translateY(38px) scale(.985);
+    filter:blur(4px);
+    transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)
+}
+.reveal.show {
+    opacity:1;
+    transform:none;
+    filter:none
+}
+.stat {
+    position:relative;
+    overflow:hidden
+}
+.stat:before {
+    content:'';
+    position:absolute;
+    inset:auto 0 0;
+    height:2px;
+    background:rgba(255,255,255,.5);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform 1.2s var(--ease)
+}
+.stat.show:before {
+    transform:scaleX(1)
+}
+.achievement,.project,.experience-card,.news-card,.skill-box,.moment {
+    will-change:transform
+}
+.achievement:before,.project:before,.experience-card:before,.news-card:before {
+    content:'';
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    border-radius:inherit;
+    background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);
+    transform:translateX(-130%);
+    transition:transform .8s var(--ease);
+    z-index:4
+}
+.achievement:hover:before,.project:hover:before,.experience-card:hover:before,.news-card:hover:before {
+    transform:translateX(130%)
+}
+.achievement {
+    transform-style:preserve-3d
+}
+.achievement:hover {
+    transform:translateY(-10px) rotateX(1.5deg) rotateY(-1.5deg) scale(1.01)
+}
+.achievement-content {
+    transform:translateZ(22px)
+}
+.project,.experience-card,.news-card,.skill-box {
+    transition:transform .55s var(--ease),box-shadow .55s var(--ease),border-color .35s
+}
+.project:hover,.experience-card:hover,.news-card:hover {
+    transform:translateY(-10px) scale(1.008)
+}
+.moment {
+    transition:transform .6s var(--ease),box-shadow .6s var(--ease)
+}
+.moment:hover {
+    transform:translateY(-7px) scale(1.015);
+    box-shadow:var(--shadow)
+}
+.journey-item {
+    transition:transform .5s var(--ease)
+}
+.journey-item:hover {
+    transform:translateX(10px)
+}
+.journey-dot {
+    transition:transform .4s var(--ease),box-shadow .4s
+}
+.journey-item:hover .journey-dot {
+    transform:scale(1.3);
+    box-shadow:0 0 0 8px rgba(47,111,82,.1)
+}
+.social-placeholder {
+    font:10px var(--mono);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    border:1px dashed var(--line);
+    color:#9aa2a8;
+    background:rgba(255,255,255,.45);
+    padding:8px 11px;
+    border-radius:999px;
+    cursor:help
+}
+.hero-socials {
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-top:24px
+}
+.hero-socials a {
+    font:10px var(--mono);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.72);
+    padding:8px 11px;
+    border-radius:999px;
+    transition:.35s var(--ease)
+}
+.hero-socials a:hover {
+    color:var(--signal);
+    border-color:var(--signal);
+    transform:translateY(-3px)
+}
+.social-dock {
+    position:fixed;
+    right:20px;
+    bottom:22px;
+    z-index:40;
+    display:flex;
+    flex-direction:column;
+    gap:8px
+}
+.social-dock a {
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:rgba(250,250,248,.9);
+    border:1px solid var(--line);
+    box-shadow:0 12px 30px rgba(20,23,27,.12);
+    font:10px var(--mono);
+    transition:.35s var(--ease)
+}
+.social-dock a:hover {
+    background:var(--signal);
+    color:white;
+    transform:translateX(-5px) scale(1.08)
+}
+.news-card {
+    position:relative
+}
+.news-live {
+    position:absolute;
+    right:13px;
+    top:13px;
+    z-index:3;
+    padding:6px 9px;
+    border-radius:999px;
+    background:rgba(250,250,248,.92);
+    border:1px solid var(--line);
+    font:9px var(--mono);
+    color:var(--signal);
+    letter-spacing:.08em;
+    text-transform:uppercase
+}
+.news-live:before {
+    content:'';
+    display:inline-block;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--signal);
+    margin-right:6px;
+    animation:pulse 1.5s infinite
+}
+@keyframes pulse {
+    50% {
+        opacity:.3;
+        transform:scale(.7)
+    }
+}
+.news-preview {
+    width:100%;
+    height:430px;
+    border:1px solid var(--line);
+    border-radius:15px;
+    overflow:hidden;
+    background:white;
+    margin:0 0 22px;
+    position:relative
+}
+.news-preview iframe {
+    width:100%;
+    height:100%;
+    border:0;
+    background:white
+}
+.news-preview-fallback {
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:30px;
+    background:var(--paper2);
+    z-index:-1
+}
+.news-preview-fallback strong {
+    font:600 25px var(--display)
+}
+.mentor {
+    background:linear-gradient(120deg,#e8f1eb 0%,#fafaf8 50%,#edf0ea 100%)
+}
+.mentor-grid {
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:60px;
+    align-items:start
+}
+.mentor-card {
+    background:white;
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:25px;
+    box-shadow:var(--shadow)
+}
+.mentor-form {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px
+}
+.mentor-form textarea,.mentor-form input,.mentor-form select {
+    width:100%;
+    padding:13px 14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    color:var(--ink);
+    outline:none;
+    font:14px var(--body);
+    transition:.3s
+}
+.mentor-form textarea {
+    min-height:130px;
+    resize:vertical;
+    grid-column:1/-1
+}
+.mentor-form .full {
+    grid-column:1/-1
+}
+.mentor-form input:focus,.mentor-form textarea:focus,.mentor-form select:focus {
+    border-color:var(--signal);
+    box-shadow:0 0 0 4px rgba(47,111,82,.08)
+}
+.mentor-meta {
+    display:grid;
+    gap:12px;
+    margin-top:25px
+}
+.mentor-meta div {
+    padding:14px 0;
+    border-top:1px solid var(--line)
+}
+.mentor-meta b {
+    font:10px var(--mono);
+    color:var(--signal);
+    text-transform:uppercase;
+    letter-spacing:.08em
+}
+.mentor-meta span {
+    display:block;
+    font-size:13px;
+    color:var(--slate);
+    margin-top:3px
+}
+.modal-panel {
+    border:1px solid rgba(255,255,255,.2);
+    transform:translateY(35px) scale(.96);
+    opacity:.85
+}
+.modal.open .modal-panel {
+    transform:none;
+    opacity:1
+}
+.modal-content {
+    animation:modalIn .65s var(--ease)
+}
+@keyframes modalIn {
+    from {
+        opacity:0;
+        transform:translateY(18px)
+    }
+    to {
+        opacity:1;
+        transform:none
+    }
+}
+.resource {
+    position:relative;
+    overflow:hidden
+}
+.resource:after {
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,transparent,rgba(47,111,82,.08),transparent);
+    transform:translateX(-120%);
+    transition:.6s
+}
+.resource:hover:after {
+    transform:translateX(120%)
+}
+.footer-socials {
+    display:flex;
+    gap:9px;
+    flex-wrap:wrap;
+    margin-top:15px
+}
+.footer-socials a {
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:999px;
+    padding:7px 10px;
+    font:10px var(--mono);
+    transition:.3s
+}
+.footer-socials a:hover {
+    border-color:#83b999;
+    color:#9ad0ae;
+    transform:translateY(-2px)
+}
+@media(max-width:950px) {
+    .mentor-grid {
+        grid-template-columns:1fr
+    }
+    .social-dock {
+        display:none
+    }
+}
+@media(max-width:650px) {
+    .mentor-form {
+        grid-template-columns:1fr
+    }
+    .mentor-form textarea,.mentor-form .full {
+        grid-column:auto
+    }
+    .news-preview {
+        height:300px
+    }
+}
+@media(max-width:950px) {
+    .nav-links {
+        display:none
+    }
+    .menu {
+        display:block
+    }
+    .nav-links.mobile {
+        position:absolute;
+        left:15px;
+        right:15px;
+        top:68px;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        background:var(--paper);
+        border:1px solid var(--line);
+        padding:12px;
+        border-radius:14px;
+        box-shadow:var(--shadow)
+    }
+    .nav-links.mobile a {
+        padding:9px
+    }
+    .hero-grid,.about-grid,.contact-grid {
+        grid-template-columns:1fr
+    }
+    .hero-portrait {
+        height:440px
+    }
+    .achievement-grid {
+        grid-template-columns:1fr 1fr
+    }
+    .project {
+        grid-column:span 6!important
+    }
+    .skills {
+        grid-template-columns:1fr 1fr
+    }
+    .news-grid {
+        grid-template-columns:1fr 1fr
+    }
+    .news-card:first-child {
+        grid-column:span 2
+    }
+    .experience-grid {
+        grid-template-columns:1fr
+    }
+}
+@media(max-width:650px) {
+    .wrap {
+        width:min(var(--max),calc(100% - 30px))
+    }
+    .hero {
+        padding-top:105px
+    }
+    .hero h1 {
+        font-size:66px
+    }
+    .hero-portrait {
+        height:380px
+    }
+    .section {
+        padding:82px 0
+    }
+    .section-head {
+        display:block;
+        margin-bottom:34px
+    }
+    .stats-grid {
+        grid-template-columns:1fr 1fr
+    }
+    .stat:nth-child(2) {
+        border-right:0
+    }
+    .stat:nth-child(3),.stat:nth-child(4) {
+        border-top:1px solid rgba(255,255,255,.18)
+    }
+    .achievement-grid,.skills,.news-grid {
+        grid-template-columns:1fr
+    }
+    .news-card:first-child {
+        grid-column:auto
+    }
+    .project {
+        grid-column:span 12!important
+    }
+    .moments {
+        grid-auto-rows:115px
+    }
+    .moment {
+        grid-column:span 6!important;
+        grid-row:span 1!important
+    }
+    .journey:before {
+        left:7px
+    }
+    .journey-item {
+        grid-template-columns:25px 65px 1fr;
+        gap:12px
+    }
+    .journey-item h3 {
+        font-size:23px
+    }
+    .experience-card {
+        grid-template-columns:1fr
+    }
+    .experience-photo {
+        height:180px
+    }
+    .modal-gallery {
+        grid-template-columns:repeat(2,1fr)
+    }
+    .resources,.facts {
+        grid-template-columns:1fr
+    }
+    .modal-hero {
+        height:230px
+    }
+    .footer-grid {
+        display:block
+    }
+    .socials {
+        margin-top:18px;
+        flex-wrap:wrap
+    }
+}
 </style>
-</head>
-<body>
-
-<nav class="nav" id="nav">
-  <div class="wrap">
-    <a href="#top" class="nav__brand">MB<span>F</span></a>
-    <ul class="nav__links" id="navLinks">
-      <li><a class="nav__link" data-nav href="#about">About</a></li>
-      <li><a class="nav__link" data-nav href="#education">Education</a></li>
-      <li><a class="nav__link" data-nav href="#skills">Skills</a></li>
-      <li><a class="nav__link" data-nav href="#projects">Projects</a></li>
-      <li><a class="nav__link" data-nav href="#mentoring">Mentoring</a></li>
-      <li><a class="nav__link" data-nav href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav__cta">
-      <a class="nav__resume" href="resume.pdf" download>Resume</a>
-      <a class="btn btn--primary" href="#mentoring-action" style="padding:10px 20px;">Request intro call</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <svg id="iconMenu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+ </head>
+ <body>
+  <div class="loader" id="loader">
+   <div class="loader-inner">
+    <div class="loader-mark">
+     MB
+     <span>
+      F
+     </span>
     </div>
+    <div class="loader-line">
+    </div>
+    <div class="loader-copy">
+     Loading the archive · Mahdi Bin Ferdaus
+    </div>
+   </div>
   </div>
-</nav>
-
-<main id="top">
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="wrap hero__grid">
-      <div>
-        <p class="eyebrow" data-reveal>Robotics &amp; Embedded Systems · Builder · Mentor</p>
-        <h1 class="hero__title d1" data-reveal>Mahdi Bin<br>Ferdaus</h1>
-        <p class="hero__bio" data-reveal>
-          I design and build robotics and embedded systems — from autonomous safety devices to
-          competition robots — and help other students do the same through mentoring.
-        </p>
-        <div class="hero__actions" data-reveal>
-          <a href="#mentoring-action" class="btn btn--primary">Request intro call
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
-          </a>
-          <a href="#projects" class="btn btn--ghost">View projects</a>
-        </div>
-      </div>
-      <div data-reveal>
-        <div class="status-card">
-          <div class="status-card__bar"><span></span><span></span><span></span></div>
-          <div class="status-card__body">
-            <p><span class="prompt">$</span>status --check</p>
-            <p>&gt; <span class="verdict">Accepted</span></p>
-            <p>Open for intro calls<span class="status-card__cursor"></span></p>
-          </div>
-        </div>
-      </div>
+  <div class="page-progress" id="pageProgress">
+  </div>
+  <div class="cursor-dot" id="cursorDot">
+  </div>
+  <div class="cursor-ring" id="cursorRing">
+  </div>
+  <nav class="nav" id="nav">
+   <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+     MB
+     <span>
+      F
+     </span>
+    </a>
+    <div class="nav-links" id="navLinks">
+     <a href="#about">
+      About
+     </a>
+     <a href="#achievements">
+      Achievements
+     </a>
+     <a href="#projects">
+      Projects
+     </a>
+     <a href="#moments">
+      Moments
+     </a>
+     <a href="#journey">
+      Journey
+     </a>
+     <a href="#experience">
+      Experience
+     </a>
+     <a href="#news">
+      News
+     </a>
+     <a href="#mentoring">
+      Mentoring
+     </a>
+     <a class="nav-cta" href="#contact">
+      Contact
+     </a>
     </div>
-  </header>
-
-  <!-- STATS -->
-  <section class="stats" aria-label="Highlights">
-    <div class="wrap stats__grid" id="statsGrid"></div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="wrap about-layout">
-      <div class="about-photo" data-reveal>
-        <img id="aboutPhoto" src="images/mahdi.jpg" alt="Mahdi Bin Ferdaus" onerror="this.style.display='none';">
-        <div class="about-photo__fallback">MF</div>
-      </div>
-      <div data-reveal>
-        <p class="eyebrow">About</p>
-        <h2 class="section__title">A short, honest version of my story.</h2>
-        <p class="about__text" style="margin-top:18px;">
-          I'm a robotics and embedded-systems builder based in Dhaka, currently completing A Levels
-          at British Columbia School. My work sits at the intersection of hardware and problem-solving —
-          I've built everything from autonomous safety systems to competition robots and RC vehicles,
-          usually as part of a team I'm coordinating or founding. Outside of building, I train and
-          mentor students in robotics
-        </p>
-        <a class="about__linkedin" href="https://www.linkedin.com/in/mahdibinferdaus/" target="_blank" rel="noopener">
-          See the full experience on LinkedIn
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section section--alt" id="education">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
-        <p class="eyebrow">Education</p>
-        <h2 class="section__title">Academic background</h2>
-      </div>
-      <div class="timeline" id="timeline" data-reveal></div>
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section class="section" id="achievements">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
-        <p class="eyebrow">Achievements</p>
-        <h2 class="section__title">Recognitions worth mentioning</h2>
-        <p class="section__sub">A curated set of highlights — the full list runs longer.</p>
-      </div>
-      <div class="grid grid--3" id="achievementsGrid"></div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section section--alt" id="skills">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
-        <p class="eyebrow">Skills</p>
-        <h2 class="section__title">What I actually work with</h2>
-      </div>
-      <div id="skillsWrap" data-reveal></div>
-    </div>
-  </section>
-
-  <!-- ACTIVITIES -->
-  <section class="section" id="activities">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
-        <p class="eyebrow">Activities</p>
-        <h2 class="section__title">Where I show up outside the classroom</h2>
-      </div>
-      <div class="activity-list" id="activitiesList" data-reveal></div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section section--alt" id="projects">
-    <div class="wrap">
-      <div class="section__head" data-reveal>
-        <p class="eyebrow">Projects</p>
-        <h2 class="section__title">Things I've built</h2>
-        <p class="section__sub">Hardware, robotics, and embedded builds — from safety systems to RC vehicles.</p>
-      </div>
-      <div class="grid grid--3" id="projectsGrid"></div>
-      <p class="projects-more" data-reveal>More builds and code on
-        <a href="https://github.com/mahdibinferdaus" target="_blank" rel="noopener">GitHub →</a>
+    <button aria-label="Open menu" class="menu" id="menu">
+     ☰
+    </button>
+   </div>
+  </nav>
+  <div aria-label="Social media" class="social-dock" id="socialDock">
+  </div>
+  <main id="top">
+   <header class="hero">
+    <div class="wrap hero-grid">
+     <div>
+      <p class="eyebrow reveal">
+       Robotics · Innovation · Leadership · Research
       </p>
+      <h1 class="reveal d1">
+       Mahdi Bin
+       <span>
+        Ferdaus
+       </span>
+      </h1>
+      <p class="hero-lead reveal d2">
+       IN RESEARCH OF INCREDIBLE
+      </p>
+      <div class="hero-actions reveal d3">
+       <a class="btn btn-primary" href="#projects">
+        Explore the work ↗
+       </a>
+       <button class="btn btn-outline" onclick="openJourney()">
+        Read the journey
+       </button>
+      </div>
+      <div class="hero-socials reveal d4" id="heroSocials">
+      </div>
+     </div>
+     <div class="hero-portrait reveal d2">
+      <img alt="Mahdi Bin Ferdaus" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'" src="images/mahdi.jpg"/>
+      <div class="portrait-fallback" style="display:none">
+       MBF
+      </div>
+      <div class="hero-note">
+       <strong>
+        Builder · Innovator · Mentor
+       </strong>
+       <small>
+        Bangladesh · International experience
+       </small>
+      </div>
+     </div>
     </div>
-  </section>
-
-  <!-- MENTORING -->
-  <section class="section" id="mentoring">
+   </header>
+   <section class="stats">
+    <div class="wrap stats-grid" id="statsGrid">
+    </div>
+   </section>
+   <section class="section" id="about">
     <div class="wrap">
-      <div class="section__head" data-reveal>
-        <p class="eyebrow">Take a service</p>
-        <h2 class="section__title">Mentoring for competitions</h2>
-        <p class="section__sub">1:1 guidance for robotics competitions, science fairs, and innovation challenges — starting with a free intro call.</p>
-      </div>
-
-      <div class="mentor-intro" data-reveal>
-        <p class="mentor-intro__text">
-          This is for students preparing for robotics competitions, science fairs, or innovation
-          challenges who want a second pair of eyes on their approach. We start with a free
-          30-minute introductory call — not a sales pitch, just a real conversation about what
-          you're working on and whether ongoing mentoring makes sense.
-        </p>
-        <ul class="mentor-includes">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>A free 30-minute introductory call</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>A read on where you're stuck and what to focus on next</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>An honest plan for what, if anything, makes sense going forward</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Follow-up by email if something comes up before your next competition</li>
-        </ul>
-      </div>
-
-      <div class="faq" data-reveal>
-        <details open>
-          <summary>What happens on the intro call?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <p class="faq__answer">We spend 30 minutes talking through what you're working on, where you're stuck, and whether ongoing mentoring makes sense for your goals. No pressure either way.</p>
-        </details>
-        <details>
-          <summary>What competitions do you mentor for?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <p class="faq__answer">Robotics competitions, science and innovation fairs, and similar STEM challenges — things like WRO, Conrad Challenge-style programs, and school or national science fairs.</p>
-        </details>
-        <details>
-          <summary>Is there a cost?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <p class="faq__answer">The introductory call is free. If we continue beyond that, pricing is worked out together based on what you actually need — there's no fixed rate.</p>
-        </details>
-        <details>
-          <summary>How soon will I hear back?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></summary>
-          <p class="faq__answer">Within 48 hours. If you have a competition date coming up, mention it in the form and I'll try to prioritize.</p>
-        </details>
-      </div>
-
-      <div class="testimonials">
-        <div class="testimonial" data-reveal>
-          <p class="testimonial__quote">[Placeholder — swap in a real line from a mentee once you have one. Keep it short and specific.]</p>
-          <p class="testimonial__meta">[Mentee name] — [Competition / program]</p>
-        </div>
-        <div class="testimonial" data-reveal>
-          <p class="testimonial__quote">[Second placeholder testimonial. Two is enough — quality over quantity.]</p>
-          <p class="testimonial__meta">[Mentee name] — [Competition / program]</p>
-        </div>
-      </div>
-
-      <div style="margin-bottom:28px;" data-reveal>
-        <p class="eyebrow">Get started</p>
-        <h3 class="subhead">Request an intro call</h3>
-      </div>
-      <div class="mentor-action" id="mentoring-action">
-        <div class="mentor-side" data-reveal>
-          <p class="mentor-side__label">At a glance</p>
-          <div class="mentor-side__row"><span>Format</span><strong>1:1 video call</strong></div>
-          <div class="mentor-side__row"><span>Session length</span><strong>30 min (intro call)</strong></div>
-          <div class="mentor-side__row"><span>Response time</span><strong>Within 48 hours</strong></div>
-          <div class="mentor-side__row"><span>Cost</span><strong>Free intro call</strong></div>
-          <p class="mentor-side__note">Anything beyond the intro call is priced afterward, based on what you actually need.</p>
-        </div>
-        <div class="form-card" data-reveal>
-          <p class="eyebrow" style="margin-bottom:16px;">Introductory session</p>
-          <form id="mentoringForm">
-            <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
-            <input type="hidden" name="_subject" value="New introductory session request from portfolio site">
-            <div class="form__row">
-              <div class="field">
-                <label for="mName">Name</label>
-                <input id="mName" name="name" type="text" required autocomplete="name">
-              </div>
-              <div class="field">
-                <label for="mEmail">Email</label>
-                <input id="mEmail" name="email" type="email" required autocomplete="email">
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="field">
-                <label for="mPhone">Phone / WhatsApp <em>(optional)</em></label>
-                <input id="mPhone" name="phone" type="tel" autocomplete="tel">
-              </div>
-              <div class="field">
-                <label for="mComp">Competition / goal</label>
-                <input id="mComp" name="competition" type="text" placeholder="e.g. WRO nationals, a science fair project" required>
-              </div>
-            </div>
-            <div class="form__row">
-              <div class="field">
-                <label for="mLevel">Current level</label>
-                <select id="mLevel" name="level" required>
-                  <option value="">Select one</option>
-                  <option>Beginner</option>
-                  <option>Intermediate</option>
-                  <option>Advanced</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="mTime">Timezone / best time for a call</label>
-                <input id="mTime" name="timezone" type="text" placeholder="e.g. GMT+6, weekday evenings" required>
-              </div>
-            </div>
-            <div class="field">
-              <label for="mDeadline">Upcoming deadline or competition date <em>(optional)</em></label>
-              <input id="mDeadline" name="deadline" type="text" placeholder="e.g. Regionals in September">
-            </div>
-            <div class="field">
-              <label for="mMsg">What would you like to cover in the call?</label>
-              <textarea id="mMsg" name="message" required placeholder="What you're stuck on, or anything else useful to know."></textarea>
-            </div>
-            <div class="form__submit">
-              <button class="btn btn--primary" type="submit">Send request
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
-              </button>
-              <span class="form__status" id="mentoringStatus"></span>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section section--alt" id="contact">
-    <div class="wrap contact-layout">
-      <div data-reveal>
-        <p class="eyebrow">Contact</p>
-        <h2 class="section__title">Something else on your mind?</h2>
-        <p class="contact-note" style="margin-top:16px;">
-          Use this for anything that isn't a mentoring request — collaborations, opportunities,
-          or just to say hi. Messages land in my inbox, not the other way around — your email
-          is never shown on this page.
-        </p>
-      </div>
-      <div class="form-card" data-reveal>
-        <form id="contactForm">
-          <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="_subject" value="New message from portfolio site">
-          <div class="form__row">
-            <div class="field">
-              <label for="cName">Name</label>
-              <input id="cName" name="name" type="text" required autocomplete="name">
-            </div>
-            <div class="field">
-              <label for="cEmail">Email</label>
-              <input id="cEmail" name="email" type="email" required autocomplete="email">
-            </div>
-          </div>
-          <div class="field">
-            <label for="cMsg">Message</label>
-            <textarea id="cMsg" name="message" required></textarea>
-          </div>
-          <div class="form__submit">
-            <button class="btn btn--primary" type="submit">Send message
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="19" x2="19" y2="5"/><polyline points="9 5 19 5 19 15"/></svg>
-            </button>
-            <span class="form__status" id="contactStatus"></span>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__top">
+     <div class="section-head reveal">
       <div>
-        <p class="footer__brand">Mahdi Bin Ferdaus</p>
-        <p class="footer__tag">Robotics builder, innovator, and mentor. Open for introductory mentoring calls and interesting problems.</p>
+       <p class="eyebrow">
+        01 · About
+       </p>
+       <h2 class="title">
+        More than a list of achievements.
+       </h2>
       </div>
-      <ul class="footer__links" id="socialLinks"></ul>
+      <p class="sub">
+       The portfolio is designed as an archive: the work, the people, the places, the lessons and the evidence behind each milestone.
+      </p>
+     </div>
+     <div class="about-grid">
+      <div class="reveal">
+       <p class="about-lead">
+        I like turning a problem into something tangible — a prototype, a team, a competition entry, a lesson or a system that can actually help someone.
+       </p>
+      </div>
+      <div class="reveal d1">
+       <p class="about-copy">
+        My work spans robotics, embedded systems, safety technology, climate-focused innovation, mentoring and research. The sections below deliberately connect those experiences rather than presenting them as isolated items.
+       </p>
+       <ul class="about-list">
+        <li>
+         <b>
+          Focus
+         </b>
+         <span>
+          Robotics, embedded systems, IoT, electronics and innovation
+         </span>
+        </li>
+        <li>
+         <b>
+          Community
+         </b>
+         <span>
+          Mentoring, workshops, team leadership and youth initiatives
+         </span>
+        </li>
+        <li>
+         <b>
+          Archive
+         </b>
+         <span>
+          Projects, awards, media, certificates, podcasts and moments
+         </span>
+        </li>
+       </ul>
+      </div>
+     </div>
     </div>
-    <div class="footer__bottom">
-      <span>© <span id="year"></span> Mahdi Bin Ferdaus. All rights reserved.</span>
-      <a href="#top">Back to top ↑</a>
+   </section>
+   <section class="section dark" id="achievements">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <p class="eyebrow">
+        02 · Recognition
+       </p>
+       <h2 class="title">
+        Milestones with a story.
+       </h2>
+      </div>
+      <p class="sub">
+       Each card has one main photograph. Tap it to open the complete story, a small gallery, certificates, official pages, news coverage and podcasts.
+      </p>
+     </div>
+     <div class="achievement-grid" id="achievementGrid">
+     </div>
     </div>
+   </section>
+   <section class="section alt" id="projects">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <p class="eyebrow">
+        03 · Projects
+       </p>
+       <h2 class="title">
+        Things I've built.
+       </h2>
+      </div>
+      <p class="sub">
+       Every project can become a mini case study with photos, technology, impact, build notes, video and related competition history.
+      </p>
+     </div>
+     <div class="project-grid" id="projectGrid">
+     </div>
+    </div>
+   </section>
+   <section class="section" id="moments">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <p class="eyebrow">
+        04 · Moments
+       </p>
+       <h2 class="title">
+        The parts that don't fit on a CV.
+       </h2>
+      </div>
+      <p class="sub">
+       A visual archive of competitions, workshops, travel, building, presentations and the people behind the work.
+      </p>
+     </div>
+     <div class="moments" id="momentsGrid">
+     </div>
+    </div>
+   </section>
+   <section class="section dark" id="journey">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <p class="eyebrow">
+        05 · The long version
+       </p>
+       <h2 class="title">
+        The journey.
+       </h2>
+      </div>
+      <p class="sub">
+       A chronological thread connecting projects, competitions, leadership, research and the lessons between them.
+      </p>
+     </div>
+     <div class="journey" id="journeyGrid">
+     </div>
+     <button class="btn btn-primary reveal" onclick="openJourney()">
+      Open the complete journey story ↗
+     </button>
+    </div>
+   </section>
+   <section class="section alt" id="experience">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <p class="eyebrow">
+        06 · Experience
+       </p>
+       <h2 class="title">
+        Where I've learned by doing.
+       </h2>
+      </div>
+      <p class="sub">
+       This section brings back the experience from the earlier portfolio: roles, institutions, what I actually did, working photos and links to the organisations.
+      </p>
+     </div>
+     <div class="experience-grid" id="experienceGrid">
+     </div>
+    </div>
+   </section>
+   <section class="section" id="news">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <p class="eyebrow">
+        07 · News &amp; Press
+       </p>
+       <h2 class="title">
+        The story beyond this website.
+       </h2>
+      </div>
+      <p class="sub">
+       News articles, interviews, school features, competition announcements, podcasts and other external coverage can all live here.
+      </p>
+     </div>
+     <div class="news-grid" id="newsGrid">
+     </div>
+    </div>
+   </section>
+   <section class="section mentor" id="mentoring">
+    <div class="wrap mentor-grid">
+     <div class="reveal">
+      <p class="eyebrow">
+       08 · Mentoring
+      </p>
+      <h2 class="title">
+       Bring me your idea. Let's make it stronger.
+      </h2>
+      <p class="sub">
+       A dedicated mentoring form for robotics competitions, science fairs, innovation projects, presentations and technical problem solving.
+      </p>
+      <div class="mentor-meta">
+       <div>
+        <b>
+         Best for
+        </b>
+        <span>
+         Robotics · Science fairs · Innovation challenges · Project reviews
+        </span>
+       </div>
+       <div>
+        <b>
+         What to include
+        </b>
+        <span>
+         Your goal, current stage, deadline and what you want feedback on.
+        </span>
+       </div>
+       <div>
+        <b>
+         Response
+        </b>
+        <span>
+         Connect the form to Formspree or your preferred form backend to receive submissions.
+        </span>
+       </div>
+      </div>
+     </div>
+     <div class="mentor-card reveal d1">
+      <form class="mentor-form" id="mentoringForm">
+       <input name="name" placeholder="Your name" required=""/>
+       <input name="email" placeholder="Email address" required="" type="email"/>
+       <select name="topic" required="">
+        <option value="">
+         What do you need help with?
+        </option>
+        <option>
+         Robotics competition
+        </option>
+        <option>
+         Science fair / innovation
+        </option>
+        <option>
+         Project review
+        </option>
+        <option>
+         Presentation / pitch
+        </option>
+        <option>
+         Technical problem
+        </option>
+        <option>
+         Other
+        </option>
+       </select>
+       <input name="deadline" placeholder="Deadline / competition date"/>
+       <textarea name="message" placeholder="Tell me about your project, what you have tried, and where you need help..." required="">
+</textarea>
+       <input class="full" name="link" placeholder="Project / portfolio / video link (optional)"/>
+       <button class="btn btn-primary full" type="submit">
+        Request a mentoring conversation ↗
+       </button>
+       <span class="status full" id="mentoringStatus">
+       </span>
+      </form>
+     </div>
+    </div>
+   </section>
+   <section class="section alt" id="skills">
+    <div class="wrap">
+     <div class="section-head reveal">
+      <div>
+       <p class="eyebrow">
+        09 · Toolkit
+       </p>
+       <h2 class="title">
+        What I work with.
+       </h2>
+      </div>
+      <p class="sub">
+       A practical snapshot of technical and people skills.
+      </p>
+     </div>
+     <div class="skills" id="skillsGrid">
+     </div>
+    </div>
+   </section>
+   <section class="section contact" id="contact">
+    <div class="wrap contact-grid">
+     <div class="reveal">
+      <p class="eyebrow">
+       10 · Contact
+      </p>
+      <h2 class="title">
+       Let's build something useful.
+      </h2>
+      <p class="sub">
+       For collaborations, competitions, robotics, speaking, mentoring or an interesting problem — I'd love to hear from you.
+      </p>
+     </div>
+     <form class="form reveal d1" id="contactForm">
+      <input name="name" placeholder="Your name" required=""/>
+      <input name="email" placeholder="Email address" required="" type="email"/>
+      <textarea name="message" placeholder="Tell me what's on your mind..." required="">
+</textarea>
+      <button class="btn btn-primary" type="submit">
+       Send message ↗
+      </button>
+      <span class="status" id="formStatus">
+      </span>
+     </form>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="wrap footer-grid">
+    <div>
+     <div class="footer-brand">
+      Mahdi Bin Ferdaus
+     </div>
+     <small>
+      Robotics builder, innovator, mentor.
+     </small>
+    </div>
+    <div>
+     <div class="socials" id="footerSocials">
+     </div>
+     <small style="display:block;margin-top:12px;color:#77817a">
+      Find me across the web · links open in a new tab
+     </small>
+    </div>
+   </div>
+  </footer>
+  <div aria-hidden="true" class="modal" id="modal">
+   <div class="modal-panel">
+    <div class="modal-head">
+     <span class="modal-kicker" id="modalKicker">
+      Details
+     </span>
+     <button aria-label="Close" class="modal-close" onclick="closeModal()">
+      ×
+     </button>
+    </div>
+    <div class="modal-content" id="modalContent">
+    </div>
+   </div>
   </div>
-</footer>
-
-<button class="to-top" id="toTop" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
-</button>
-
-<script>
-/* =======================================================
-   1. CONTENT — edit everything in this DATA object
-   ======================================================= */
+  <script>
+   /* =====================================================
+   EDIT THESE LINKS IN VS CODE
+   - Add your Facebook / Instagram / YouTube / X links.
+   - Add your Formspree endpoints when you are ready for real form submissions.
+   - Add photos under /images/ and put their filenames in DATA below.
+   ===================================================== */
 const FORM_ENDPOINTS = {
-  contact: "https://formspree.io/f/REPLACE_WITH_CONTACT_FORM_ID",
-  mentoring: "https://formspree.io/f/REPLACE_WITH_MENTORING_FORM_ID"
+  mentoring: '', // e.g. https://formspree.io/f/XXXXXXXX
+  contact: ''    // e.g. https://formspree.io/f/YYYYYYYY
 };
 
-const DATA = {
-  stats: [
-    { value: 3, suffix: "+", label: "Years active" },
-    { value: 10, suffix: "+", label: "Competitions & programs" },
-    { value: 12, suffix: "+", label: "Awards & recognitions" },
-    { value: 8, suffix: "", label: "Projects built" }
-  ],
-  education: [
-    { period: "Oct 2025 — Present", degree: "A Levels", inst: "British Columbia School", detail: "" },
-    { period: "2016 — 2024", degree: "Secondary School Certificate (SSC), Science", inst: "Natore Govt. Boys' High School", detail: "" }
-  ],
-  achievements: [
-    { title: "Global Finalist", org: "Conrad Challenge", date: "2023–24", detail: "Coordinated a student team's road-safety innovation through to the international finals.", img: "" },
-    { title: "Outstanding Presentation Award", org: "Intl. Olympiad on Climate Change & Environmental Issues", date: "2025", detail: "Led Bangladesh's delegation with an original climate-solutions presentation.", img: "" },
-    { title: "Bronze Medal", org: "BMIE Challenge", date: "2025", detail: "Recognized for an autonomous robotics solution addressing a real health-safety problem.", img: "" },
-    { title: "Best Mentor Award", org: "Robodemy", date: "2025", detail: "Recognized for coaching robotics teams toward national-level competition.", img: "" },
-    { title: "Top 100 Emerging Innovators Award", org: "Emerging Innovators", date: "2026", detail: "National recognition for contributions to innovation and technology.", img: "" },
-    // { title: "4th Place", org: "Taiwan International Science Fair", date: "2026", detail: "International recognition in the project competition category.", img: "" },
-    { title: "Top 9 Finalist", org: "Youth Co:Lab Springboard Programme 7.0", date: "", detail: "National finalist recognition for a youth innovation initiative.", img: "" },
-    { title: "Selected Scholar", org: "Yale Young Global Scholars (YYGS)", date: "", detail: "Selected to join a competitive global academic program.", img: "" },
-    { title: "Regional Champion", org: "Rajshahi Science & Innovation Fair", date: "2022", detail: "Took the top overall project award in the region.", img: "" }
-  ],
-  skills: [
-    { category: "Hardware & Electronics", items: ["Electronics", "Electrical Systems", "PCB Design", "3D Printing", "3D Design"] },
-    { category: "Robotics & Embedded Systems", items: ["Robotics", "Mechatronics", "IoT", "Arduino", "ESP32"] },
-    { category: "Tools & Platforms", items: ["MS Office", "Blynk", "Betaflight", "RC / FPV Radio Systems"] },
-    { category: "Leadership & Soft Skills", items: ["Team Leadership", "Mentoring", "Public Speaking", "Research", "Project Management"] }
-  ],
-  activities: [
-    { role: "Senior Executive", org: "Oxygen Robotics", period: "2026 — Present", detail: "Contributing to a student-led international robotics R&D organization.", img: "" },
-    { role: "Co-Founder & CEO", org: "ROBO Superior", period: "2023 — 2025", detail: "Led a robotics venture centered on competition robotics, mentoring, and community-focused problem solving.", img: "" },
-    { role: "Robotics Trainer", org: "Robodemy", period: "2024 — Present", detail: "Teach robotics fundamentals through hands-on workshops across schools in Dhaka; mentees have advanced to national robotics finals.", img: "" },
-    { role: "Research Fellow", org: "The New York Academy of Sciences", period: "2025 — Present", detail: "Contributing to a research project on solar energy infrastructure.", img: "" },
-    { role: "Team Coordinator", org: "Team Exo Max — Conrad Challenge", period: "2023 — 2024", detail: "Coordinated a student team's \u201cSmart Road Safety Beast\u201d project through to the international finals.", img: "" },
-    { role: "Team Coordinator", org: "Team Bangladesh — IOCE", period: "2025", detail: "Led Bangladesh's delegation at an international climate and environment olympiad.", img: "" },
-    { role: "Technical Analytics Lead", org: "More Tech BD", period: "", detail: "Directed technical planning for assistive robotics devices, including low-cost smart wheelchairs.", img: "" },
-    { role: "R&D / IT Executive", org: "Pet-Tivist Foundation", period: "2025 — Present", detail: "Develops technology supporting a youth-led animal rescue and welfare initiative.", img: "" },
-    { role: "Founding President", org: "NGBHS Debating Club", period: "2023", detail: "Founded a school debate club focused on public speaking and critical thinking.", img: "" }
-  ],
-  projects: [
-    { name: "Smart Road Safety Beast", pitch: "Real-time road-hazard detection and response", desc: "A road-safety system combining sensor-based hazard detection with automated emergency response, built to cut down on accidents and wasted fuel.", tags: ["Sensors", "IoT", "Safety Systems"], github: "", live: "" },
-    { name: "AI-Based Wildfire Prediction Device", pitch: "IoT + ML wildfire early-warning system", desc: "Combines environmental sensors with a machine-learning model to flag wildfire risk and push early alerts before a fire spreads.", tags: ["IoT", "Machine Learning", "Sensors"], github: "", live: "" },
-    { name: "Gas Leakage & Fire Safety System", pitch: "Arduino-based home safety device", desc: "Detects gas leaks, smoke, and air-quality issues, then automatically cuts gas supply, disconnects power, and sends an emergency alert.", tags: ["Arduino", "Safety Systems", "Embedded"], github: "", live: "" },
-    { name: "Overlord", pitch: "Short-circuit prevention & monitoring", desc: "Watches live current draw and automatically shuts off power when it detects an overload or short, with Bluetooth-based alerts.", tags: ["Electronics", "Bluetooth", "Circuit Protection"], github: "", live: "" },
-    { name: "Home Automation Through IoT", pitch: "ESP32 smart-home controller", desc: "Connects lights and fans to a mobile app, TV remote, or manual switch over Wi-Fi, built on an ESP32 and the Blynk platform.", tags: ["ESP32", "IoT", "Blynk"], github: "", live: "" },
-    { name: "RC Drone", pitch: "5-inch FPV racing build", desc: "A racing drone built around a SpeedyBee F405 V3 flight controller, tuned on Betaflight and flown with a RadioMaster ELRS radio system.", tags: ["FPV", "Betaflight", "Hardware Build"], github: "", live: "" },
-    { name: "RC Aircraft", pitch: "F-22-inspired radio-controlled model", desc: "A radio-controlled model built for speed and agile maneuvers, with a brushless motor setup and a FlySky transmitter.", tags: ["RC", "Aerodynamics", "Hardware Build"], github: "", live: "" },
-    { name: "Soccer Bot", pitch: "Competition RoboSoccer robot", desc: "A robot purpose-built for RoboSoccer competition play.", tags: ["Robotics", "Competition Robot"], github: "", live: "" }
-  ],
-  socials: [
-    { name: "GitHub", url: "https://github.com/mahdibinferdaus" },
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/mahdibinferdaus/" }
-  ]
-};
+const DATA={
+    stats:[
+        [
+            '3+',
+            'Years active'
+        ],
+        [
+            '10+',
+            'Competitions & programs'
+        ],
+        [
+            '12+',
+            'Awards & recognitions'
+        ],
+        [
+            '8',
+            'Projects built'
+        ]
+    ],
+    achievements:[
+        {
+            title:'Conrad Challenge',
+            mini:'Global Finalist · 2023–24',
+            desc:'Coordinated Team Exo Max and the Smart Road Safety Beast through to the international finals.',
+            image:'images/conrad/conrad.webp',
+            gallery:[
+                'images/conrad/group_photo.jpg',
+                'images/conrad/random_photo_conrad.jpg',
+                'images/conrad/infront_of_space_ship.jpg',
+                'images/conrad/nasa_background.jpg'
 
-/* =======================================================
-   2. RENDER — turns DATA into DOM
-   ======================================================= */
-function el(html){ const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 
-function renderStats(){
-  const wrap = document.getElementById('statsGrid');
-  DATA.stats.forEach(s=>{
-    wrap.appendChild(el(`
-      <div class="stat">
-        <div class="stat__value" data-count="${s.value}" data-suffix="${s.suffix}">0${s.suffix}</div>
-        <div class="stat__label">${s.label}</div>
-      </div>`));
-  });
+            ],
+            body:'The Conrad Challenge chapter can hold the complete story: how Team Exo Max formed, how Smart Road Safety Beast evolved, the feedback and iterations, the international-final experience, and what the journey taught me.',
+            facts:[
+                [
+                    'Project',
+                    'Smart Road Safety Beast'
+                ],
+                [
+                    'Role',
+                    'Team Coordinator'
+                ],
+                [
+                    'Stage',
+                    'International Finals'
+                ],
+                [
+                    'Year',
+                    '2023–24'
+                ]
+            ],
+            links:[
+                [
+                    'Official Conrad Challenge',
+                    'Official website',
+                    'https://www.conradchallenge.org/'
+                ],
+                [
+                    'Certificate',
+                    'Add certificate URL',
+                    ''
+                ],
+                [
+                    'News / Media',
+                    'Add article URL',
+                    'https://www.thedailystar.net/campus/campus/news/five-school-students-representing-bangladesh-nasa-3595356'
+                ],
+                [
+                    'Podcast',
+                    'Add podcast episode',
+                    ''
+                ]
+            ],
+            linkTitle:'Explore more about Conrad',
+            journeyTitle:'Explore more about this journey'
+        },
+        {
+            title:'Outstanding Presentation Award',
+            mini:'IOCE · 2025',
+            desc:"Led Bangladesh's delegation and received the Outstanding Presentation Award.",
+            image:'images/ioce.jpg',
+            gallery:[
+                'images/ioce-1.jpg',
+                'images/ioce-2.jpg',
+                'images/ioce-3.jpg',
+                'images/ioce-4.jpg'
+            ],
+            body:'A dedicated IOCE story can include the preparation, Bangladesh delegation, international experience, presentation, award moment and the climate/environment work behind it.',
+            facts:[
+                [
+                    'Event',
+                    'International Olympiad on Climate Change & Environmental Issues'
+                ],
+                [
+                    'Role',
+                    'Team Coordinator'
+                ],
+                [
+                    'Year',
+                    '2025'
+                ],
+                [
+                    'Recognition',
+                    'Outstanding Presentation Award'
+                ]
+            ],
+            links:[
+                [
+                    'Official event',
+                    'Add official website',
+                    'https://ioce.siriusolymp.ru/'
+                ],
+                [
+                    'Certificate',
+                    'Add certificate URL',
+                    ''
+                ],
+                [
+                    'News / Media',
+                    'Add article URL',
+                    ''
+                ],
+                [
+                    'Podcast / Interview',
+                    'Add episode URL',
+                    ''
+                ]
+            ],
+            linkTitle:'Explore more about IOCE',
+            journeyTitle:'Explore more about this journey'
+        },
+        {
+            title:'Bronze Medal',
+            mini:'BMIE Challenge · 2025',
+            desc:'Recognized for an autonomous robotics solution addressing a real health-safety problem.',
+            image:'images/bmie.jpg',
+            gallery:[
+                'images/bmie-1.jpg',
+                'images/bmie-2.jpg',
+                'images/bmie-3.jpg'
+            ],
+            body:'Use this chapter for the Autonomous Saliva Collector story, the competition process, prototype work, testing and the final recognition.',
+            facts:[
+                [
+                    'Project',
+                    'Autonomous Saliva Collector'
+                ],
+                [
+                    'Recognition',
+                    'Bronze Medal'
+                ],
+                [
+                    'Year',
+                    '2025'
+                ],
+                [
+                    'Area',
+                    'Robotics · Health safety'
+                ]
+            ],
+            links:[
+                [
+                    'Competition website',
+                    'Add official website',
+                    'https://bmie-challenge.com/2026/'
+                ],
+                [
+                    'Certificate',
+                    'Add certificate URL',
+                    ''
+                ],
+                [
+                    'News',
+                    'Add article URL',
+                    ''
+                ]
+            ],
+            linkTitle:'Explore more about BMIE',
+            journeyTitle:'Explore more about this journey'
+        },
+        {
+            title:'Top 100 Emerging Innovators',
+            mini:'Emerging Innovators · 2026',
+            desc:'National recognition for contributions to innovation and technology.',
+            image:'images/emerging.jpg',
+            gallery:[
+                'images/emerging-1.jpg',
+                'images/emerging-2.jpg'
+            ],
+            body:'Add the nomination, selection process, innovation work, event photographs and media coverage here.',
+            facts:[
+                [
+                    'Recognition',
+                    'Top 100 Emerging Innovators'
+                ],
+                [
+                    'Year',
+                    '2026'
+                ],
+                [
+                    'Area',
+                    'Innovation & Technology'
+                ],
+                [
+                    'Status',
+                    'Award / recognition'
+                ]
+            ],
+            links:[
+                [
+                    'Official award page',
+                    'Add official website',
+                    'https://emerginginnovatorawards.org/'
+                ],
+                [
+                    'Certificate',
+                    'Add certificate URL',
+                    ''
+                ],
+                [
+                    '2026 Honorees',
+                    'Add article URL',
+                    'https://emerginginnovatorawards.org/honorees/'
+                ]
+            ],
+            linkTitle:'Explore more about the award',
+            journeyTitle:'Explore more about this journey'
+        },
+        {
+            title:'Top 9 Finalist',
+            mini:'Youth Co:Lab Springboard 7.0',
+            desc:'Finalist recognition for a youth innovation initiative.',
+            image:'images/youthcolab.jpg',
+            gallery:[
+                'images/youthcolab-1.jpg',
+                'images/youthcolab-2.jpg'
+            ],
+            body:'Use this space for the initiative, selection journey, pitch, team, programme experience and related media.',
+            facts:[
+                [
+                    'Programme',
+                    'Youth Co:Lab Springboard Programme 7.0'
+                ],
+                [
+                    'Stage',
+                    'Top 9 Finalist'
+                ],
+                [
+                    'Focus',
+                    'Youth innovation'
+                ],
+                [
+                    'Year',
+                    ''
+                ]
+            ],
+            links:[
+                [
+                    'Programme website',
+                    'Add official website',
+                    ''
+                ],
+                [
+                    'News',
+                    'Add article URL',
+                    ''
+                ],
+                [
+                    'Certificate',
+                    'Add certificate URL',
+                    ''
+                ]
+            ],
+            linkTitle:'Explore more about Youth Co:Lab',
+            journeyTitle:'Explore more about this journey'
+        },
+        {
+            title:'Selected Scholar',
+            mini:'Yale Young Global Scholars',
+            desc:'Selected to join a competitive global academic programme.',
+            image:'images/yygs.jpg',
+            gallery:[
+                'images/yygs-1.jpg',
+                'images/yygs-2.jpg'
+            ],
+            body:'Add the YYGS experience, academic interests, programme moments and related opportunities here.',
+            facts:[
+                [
+                    'Programme',
+                    'Yale Young Global Scholars'
+                ],
+                [
+                    'Status',
+                    'Selected Scholar'
+                ],
+                [
+                    'Focus',
+                    'Academic / Global'
+                ],
+                [
+                    'Year',
+                    ''
+                ]
+            ],
+            links:[
+                [
+                    'YYGS',
+                    'Add programme website',
+                    'yygs.com'
+                ],
+                [
+                    'Experience',
+                    'Add related page',
+                    ''
+                ]
+            ],
+            linkTitle:'Explore more about YYGS',
+            journeyTitle:'Explore more about this journey'
+        },
+        {
+            title:'Regional Champion',
+            mini:'Rajshahi Science & Innovation Fair · 2022',
+            desc:'Took the top overall project award in the region.',
+            image:'images/rajshahi-fair.jpg',
+            gallery:[
+                'images/rajshahi-1.jpg',
+                'images/rajshahi-2.jpg'
+            ],
+            body:'The early competition chapter — useful for showing where the journey started before the larger international milestones.',
+            facts:[
+                [
+                    'Event',
+                    'Rajshahi Science & Innovation Fair'
+                ],
+                [
+                    'Recognition',
+                    'Regional Champion'
+                ],
+                [
+                    'Year',
+                    '2022'
+                ],
+                [
+                    'Area',
+                    'Science & Innovation'
+                ]
+            ],
+            links:[
+                [
+                    'Event website',
+                    'Add official website',
+                    ''
+                ],
+                [
+                    'Certificate',
+                    'Add certificate URL',
+                    ''
+                ],
+                [
+                    'News',
+                    'Add article URL',
+                    ''
+                ]
+            ],
+            linkTitle:'Explore more about this achievement',
+            journeyTitle:'Explore more about this journey'
+        }
+    ],
+    projects:[
+        {
+            name:'Smart Road Safety Beast',
+            tag:'Safety · IoT',
+            desc:'Real-time road-hazard detection and response system.',
+            image:'images/road-safety.jpg',
+            body:'A road-safety system combining sensor-based hazard detection with automated emergency response, built to cut down on accidents and wasted fuel.',
+            facts:[
+                [
+                    'Technology',
+                    'Sensors · IoT · Safety Systems'
+                ],
+                [
+                    'Role',
+                    'Team Coordinator'
+                ],
+                [
+                    'Related',
+                    'Conrad Challenge'
+                ],
+                [
+                    'Status',
+                    'Competition project'
+                ]
+            ]
+        },
+        {
+            name:'AI Wildfire Prediction Device',
+            tag:'IoT · ML',
+            desc:'Environmental sensing plus machine learning for early wildfire warnings.',
+            image:'images/wildfire.jpg',
+            body:'Combines environmental sensors with a machine-learning model to flag wildfire risk and push early alerts before a fire spreads.',
+            facts:[
+                [
+                    'Technology',
+                    'IoT · Machine Learning · Sensors'
+                ],
+                [
+                    'Type',
+                    'Early warning system'
+                ],
+                [
+                    'Focus',
+                    'Climate & safety'
+                ],
+                [
+                    'Status',
+                    'Prototype'
+                ]
+            ]
+        },
+        {
+            name:'Gas Leakage & Fire Safety',
+            tag:'Arduino · Safety',
+            desc:'Automatic detection, isolation and emergency alerts.',
+            image:'images/gas-safety.jpg',
+            body:'Detects gas leaks, smoke and air-quality issues, then automatically cuts gas supply, disconnects power and sends an emergency alert.',
+            facts:[
+                [
+                    'Technology',
+                    'Arduino · Embedded'
+                ],
+                [
+                    'Sensors',
+                    'Gas · Smoke · Air quality'
+                ],
+                [
+                    'Response',
+                    'Automatic isolation'
+                ],
+                [
+                    'Focus',
+                    'Home safety'
+                ]
+            ]
+        },
+        {
+            name:'Overlord',
+            tag:'Electronics · Bluetooth',
+            desc:'Short-circuit prevention and live current monitoring.',
+            image:'images/overlord.jpg',
+            body:'Watches live current draw and automatically shuts off power when it detects an overload or short, with Bluetooth-based alerts.',
+            facts:[
+                [
+                    'Technology',
+                    'Electronics · Bluetooth'
+                ],
+                [
+                    'Purpose',
+                    'Circuit protection'
+                ],
+                [
+                    'Response',
+                    'Automatic shutoff'
+                ],
+                [
+                    'Status',
+                    'Build'
+                ]
+            ]
+        },
+        {
+            name:'Home Automation Through IoT',
+            tag:'ESP32 · Blynk',
+            desc:'Smart-home controller for lights, fans and appliances.',
+            image:'images/home-iot.jpg',
+            body:'Connects lights and fans to a mobile app, TV remote or manual switch over Wi-Fi using an ESP32 and Blynk.',
+            facts:[
+                [
+                    'Technology',
+                    'ESP32 · Blynk · Wi-Fi'
+                ],
+                [
+                    'Control',
+                    'App · Remote · Manual'
+                ],
+                [
+                    'Focus',
+                    'Home automation'
+                ],
+                [
+                    'Status',
+                    'Build'
+                ]
+            ]
+        },
+        {
+            name:'RC Drone',
+            tag:'FPV · Betaflight',
+            desc:'5-inch FPV racing build tuned for responsive flight.',
+            image:'images/drone.jpg',
+            body:'A racing drone built around a SpeedyBee F405 V3 flight controller, tuned on Betaflight and flown with a RadioMaster ELRS radio system.',
+            facts:[
+                [
+                    'Controller',
+                    'SpeedyBee F405 V3'
+                ],
+                [
+                    'Firmware',
+                    'Betaflight'
+                ],
+                [
+                    'Radio',
+                    'RadioMaster ELRS'
+                ],
+                [
+                    'Type',
+                    '5-inch FPV'
+                ]
+            ]
+        },
+        {
+            name:'RC Aircraft',
+            tag:'RC · Aerodynamics',
+            desc:'F-22-inspired radio-controlled model built for agile maneuvers.',
+            image:'images/aircraft.jpg',
+            body:'A radio-controlled model built for speed and agile maneuvers, with a brushless motor setup and a FlySky transmitter.',
+            facts:[
+                [
+                    'Style',
+                    'F-22 inspired'
+                ],
+                [
+                    'Power',
+                    'Brushless motor'
+                ],
+                [
+                    'Radio',
+                    'FlySky'
+                ],
+                [
+                    'Focus',
+                    'Aerodynamics'
+                ]
+            ]
+        },
+        {
+            name:'Soccer Bot',
+            tag:'Robotics · Competition',
+            desc:'Competition robot purpose-built for RoboSoccer play.',
+            image:'images/soccer-bot.jpg',
+            body:'A robot purpose-built for RoboSoccer competition play.',
+            facts:[
+                [
+                    'Type',
+                    'Competition robot'
+                ],
+                [
+                    'Focus',
+                    'RoboSoccer'
+                ],
+                [
+                    'Area',
+                    'Robotics'
+                ],
+                [
+                    'Status',
+                    'Build'
+                ]
+            ]
+        }
+    ],
+    moments:[
+        [
+            'images/moment-1.jpg',
+            'A competition day'
+        ],
+        [
+            'images/moment-2.jpg',
+            'Team & teammates'
+        ],
+        [
+            'images/moment-3.jpg',
+            'Prototype work'
+        ],
+        [
+            'images/moment-4.jpg',
+            'On stage'
+        ],
+        [
+            'images/moment-5.jpg',
+            'Workshop'
+        ],
+        [
+            'images/moment-6.jpg',
+            'A moment between builds'
+        ]
+    ],
+    journey:[
+        [
+            '2022',
+            'First competitions',
+            'Science and innovation competitions became a serious part of the journey.'
+        ],
+        [
+            '2023',
+            'ROBO Superior',
+            'Founded ROBO Superior and began combining robotics building with leadership and mentoring.'
+        ],
+        [
+            '2023–24',
+            'Conrad Challenge',
+            'Coordinated Team Exo Max and Smart Road Safety Beast through the international finals.'
+        ],
+        [
+            '2024',
+            'Robotics mentoring',
+            'Expanded hands-on robotics training and started helping other students prepare for competitions.'
+        ],
+        [
+            '2025',
+            'International stage',
+            'Led Bangladesh at IOCE and received the Outstanding Presentation Award.'
+        ],
+        [
+            '2025',
+            'Research & impact',
+            'Joined research and assistive-technology initiatives while continuing robotics and community work.'
+        ],
+        [
+            '2026',
+            'A bigger archive',
+            'Continuing to build, compete, mentor and document the journey in one place.'
+        ]
+    ],
+    experience:[
+        {
+            role:'Senior Executive',
+            org:'Oxygen Robotics',
+            period:'2026 — Present',
+            detail:'Contributing to a student-led international robotics R&D organization.',
+            image:'images/experience-oxygen.jpg',
+            links:[
+                [
+                    'Institution website',
+                    ''
+                ]
+            ]
+        },
+        {
+            role:'Co-Founder & CEO',
+            org:'ROBO Superior',
+            period:'2023 — 2025',
+            detail:'Led a robotics venture centered on competition robotics, mentoring and community-focused problem solving.',
+            image:'images/experience-robo-superior.jpg',
+            links:[
+                [
+                    'Organisation website',
+                    ''
+                ]
+            ]
+        },
+        {
+            role:'Robotics Trainer',
+            org:'Robodemy',
+            period:'2024 — Present',
+            detail:'Teach robotics fundamentals through hands-on workshops across schools in Dhaka; mentees have advanced to national robotics finals.',
+            image:'images/experience-robodemy.jpg',
+            links:[
+                [
+                    'Robodemy website',
+                    'robodemy.com'
+                ],
+                [
+                    'Workshop / profile',
+                    ''
+                ]
+            ]
+        },
+        {
+            role:'Research Fellow',
+            org:'The New York Academy of Sciences',
+            period:'2025 — Present',
+            detail:'Contributing to a research project on solar energy infrastructure.',
+            image:'images/experience-nyas.jpg',
+            links:[
+                [
+                    'Institution website',
+                    ''
+                ],
+                [
+                    'Research / project',
+                    ''
+                ]
+            ]
+        },
+        {
+            role:'Team Coordinator',
+            org:'Team Exo Max — Conrad Challenge',
+            period:'2023 — 2024',
+            detail:"Coordinated a student team's Smart Road Safety Beast project through to the international finals.",
+            image:'images/experience-conrad.jpg',
+            links:[
+                [
+                    'Conrad Challenge',
+                    'https://conrad.spacecenter.org/'
+                ]
+            ]
+        },
+        {
+            role:'Team Coordinator',
+            org:'Team Bangladesh — IOCE',
+            period:'2025',
+            detail:"Led Bangladesh's delegation at an international climate and environment olympiad.",
+            image:'images/experience-ioce.jpg',
+            links:[
+                [
+                    'IOCE website',
+                    ''
+                ],
+                [
+                    'Team page',
+                    ''
+                ]
+            ]
+        },
+        {
+            role:'Technical Analytics Lead',
+            org:'More Tech BD',
+            period:'',
+            detail:'Directed technical planning for assistive robotics devices, including low-cost smart wheelchairs.',
+            image:'images/experience-moretech.jpg',
+            links:[
+                [
+                    'More Tech BD',
+                    ''
+                ],
+                [
+                    'Project / impact page',
+                    ''
+                ]
+            ]
+        },
+        {
+            role:'R&D / IT Executive',
+            org:'Pet-Tivist Foundation',
+            period:'2025 — Present',
+            detail:'Develops technology supporting a youth-led animal rescue and welfare initiative.',
+            image:'images/experience-pettivist.jpg',
+            links:[
+                [
+                    'Foundation website',
+                    ''
+                ]
+            ]
+        },
+        {
+            role:'Founding President',
+            org:'NGBHS Debating Club',
+            period:'2023',
+            detail:'Founded a school debate club focused on public speaking and critical thinking.',
+            image:'images/experience-debate.jpg',
+            links:[
+                [
+                    'Club / school page',
+                    ''
+                ]
+            ]
+        }
+    ],
+    news:[
+        // Put the real article URL here. If the publication allows embedding, the article will appear as a live preview inside the modal.
+        {
+            date:'ADD ARTICLE',
+            title:'The Daily Star feature',
+            desc:'Add your Daily Star article URL here. The website will try to show the original page inside the portfolio before visitors open the full story.',
+            image:'images/news-dailystar.jpg',
+            url:'',
+            source:'The Daily Star'
+        },
+        {
+            date:'ADD ARTICLE',
+            title:'Conrad Challenge feature',
+            desc:'Add the article, announcement, interview or media story covering the Conrad journey.',
+            image:'images/news-conrad.jpg',
+            url:'',
+            source:'News / Media'
+        },
+        {
+            date:'ADD ARTICLE',
+            title:'IOCE / Bangladesh coverage',
+            desc:'Add news about the international delegation and Outstanding Presentation Award.',
+            image:'images/news-ioce.jpg',
+            url:'',
+            source:'News / Media'
+        },
+        {
+            date:'ADD PODCAST',
+            title:'Podcast / interview',
+            desc:'Add a podcast or interview where I talk about the journey.',
+            image:'images/news-podcast.jpg',
+            url:'',
+            source:'Podcast'
+        }
+    ],
+    socials:[
+        [
+            'LinkedIn',
+            'https://www.linkedin.com/in/mahdibinferdaus/'
+        ],
+        [
+            'GitHub',
+            'https://github.com/mahdibinferdaus'
+        ],
+        [
+            'Instagram',
+            'https://www.instagram.com/mahdibinferdaus/'
+        ],
+        [
+            'YouTube',
+            'https://www.youtube.com/@MahdiTheTechGuy'
+        ],
+        [
+            'Facebook',
+            'https://www.facebook.com/mahdibinferdaus'
+        ],
+        [
+            'X / Twitter',
+            'https://x.com/mahdibinferdaus'
+        ]
+    ],
+    skills:[
+        [
+            'Hardware & Electronics',
+            'Electronics',
+            'Electrical Systems',
+            'PCB Design',
+            '3D Printing',
+            '3D Design'
+        ],
+        [
+            'Robotics & Embedded',
+            'Robotics',
+            'Mechatronics',
+            'IoT',
+            'Arduino',
+            'ESP32'
+        ],
+        [
+            'Tools & Platforms',
+            'MS Office',
+            'Blynk',
+            'Betaflight',
+            'RC / FPV Radio Systems'
+        ],
+        [
+            'Leadership & Research',
+            'Team Leadership',
+            'Mentoring',
+            'Public Speaking',
+            'Research',
+            'Project Management'
+        ]
+    ]
+}
+;
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function imageTag(src,label,cls=''){return `<img class="${cls}" src="${src}" alt="${esc(label)}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="fallback" style="display:none">${esc((label||'MF').slice(0,2).toUpperCase())}</div>`}
+function linkButton(item){const label=item[0]||'Link';const url=item.length>=3?item[2]:item[1];const note=item.length>=3?item[1]:'Open link';return url?`<a class="resource" href="${esc(url)}" target="_blank" rel="noopener"><div><strong>${esc(label)}</strong><small>${esc(note||'Open link')}</small></div><span>↗</span></a>`:`<div class="resource" style="opacity:.65;cursor:default"><div><strong>${esc(label)}</strong><small>${esc(note||'Add URL in the DATA object')}</small></div><span>＋</span></div>`}
+function facts(f){return `<div class="facts">${f.map(x=>`<div class="fact"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('')}</div>`}
+function gallery(images,label){const valid=images||[];return valid.length?`<div class="modal-gallery">${valid.map((x,i)=>`<button onclick="openImage('${esc(x)}','${esc(label)}')">${imageTag(x,label+' '+(i+1))}</button>`).join('')}</div>`:''}
+function resources(title,items){if(!items||!items.length)return '';return `<h3 class="resource-title">${esc(title)}</h3><div class="resources">${items.map(linkButton).join('')}</div>`}
+function showModal(kicker,html){document.getElementById('modalKicker').textContent=kicker;document.getElementById('modalContent').innerHTML=html;document.getElementById('modal').classList.add('open');document.body.classList.add('modal-open');document.getElementById('modal').setAttribute('aria-hidden','false')}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.classList.remove('modal-open');document.getElementById('modal').setAttribute('aria-hidden','true')}
+function openImage(src,label){showModal('Photo · '+label,`<img class="modal-hero" src="${esc(src)}" alt="${esc(label)}"><h2>${esc(label)}</h2><p>Add a date, location, people involved and the story behind this photograph in the DATA object.</p>`)}
+function openAchievement(i){const a=DATA.achievements[i];showModal('Achievement · '+a.mini,`${imageTag(a.image,a.title,'modal-hero')}<h2>${esc(a.title)}</h2><p>${esc(a.body)}</p>${facts(a.facts)}${gallery(a.gallery,a.title)}${resources(a.linkTitle,a.links)}${resources(a.journeyTitle,[['Full journey story',''],['Related project story',''],['News & media archive',''],['Podcast / interview','']])}`)}
+function openProject(i){const p=DATA.projects[i];showModal('Project · '+p.tag,`${imageTag(p.image,p.name,'modal-hero')}<h2>${esc(p.name)}</h2><p>${esc(p.body)}</p>${facts(p.facts)}${resources('Explore this project',[['Project gallery',''],['Demo video',''],['Build notes',''],['GitHub / code','']])}`)}
+function openMoment(i){const m=DATA.moments[i];showModal('Moment · Photo archive',`${imageTag(m[0],m[1],'modal-hero')}<h2>${esc(m[1])}</h2><p>Add the story, event, date, location, people and related achievement or project here.</p>${resources('Explore the related story',[['Related achievement',''],['Related project',''],['News / media','']])}`)}
+function openJourney(){showModal('The complete journey',`<h2>Building, failing, learning — and building again.</h2><p>This is the long-form version of the journey. Use it for the complete narrative with chapters, photographs, competition results, project links, news coverage and podcast appearances.</p>${DATA.journey.map((j,i)=>`<div class="modal-story"><b>${esc(j[0])} · ${esc(j[1])}</b><p>${esc(j[2])}</p></div>`).join('')}${resources('Explore more about this journey',[['Journey photo archive',''],['Podcast / interview',''],['News & media archive',''],['Certificates & documents','']])}`)}
+function openExperience(i){const e=DATA.experience[i];showModal('Experience · '+e.org,`${imageTag(e.image,e.org,'modal-hero')}<h2>${esc(e.role)}</h2><p><strong>${esc(e.org)}</strong> · ${esc(e.period)}</p><p>${esc(e.detail)}</p>${resources('Explore the institution & experience',e.links)}${resources('Add more evidence here',[['Working photos',''],['Project / impact page',''],['Certificate / letter',''],['Related news','']])}`)}
+function openNews(i) {
+    const n = DATA.news[i];
+
+    const preview = n.url
+        ? `
+            <div class="news-preview">
+                <div class="news-preview-fallback">
+                    <div>
+                        <strong>${esc(n.source || 'Publication')} preview</strong>
+                        <p>
+                            If this publication blocks embedded pages,
+                            use the button below to open the original article.
+                        </p>
+                    </div>
+                </div>
+                <iframe
+                    src="${esc(n.url)}"
+                    title="${esc(n.title)}"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                ></iframe>
+            </div>
+        `
+        : '';
+
+    const articleAction = n.url
+        ? `
+            <div class="hero-actions">
+                <a
+                    class="btn btn-primary"
+                    href="${esc(n.url)}"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Read the full story ↗
+                </a>
+            </div>
+        `
+        : `
+            <div class="modal-story">
+                <p>
+                    Add the original article or podcast URL in DATA.news.
+                    For publications that permit embedding, visitors will see
+                    the actual page here; otherwise the full-story button
+                    remains the reliable route.
+                </p>
+            </div>
+        `;
+
+    showModal(
+        'News & Press · ' + n.date,
+        `${preview}
+            ${!n.url ? imageTag(n.image, n.title, 'modal-hero') : ''}
+            <h2>${esc(n.title)}</h2>
+            <p>${esc(n.desc)}</p>
+            ${articleAction}
+        `
+    );
 }
 
-function renderTimeline(){
-  const wrap = document.getElementById('timeline');
-  DATA.education.forEach(e=>{
-    wrap.appendChild(el(`
-      <div class="timeline__item">
-        <span class="timeline__dot"></span>
-        <p class="timeline__period">${e.period}</p>
-        <p class="timeline__degree">${e.degree}</p>
-        <p class="timeline__inst">${e.inst}</p>
-        ${e.detail ? `<p class="timeline__detail">${e.detail}</p>` : ''}
-      </div>`));
-  });
+function render(){
+ document.getElementById('statsGrid').innerHTML=DATA.stats.map((s,i)=>`<div class="stat reveal d${i}"><b data-count="${parseInt(s[0])||0}">${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('');
+ document.getElementById('achievementGrid').innerHTML=DATA.achievements.map((a,i)=>`<button class="achievement reveal d${i%4}" onclick="openAchievement(${i})"><div class="achievement-photo">${imageTag(a.image,a.title)}</div><div class="achievement-content"><span class="mini">${esc(a.mini)}</span><h3>${esc(a.title)}</h3><p>${esc(a.desc)}</p><span class="achievement-open">Touch to explore</span></div></button>`).join('');
+ document.getElementById('projectGrid').innerHTML=DATA.projects.map((p,i)=>`<button class="project reveal d${i%4}" onclick="openProject(${i})"><div class="project-photo">${imageTag(p.image,p.name)}</div><div class="project-body"><small>${esc(p.tag)}</small><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p></div><span class="project-arrow">↗</span></button>`).join('');
+ document.getElementById('momentsGrid').innerHTML=DATA.moments.map((m,i)=>`<button class="moment reveal d${i%4}" onclick="openMoment(${i})">${imageTag(m[0],m[1])}<span class="moment-label">${esc(m[1])} ↗</span></button>`).join('');
+ document.getElementById('journeyGrid').innerHTML=DATA.journey.map(j=>`<div class="journey-item reveal"><div class="journey-dot"></div><div class="journey-year">${esc(j[0])}</div><div><h3>${esc(j[1])}</h3><p>${esc(j[2])}</p></div></div>`).join('');
+ document.getElementById('experienceGrid').innerHTML=DATA.experience.map((e,i)=>`<button class="experience-card reveal d${i%4}" onclick="openExperience(${i})"><div class="experience-photo">${imageTag(e.image,e.org)}</div><div class="experience-main"><small>${esc(e.period)}</small><h3>${esc(e.role)}</h3><div class="experience-org">${esc(e.org)}</div><p>${esc(e.detail)}</p><div class="experience-links"><span class="text-link">View experience ↗</span></div></div></button>`).join('');
+ document.getElementById('newsGrid').innerHTML=DATA.news.map((n,i)=>`<button class="news-card reveal d${i%4}" onclick="openNews(${i})"><span class="news-live">${n.url?'Live preview':'Add link'}</span><div class="news-image">${imageTag(n.image,n.title)}</div><div class="news-body"><small>${esc(n.date)} · ${esc(n.source||'Media')}</small><h3>${esc(n.title)}</h3><p>${esc(n.desc)}</p><span class="news-more">${n.url?'Preview story →':'Add story URL →'}</span></div></button>`).join('');
+ document.getElementById('skillsGrid').innerHTML=DATA.skills.map(s=>`<div class="skill-box reveal"><h3>${esc(s[0])}</h3>${s.slice(1).map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</div>`).join('');
 }
 
-function renderAchievements(){
-  const wrap = document.getElementById('achievementsGrid');
-  DATA.achievements.forEach((a,i)=>{
-    const card = el(`
-      <div class="card" data-reveal>
-        ${a.img ? `<img class="card__img" src="${a.img}" alt="${a.title}">` : ''}
-        <span class="verdict-badge">Accepted</span>
-        <p class="card__title">${a.title}</p>
-        <p class="card__meta">${a.org}${a.date ? ' · ' + a.date : ''}</p>
-        <p class="card__desc">${a.detail}</p>
-      </div>`);
-    card.classList.add('d' + ((i % 3) + 1));
-    wrap.appendChild(card);
-  });
-}
+const menu=document.getElementById('menu'),links=document.getElementById('navLinks');menu.onclick=()=>links.classList.toggle('mobile');links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('mobile'));
+const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.12});
+function renderSocials(){const items=DATA.socials;const html=items.map(x=>x[1]?`<a href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])} ↗</a>`:`<span class="social-placeholder" title="Add your ${esc(x[0])} URL in DATA.socials">${esc(x[0])}</span>`).join('');document.getElementById('heroSocials').innerHTML=html;document.getElementById('footerSocials').innerHTML=html;document.getElementById('socialDock').innerHTML=items.filter(x=>x[1]).map(x=>`<a href="${esc(x[1])}" target="_blank" rel="noopener" aria-label="${esc(x[0])}" title="${esc(x[0])}">${esc(x[0].slice(0,2).toUpperCase())}</a>`).join('')}
+render();renderSocials();document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
 
-function renderSkills(){
-  const wrap = document.getElementById('skillsWrap');
-  DATA.skills.forEach(group=>{
-    wrap.appendChild(el(`
-      <div class="skill-group">
-        <p class="skill-group__title">${group.category}</p>
-        <div class="pills">${group.items.map(i=>`<span class="pill">${i}</span>`).join('')}</div>
-      </div>`));
-  });
-}
+const progress=document.getElementById('pageProgress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?(scrollY/max)*100:0)+'%'}window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+function hideLoader(){const loader=document.getElementById('loader');if(loader)loader.classList.add('hide')}
+// Do not wait for every image, font, iframe or external resource. The page itself is ready much earlier.
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(hideLoader,250)); else setTimeout(hideLoader,250);
+setTimeout(hideLoader,2200);
 
-function renderActivities(){
-  const wrap = document.getElementById('activitiesList');
-  DATA.activities.forEach(a=>{
-    wrap.appendChild(el(`
-      <div class="activity">
-        <div class="activity__main">
-          ${a.img ? `<img class="activity__img" src="${a.img}" alt="${a.role}">` : ''}
-          <div>
-            <p class="activity__role">${a.role}</p>
-            <p class="activity__org">${a.org}</p>
-          </div>
-        </div>
-        ${a.period ? `<span class="activity__period">${a.period}</span>` : ''}
-      </div>`));
-  });
-}
+const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');if(dot&&ring){window.addEventListener('pointermove',e=>{dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';ring.animate({left:[ring.offsetLeft+'px',e.clientX+'px'],top:[ring.offsetTop+'px',e.clientY+'px']},{duration:260,fill:'forwards',easing:'cubic-bezier(.2,.8,.2,1)'});});document.querySelectorAll('a,button,.project,.achievement,.experience-card,.news-card,.moment').forEach(x=>{x.addEventListener('mouseenter',()=>ring.classList.add('hover'));x.addEventListener('mouseleave',()=>ring.classList.remove('hover'))})}
 
-function renderProjects(){
-  const wrap = document.getElementById('projectsGrid');
-  DATA.projects.forEach((p,i)=>{
-    const links = (p.github || p.live) ? `
-        <div class="project-card__links">
-          ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener">Code<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>` : ''}
-          ${p.live ? `<a href="${p.live}" target="_blank" rel="noopener">Live<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>` : ''}
-        </div>` : '';
-    const card = el(`
-      <div class="card project-card" data-reveal>
-        <p class="project-card__pitch">${p.name}</p>
-        <p class="card__meta">${p.pitch}</p>
-        <p class="project-card__desc">${p.desc}</p>
-        <div class="tag-row">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
-        ${links}
-      </div>`);
-    card.classList.add('d' + ((i % 3) + 1));
-    wrap.appendChild(card);
-  });
-}
+// Gentle cinematic parallax for the hero image and section headings.
+window.addEventListener('scroll',()=>{const hero=document.querySelector('.hero-portrait');if(hero){const r=hero.getBoundingClientRect();const shift=(innerHeight/2-(r.top+r.height/2))*-.035;hero.style.transform=`translate3d(0,${shift}px,0)`}}, {passive:true});
 
-function renderSocials(){
-  const wrap = document.getElementById('socialLinks');
-  DATA.socials.forEach(s=>{
-    wrap.appendChild(el(`
-      <li><a href="${s.url}" target="_blank" rel="noopener">${s.name}
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-      </a></li>`));
-  });
-  wrap.appendChild(el(`<li><a href="#contact">Email me →</a></li>`));
-}
+// Lightweight 3D tilt on pointer-capable screens.
+if(matchMedia('(pointer:fine)').matches){document.querySelectorAll('.achievement,.project,.experience-card,.news-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${y*-2}deg) rotateY(${x*2}deg) translateY(-8px) scale(1.008)`});card.addEventListener('pointerleave',()=>card.style.transform='')})}
 
-renderStats();
-renderTimeline();
-renderAchievements();
-renderSkills();
-renderActivities();
-renderProjects();
-renderSocials();
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* =======================================================
-   3. SCROLL REVEAL + COUNTERS + TIMELINE DRAW
-   ======================================================= */
-const revealObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('is-visible');
-      revealObserver.unobserve(entry.target);
+async function submitForm(
+    form,
+    endpoint,
+    statusEl,
+    successText
+) {
+    if (!endpoint) {
+        statusEl.textContent =
+            'The form is live on the website. Add your Formspree endpoint '
+            + 'in FORM_ENDPOINTS at the top of the script to receive submissions.';
+        return;
     }
-  });
-}, { threshold: 0.15 });
-document.querySelectorAll('[data-reveal]').forEach(node=>revealObserver.observe(node));
 
-const timelineEl = document.getElementById('timeline');
-const timelineObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('is-drawn');
-      timelineObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.2 });
-if(timelineEl) timelineObserver.observe(timelineEl);
+    const button = form.querySelector('button[type=submit]');
+    button.disabled = true;
+    button.textContent = 'Sending…';
 
-function animateCount(node){
-  const target = parseInt(node.dataset.count, 10);
-  const suffix = node.dataset.suffix || '';
-  const duration = 1200;
-  const start = performance.now();
-  function tick(now){
-    const p = Math.min((now - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    node.textContent = Math.round(eased * target) + suffix;
-    if(p < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-const statObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      animateCount(entry.target);
-      statObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat__value').forEach(n=>statObserver.observe(n));
+    try {
+        const response = await fetch(endpoint, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
 
-/* =======================================================
-   4. NAV — scroll state, active link, mobile toggle
-   ======================================================= */
-const navEl = document.getElementById('nav');
-const toTopBtn = document.getElementById('toTop');
-window.addEventListener('scroll', ()=>{
-  const y = window.scrollY;
-  navEl.classList.toggle('nav--scrolled', y > 40);
-  toTopBtn.classList.toggle('is-visible', y > 600);
-}, { passive: true });
+        if (!response.ok) {
+            throw new Error('Request failed');
+        }
 
-toTopBtn.addEventListener('click', ()=> window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-const menuIcon = '<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>';
-const closeIcon = '<line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/>';
-const iconMenuSvg = document.getElementById('iconMenu');
-function setNavOpen(open){
-  navLinks.classList.toggle('is-open', open);
-  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  iconMenuSvg.innerHTML = open ? closeIcon : menuIcon;
-}
-navToggle.addEventListener('click', ()=> setNavOpen(!navLinks.classList.contains('is-open')));
-navLinks.querySelectorAll('a').forEach(a=>{
-  a.addEventListener('click', ()=> setNavOpen(false));
-});
-
-const navLinkEls = document.querySelectorAll('[data-nav]');
-const sections = Array.from(navLinkEls).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
-const sectionObserver = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    const id = '#' + entry.target.id;
-    const link = document.querySelector(`[data-nav][href="${id}"]`);
-    if(!link) return;
-    if(entry.isIntersecting){
-      navLinkEls.forEach(l=>l.classList.remove('is-active'));
-      link.classList.add('is-active');
-    }
-  });
-}, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
-sections.forEach(s=>sectionObserver.observe(s));
-
-/* =======================================================
-   5. FORMS — Formspree submit handling
-   ======================================================= */
-function wireForm(formId, statusId, endpointKey){
-  const form = document.getElementById(formId);
-  const status = document.getElementById(statusId);
-  if(!form) return;
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const endpoint = FORM_ENDPOINTS[endpointKey];
-    const btn = form.querySelector('button[type="submit"]');
-    const originalLabel = btn.innerHTML;
-
-    if(!endpoint || endpoint.includes('REPLACE_WITH')){
-      status.dataset.state = 'error';
-      status.textContent = 'Form isn\'t connected yet — add your Formspree endpoint in FORM_ENDPOINTS.';
-      return;
-    }
-
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    status.dataset.state = '';
-    status.textContent = '';
-
-    try{
-      const res = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
-      });
-      if(res.ok){
-        status.dataset.state = 'success';
-        status.textContent = 'Sent — thanks! I\'ll get back to you soon.';
         form.reset();
-      } else {
-        status.dataset.state = 'error';
-        status.textContent = 'Something went wrong. Please try again in a moment.';
-      }
-    } catch(err){
-      status.dataset.state = 'error';
-      status.textContent = 'Network error — please try again.';
+        statusEl.textContent = successText;
+    } catch (error) {
+        statusEl.textContent =
+            'Something went wrong. Please try again or use the social links below.';
     } finally {
-      btn.disabled = false;
-      btn.innerHTML = originalLabel;
+        button.disabled = false;
+        button.textContent = successText.includes('mentoring')
+            ? 'Request a mentoring conversation ↗'
+            : 'Send message ↗';
     }
-  });
 }
-wireForm('contactForm', 'contactStatus', 'contact');
-wireForm('mentoringForm', 'mentoringStatus', 'mentoring');
-</script>
-</body>
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();submitForm(e.currentTarget,FORM_ENDPOINTS.contact,document.getElementById('formStatus'),'Message sent successfully.');});
+document.getElementById('mentoringForm').addEventListener('submit',e=>{e.preventDefault();submitForm(e.currentTarget,FORM_ENDPOINTS.mentoring,document.getElementById('mentoringStatus'),'Your mentoring request was sent successfully.');});
+  </script>
+ </body>
 </html>
