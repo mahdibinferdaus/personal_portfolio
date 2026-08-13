@@ -6,7 +6,7 @@
   <title>
    Mahdi Bin Ferdaus — Robotics Builder, Innovator &amp; Mentor
   </title>
-  <meta content="A visual portfolio of Mahdi Bin Ferdaus — projects, achievements, experiences, journey, news and moments." name="description"/>
+  <meta content="A visual portfolio of Mahdi Bin Ferdaus — projects, achievements, experiences, skills, mentoring and moments." name="description"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
@@ -873,34 +873,165 @@ img {
 }
 .modal-hero {
     width:100%;
-    height:360px;
+    max-height:75vh;
+    height:auto;
+    min-height:360px;
     border-radius:15px;
-    object-fit:cover;
+    object-fit:contain;
+    object-position:center;
     margin-bottom:22px;
-    background:var(--paper2)
+    background:var(--paper2);
 }
+
 .modal-gallery {
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:9px;
-    margin:22px 0
+    width:100%;
+    overflow:hidden;
+    margin:22px 0;
+    position:relative;
 }
+
+.modal-gallery-track {
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    width:max-content;
+    animation:gallerySlide 35s linear infinite;
+}
+
+.modal-gallery:hover .modal-gallery-track {
+    animation-play-state:paused;
+}
+
 .modal-gallery button {
-    height:105px;
+    flex:0 0 250px;
+    width:250px;
+    height:170px;
     border-radius:10px;
     overflow:hidden;
     background:var(--paper2);
-    border:1px solid var(--line)
+    border:1px solid var(--line);
+    padding:0;
+    cursor:pointer;
 }
+
 .modal-gallery img {
     width:100%;
     height:100%;
-    object-fit:cover;
-    transition:.3s
+    display:block;
+    object-fit:contain;
+    background:var(--paper2);
+    transition:transform .5s ease;
 }
+
 .modal-gallery button:hover img {
-    transform:scale(1.06)
+    transform:scale(1.04);
 }
+
+@keyframes gallerySlide {
+    from {
+        transform:translateX(0);
+    }
+
+    to {
+        transform:translateX(-50%);
+    }
+}
+
+/* ==========================================
+   NEWS OF THIS JOURNEY — ACHIEVEMENT MODAL
+   ========================================== */
+
+.journey-news {
+    margin-top:26px;
+}
+
+.journey-news-list {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:14px;
+    align-items:stretch;
+}
+
+.journey-news-item {
+    position:relative;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:var(--paper2);
+    padding:10px;
+    min-width:0;
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.journey-news-item:hover {
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(10,20,24,.08);
+}
+
+.journey-news-item h4 {
+    margin:2px 4px 9px;
+    font-size:.86rem;
+    line-height:1.35;
+}
+
+.journey-news-frame {
+    display:block;
+    position:relative;
+    height:150px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--paper);
+}
+
+.journey-news-frame iframe {
+    width:100%;
+    height:100%;
+    border:0;
+    background:#fff;
+    pointer-events:none;
+}
+
+.journey-news-overlay {
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
+    padding:8px;
+    background:linear-gradient(transparent 55%, rgba(10,20,24,.58));
+    color:#fff;
+    font-size:.68rem;
+    font-weight:700;
+    pointer-events:none;
+}
+
+.journey-news-open {
+    display:block;
+    margin-top:8px;
+    padding:7px 9px;
+    border-radius:7px;
+    border:1px solid var(--line);
+    font-size:.7rem;
+    font-weight:700;
+    text-align:center;
+}
+
+.journey-news-open:hover {
+    background:var(--ink);
+    color:#fff;
+}
+
+@media (max-width:700px) {
+    .journey-news-list {
+        grid-template-columns:1fr;
+    }
+
+    .journey-news-frame {
+        height:180px;
+    }
+}
+
 .resource-title {
     font:700 22px var(--display);
     margin:30px 0 12px
@@ -1679,6 +1810,153 @@ body:before {
         flex-wrap:wrap
     }
 }
+
+/* =====================================================
+   FINAL COMPACT LAYOUT + MEDIA DETAILS
+   ===================================================== */
+.section {
+    padding:78px 0;
+}
+.section-head {
+    margin-bottom:32px;
+    gap:24px;
+}
+.title {
+    font-size:clamp(34px,4.2vw,54px);
+}
+.sub {
+    font-size:14px;
+    line-height:1.55;
+}
+.achievement {
+    min-height:300px;
+}
+.achievement-content {
+    inset:auto 19px 19px;
+}
+.achievement h3 {
+    font-size:25px;
+}
+.project-photo {
+    height:190px;
+}
+.project-body {
+    padding:18px;
+}
+.project-body h3 {
+    font-size:22px;
+}
+.experience-card {
+    padding:15px;
+}
+.experience-photo {
+    height:105px;
+}
+.experience-main h3 {
+    font-size:21px;
+}
+.skill-box {
+    padding:18px;
+}
+.skill-box h3 {
+    font-size:20px;
+}
+.mentor-grid,
+.contact-grid {
+    gap:42px;
+}
+.mentor-card {
+    padding:20px;
+}
+.modal-content {
+    padding:18px 22px 28px;
+}
+.modal-content h2 {
+    font-size:clamp(32px,5vw,52px);
+}
+.modal-hero {
+    min-height:280px;
+    max-height:68vh;
+}
+.modal-gallery-track {
+    animation-duration:var(--gallery-duration,35s);
+}
+.modal-gallery button {
+    flex-basis:220px;
+    width:220px;
+    height:145px;
+}
+.moment-iframe-modal {
+    width:100%;
+    height:430px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    background:white;
+    margin-bottom:22px;
+}
+.moment-iframe-modal iframe {
+    width:100%;
+    height:100%;
+    border:0;
+}
+.moment-embed {
+    position:relative;
+}
+.moment-embed iframe {
+    width:100%;
+    height:100%;
+    min-height:100%;
+    border:0;
+    background:white;
+}
+.moment-label.always {
+    opacity:1;
+    transform:none;
+}
+.hero-socials a,
+.social-dock a {
+    display:grid;
+    place-items:center;
+}
+.hero-socials a {
+    width:38px;
+    height:38px;
+    padding:8px;
+}
+.hero-socials svg,
+.social-dock svg {
+    width:18px;
+    height:18px;
+}
+.social-dock a {
+    width:40px;
+    height:40px;
+}
+@media (max-width:800px) {
+    .section {
+        padding:64px 0;
+    }
+    .modal-gallery button {
+        flex-basis:190px;
+        width:190px;
+        height:130px;
+    }
+}
+@media (max-width:500px) {
+    .section {
+        padding:54px 0;
+    }
+    .modal-gallery button {
+        flex-basis:170px;
+        width:170px;
+        height:120px;
+    }
+    .moment-iframe-modal {
+        height:330px;
+    }
+}
+
 </style>
  </head>
  <body>
@@ -1724,20 +2002,11 @@ body:before {
      <a href="#moments">
       Moments
      </a>
-     <a href="#journey">
-      Journey
-     </a>
      <a href="#experience">
       Experience
      </a>
-     <a href="#news">
-      News
-     </a>
      <a href="#mentoring">
       Mentoring
-     </a>
-     <a class="nav-cta" href="#contact">
-      Contact
      </a>
     </div>
     <button aria-label="Open menu" class="menu" id="menu">
@@ -1767,9 +2036,9 @@ body:before {
        <a class="btn btn-primary" href="#projects">
         Explore the work ↗
        </a>
-       <button class="btn btn-outline" onclick="openJourney()">
-        Read the journey
-       </button>
+       <a class="btn btn-outline" href="#experience">
+        See the experience
+       </a>
       </div>
       <div class="hero-socials reveal d4" id="heroSocials">
       </div>
@@ -1899,35 +2168,33 @@ body:before {
        </h2>
       </div>
       <p class="sub">
-       A visual archive of competitions, workshops, travel, building, presentations and the people behind the work.
+       A visual archive of competitions, workshops, travel, building, presentations and selected media coverage. Photos and embedded news pages can live together here.
       </p>
      </div>
      <div class="moments" id="momentsGrid">
      </div>
     </div>
    </section>
-   <section class="section dark" id="journey">
+   <section class="section alt" id="skills">
     <div class="wrap">
      <div class="section-head reveal">
       <div>
        <p class="eyebrow">
-        05 · The long version
+        05 · Skills
        </p>
        <h2 class="title">
-        The journey.
+        What I work with.
        </h2>
       </div>
       <p class="sub">
-       A chronological thread connecting projects, competitions, leadership, research and the lessons between them.
+       A focused snapshot of the technical, creative and people skills I use to build and lead.
       </p>
      </div>
-     <div class="journey" id="journeyGrid">
+     <div class="skills" id="skillsGrid">
      </div>
-     <button class="btn btn-primary reveal" onclick="openJourney()">
-      Open the complete journey story ↗
-     </button>
     </div>
    </section>
+
    <section class="section alt" id="experience">
     <div class="wrap">
      <div class="section-head reveal">
@@ -1947,36 +2214,17 @@ body:before {
      </div>
     </div>
    </section>
-   <section class="section" id="news">
-    <div class="wrap">
-     <div class="section-head reveal">
-      <div>
-       <p class="eyebrow">
-        07 · News &amp; Press
-       </p>
-       <h2 class="title">
-        The story beyond this website.
-       </h2>
-      </div>
-      <p class="sub">
-       News articles, interviews, school features, competition announcements, podcasts and other external coverage can all live here.
-      </p>
-     </div>
-     <div class="news-grid" id="newsGrid">
-     </div>
-    </div>
-   </section>
    <section class="section mentor" id="mentoring">
     <div class="wrap mentor-grid">
      <div class="reveal">
       <p class="eyebrow">
-       08 · Mentoring
+       07 · Conrad Challenge Mentoring
       </p>
       <h2 class="title">
        Bring me your idea. Let's make it stronger.
       </h2>
       <p class="sub">
-       A dedicated mentoring form for robotics competitions, science fairs, innovation projects, presentations and technical problem solving.
+       A dedicated mentoring space for students and teams preparing for the Conrad Challenge.
       </p>
       <div class="mentor-meta">
        <div>
@@ -1984,7 +2232,7 @@ body:before {
          Best for
         </b>
         <span>
-         Robotics · Science fairs · Innovation challenges · Project reviews
+         Conrad Challenge · Project development · Presentation · Pitch
         </span>
        </div>
        <div>
@@ -1992,15 +2240,7 @@ body:before {
          What to include
         </b>
         <span>
-         Your goal, current stage, deadline and what you want feedback on.
-        </span>
-       </div>
-       <div>
-        <b>
-         Response
-        </b>
-        <span>
-         Connect the form to Formspree or your preferred form backend to receive submissions.
+         Your Conrad team, project stage, deadline and the specific help you need.
         </span>
        </div>
       </div>
@@ -2008,34 +2248,34 @@ body:before {
      <div class="mentor-card reveal d1">
       <form class="mentor-form" id="mentoringForm">
        <input name="name" placeholder="Your name" required=""/>
+       <input name="Institution" placeholder="Your Academic institution" required=""/>
+       <input name="Competition Name" placeholder="Where are you applying at?" required=""/>
+       <input name="Mobile Number" placeholder="Mobile Number Contains Whatsapp Preferred" required=""/>
        <input name="email" placeholder="Email address" required="" type="email"/>
        <select name="topic" required="">
         <option value="">
-         What do you need help with?
+        What do you need help with?
         </option>
         <option>
-         Robotics competition
+        Full Competition Guidance
         </option>
         <option>
-         Science fair / innovation
+        Project review
         </option>
         <option>
-         Project review
+        Presentation / pitch
         </option>
         <option>
-         Presentation / pitch
+        Technical problem
         </option>
         <option>
-         Technical problem
-        </option>
-        <option>
-         Other
+        Other
         </option>
        </select>
-       <input name="deadline" placeholder="Deadline / competition date"/>
+       <input name="deadline" placeholder="Submission Deadline"/>
        <textarea name="message" placeholder="Tell me about your project, what you have tried, and where you need help..." required="">
 </textarea>
-       <input class="full" name="link" placeholder="Project / portfolio / video link (optional)"/>
+       <input class="full" name="link" placeholder="Project or portfolio link (optional)"/>
        <button class="btn btn-primary full" type="submit">
         Request a mentoring conversation ↗
        </button>
@@ -2045,41 +2285,23 @@ body:before {
      </div>
     </div>
    </section>
-   <section class="section alt" id="skills">
-    <div class="wrap">
-     <div class="section-head reveal">
-      <div>
-       <p class="eyebrow">
-        09 · Toolkit
-       </p>
-       <h2 class="title">
-        What I work with.
-       </h2>
-      </div>
-      <p class="sub">
-       A practical snapshot of technical and people skills.
-      </p>
-     </div>
-     <div class="skills" id="skillsGrid">
-     </div>
-    </div>
-   </section>
    <section class="section contact" id="contact">
     <div class="wrap contact-grid">
      <div class="reveal">
       <p class="eyebrow">
-       10 · Contact
+       08 · Contact
       </p>
       <h2 class="title">
-       Let's build something useful.
+       Have something to talk with me?
       </h2>
       <p class="sub">
-       For collaborations, competitions, robotics, speaking, mentoring or an interesting problem — I'd love to hear from you.
+       For collaborations, partnerships or an interesting problem — send me the details and it will be prepared as an email to me.
       </p>
      </div>
      <form class="form reveal d1" id="contactForm">
       <input name="name" placeholder="Your name" required=""/>
       <input name="email" placeholder="Email address" required="" type="email"/>
+      <input name="Number" placeholder="Mobile Number" required="" type="number"/>
       <textarea name="message" placeholder="Tell me what's on your mind..." required="">
 </textarea>
       <button class="btn btn-primary" type="submit">
@@ -2132,9 +2354,11 @@ body:before {
    - Add photos under /images/ and put their filenames in DATA below.
    ===================================================== */
 const FORM_ENDPOINTS = {
-  mentoring: '', // e.g. https://formspree.io/f/XXXXXXXX
-  contact: ''    // e.g. https://formspree.io/f/YYYYYYYY
+  mentoring: '' // Add the separate form endpoint you will use for Conrad mentoring.
 };
+
+// Put your email address here. Contact messages will open a prepared email with all form details.
+const CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
 
 const DATA={
     stats:[
@@ -2158,16 +2382,26 @@ const DATA={
     achievements:[
         {
             title:'Conrad Challenge',
-            mini:'Global Finalist · 2023–24',
+            mini:'Global Finalist · 2024',
             desc:'Coordinated Team Exo Max and the Smart Road Safety Beast through to the international finals.',
-            image:'images/conrad/conrad.webp',
+            image:'images/Achivements/conrad/conrad.webp',
             gallery:[
-                'images/conrad/group_photo.jpg',
-                'images/conrad/random_photo_conrad.jpg',
-                'images/conrad/infront_of_space_ship.jpg',
-                'images/conrad/nasa_background.jpg'
-
-
+                'images/Achivements/conrad/01.jpg',
+                'images/Achivements/conrad/02.jpg',
+                'images/Achivements/conrad/03.jpg',
+                'images/Achivements/conrad/04.jpg',
+                'images/Achivements/conrad/05.jpg',
+                'images/Achivements/conrad/06.jpg',
+                'images/Achivements/conrad/07.jpg'
+            ],
+            galleryStories:[
+                'The First Group Photo Taken in Space Center Houston',
+                'Our Team Holding Flag of Bangladesh at Space Center Houston',
+                'Its Pitching Time',
+                'The Ending Ceremory',
+                'Space Shuttle',
+                'The Ending Ceremory',
+                'Our Full Group at Ending Ceremony'
             ],
             body:'The Conrad Challenge chapter can hold the complete story: how Team Exo Max formed, how Smart Road Safety Beast evolved, the feedback and iterations, the international-final experience, and what the journey taught me.',
             facts:[
@@ -2185,44 +2419,108 @@ const DATA={
                 ],
                 [
                     'Year',
-                    '2023–24'
+                    '2024'
                 ]
             ],
             links:[
                 [
                     'Official Conrad Challenge',
                     'Official website',
-                    'https://www.conradchallenge.org/'
+                    'https://conrad.spacecenter.org/'
                 ],
                 [
                     'Certificate',
-                    'Add certificate URL',
                     ''
                 ],
                 [
-                    'News / Media',
-                    'Add article URL',
-                    'https://www.thedailystar.net/campus/campus/news/five-school-students-representing-bangladesh-nasa-3595356'
-                ],
-                [
                     'Podcast',
-                    'Add podcast episode',
                     ''
                 ]
             ],
             linkTitle:'Explore more about Conrad',
-            journeyTitle:'Explore more about this journey'
+            news:[
+                {
+                    title:'We were featured in The Daily Star',
+                    url:'https://www.thedailystar.net/campus/campus/news/five-school-students-representing-bangladesh-nasa-3595356'
+                },
+                {
+                    title:'We were featured in The US Embassy Dhaka',
+                    url:'https://www.facebook.com/share/p/1DWccA7FYj/'
+                },
+                {
+                    title:'We were featured in The Financial Express',
+                    url:'https://thefinancialexpress.com.bd/article/nasas-conrad-challenge-bangladesh-high-schoolers-emerge-as-top-five'
+                },
+                {
+                    title:'We were featured in The TBS Graduates',
+                    url:'https://tbsgraduates.net/campus/campus-hero/bangladeshi-school-kids-make-wave-in-nasa-conrad-challenge/'
+                },
+                {
+                    title:'We were featured in The Ekushey TV',
+                    url:'https://www.ekushey-tv.com/science-and-technology/1360873111111143160?fbclid=IwcGRvZgVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEe2fBtnYKvqqCTO7iaLkChAByY7c9lrMSt1HraovMxpszREGBFKG8jtElX0sw_aem_1vtPMJQh_3OAHlp2_Lz_Kw'
+                },
+                {
+                    title:'We were featured in DBC News',
+                    url:'https://www.facebook.com/share/v/1d1wYB5QTx/'
+                },
+                {
+                    title:'We were featured in Bigganchinta',
+                    url:'https://www.bigganchinta.com/events/ul9q15wiei?fbclid=IwcGRvZgVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeaApoDSJm_qI-SzPWxcE24UnKxCIKCEjW0K9GrIMP7YpSbUm8DIpcz4ucrzw_aem_wIcMJB7b0VD1aihRRZClYw'
+                }
+            ],
         },
         {
             title:'Outstanding Presentation Award',
             mini:'IOCE · 2025',
             desc:"Led Bangladesh's delegation and received the Outstanding Presentation Award.",
-            image:'images/ioce.jpg',
+            image:'images/Achivements/IOCE/ioce.svg',
             gallery:[
-                'images/ioce-1.jpg',
-                'images/ioce-2.jpg',
-                'images/ioce-3.jpg',
-                'images/ioce-4.jpg'
+                'images/Achivements/IOCE/01.jpg',
+                'images/Achivements/IOCE/02.jpg',
+                'images/Achivements/IOCE/03.jpg',
+                'images/Achivements/IOCE/04.jpg',
+                'images/Achivements/IOCE/05.jpg',
+                'images/Achivements/IOCE/06.jpg',
+                'images/Achivements/IOCE/07.jpg',
+                'images/Achivements/IOCE/08.jpg',
+                'images/Achivements/IOCE/09.jpg',
+                'images/Achivements/IOCE/10.jpg',
+                'images/Achivements/IOCE/11.jpg',
+                'images/Achivements/IOCE/12.jpg',
+                'images/Achivements/IOCE/13.jpg',
+                'images/Achivements/IOCE/14.jpg',
+                'images/Achivements/IOCE/15.jpg',
+                'images/Achivements/IOCE/16.jpg',
+                'images/Achivements/IOCE/17.jpg',
+                'images/Achivements/IOCE/18.jpg',
+                'images/Achivements/IOCE/19.jpg',
+                'images/Achivements/IOCE/20.jpg',
+                'images/Achivements/IOCE/21.jpg',
+                'images/Achivements/IOCE/22.jpg',
+                'images/Achivements/IOCE/23.jpg',
+                'images/Achivements/IOCE/24.jpg',
+                'images/Achivements/IOCE/25.jpg',
+                'images/Achivements/IOCE/26.jpg',
+                'images/Achivements/IOCE/27.jpg',
+                'images/Achivements/IOCE/28.jpg',
+                'images/Achivements/IOCE/29.jpg',
+                'images/Achivements/IOCE/30.jpg',
+                'images/Achivements/IOCE/31.jpg',
+                'images/Achivements/IOCE/32.jpg',
+                'images/Achivements/IOCE/33.jpg',
+                'images/Achivements/IOCE/34.jpg',
+                'images/Achivements/IOCE/35.jpg',
+                'images/Achivements/IOCE/36.jpg'
+            ],
+            galleryStories:[
+                'We are holding Certificate at ending ceremony',
+                'We are holding Certificate at ending ceremon with a curator and member of jury',
+                'We are taking our team photo at cultural ceremony',
+                'We are preparing for tree plantation',
+                'International Scintific Conference On Ecology and Climate Change',
+                'First Day',
+                'We are preparing for Tree Plantation',
+                'Tree Plantation happening'
             ],
             body:'A dedicated IOCE story can include the preparation, Bangladesh delegation, international experience, presentation, award moment and the climate/environment work behind it.',
             facts:[
@@ -2251,32 +2549,41 @@ const DATA={
                 ],
                 [
                     'Certificate',
-                    'Add certificate URL',
                     ''
                 ],
                 [
-                    'News / Media',
-                    'Add article URL',
-                    ''
-                ],
-                [
-                    'Podcast / Interview',
-                    'Add episode URL',
-                    ''
+                    'Sponsored By',
+                    'https://www.flydubai.com'
                 ]
             ],
             linkTitle:'Explore more about IOCE',
-            journeyTitle:'Explore more about this journey'
+            news:[
+                {
+                    title:'Bangladesh team featured in ATN News',
+                    url:'https://www.facebook.com/share/v/19JcC15N3j/'
+                },
+                {
+                    title:'Bangladesh team featured in Russian Embassy Bangladesh',
+                    url:'https://www.facebook.com/share/p/19JqypHGdB/'
+                }
+                
+
+            ],
         },
         {
             title:'Bronze Medal',
             mini:'BMIE Challenge · 2025',
             desc:'Recognized for an autonomous robotics solution addressing a real health-safety problem.',
-            image:'images/bmie.jpg',
+            image:'images/Achivements/bmie/bmie.png',
             gallery:[
-                'images/bmie-1.jpg',
-                'images/bmie-2.jpg',
-                'images/bmie-3.jpg'
+                'images/Achivements/bmie/01.jpg',
+                'images/Achivements/bmie/02.jpg',
+                'images/Achivements/bmie/03.jpg'
+            ],
+            galleryStories:[
+                '',
+                '',
+                ''
             ],
             body:'Use this chapter for the Autonomous Saliva Collector story, the competition process, prototype work, testing and the final recognition.',
             facts:[
@@ -2305,26 +2612,27 @@ const DATA={
                 ],
                 [
                     'Certificate',
-                    'Add certificate URL',
-                    ''
-                ],
-                [
-                    'News',
-                    'Add article URL',
                     ''
                 ]
             ],
-            linkTitle:'Explore more about BMIE',
-            journeyTitle:'Explore more about this journey'
         },
         {
             title:'Top 100 Emerging Innovators',
             mini:'Emerging Innovators · 2026',
             desc:'National recognition for contributions to innovation and technology.',
-            image:'images/emerging.jpg',
+            image:'images/Achivements/EIA/emerging.png',
             gallery:[
-                'images/emerging-1.jpg',
-                'images/emerging-2.jpg'
+                'images/Achivements/EIA/01.jpeg',
+                'images/Achivements/EIA/02.jpg',
+                'images/Achivements/EIA/03.jpg',
+                'images/Achivements/EIA/04.jpg',
+                'images/Achivements/EIA/05.jpg',
+                'images/Achivements/EIA/06.jpg',
+                'images/Achivements/EIA/07.jpg'
+            ],
+            galleryStories:[
+                'Write the story behind this Emerging Innovators photo.',
+                'Write the story behind this Emerging Innovators photo.'
             ],
             body:'Add the nomination, selection process, innovation work, event photographs and media coverage here.',
             facts:[
@@ -2342,7 +2650,7 @@ const DATA={
                 ],
                 [
                     'Status',
-                    'Award / recognition'
+                    'Award '
                 ]
             ],
             links:[
@@ -2353,26 +2661,26 @@ const DATA={
                 ],
                 [
                     'Certificate',
-                    'Add certificate URL',
                     ''
                 ],
                 [
                     '2026 Honorees',
-                    'Add article URL',
                     'https://emerginginnovatorawards.org/honorees/'
                 ]
             ],
-            linkTitle:'Explore more about the award',
-            journeyTitle:'Explore more about this journey'
         },
         {
             title:'Top 9 Finalist',
             mini:'Youth Co:Lab Springboard 7.0',
             desc:'Finalist recognition for a youth innovation initiative.',
-            image:'images/youthcolab.jpg',
+            image:'images/Achivements/springboard/logo.png',
             gallery:[
-                'images/youthcolab-1.jpg',
-                'images/youthcolab-2.jpg'
+                'images/Achivements/Springboard/01.jpg',
+                'images/Achivements/Springboard/02.jpg'
+            ],
+            galleryStories:[
+                '',
+                ''
             ],
             body:'Use this space for the initiative, selection journey, pitch, team, programme experience and related media.',
             facts:[
@@ -2390,37 +2698,26 @@ const DATA={
                 ],
                 [
                     'Year',
-                    ''
+                    '2025'
                 ]
             ],
             links:[
                 [
                     'Programme website',
-                    'Add official website',
-                    ''
+                    'https://www.youthcolab.org/springboard'
                 ],
-                [
-                    'News',
-                    'Add article URL',
-                    ''
-                ],
-                [
-                    'Certificate',
-                    'Add certificate URL',
-                    ''
-                ]
             ],
-            linkTitle:'Explore more about Youth Co:Lab',
-            journeyTitle:'Explore more about this journey'
         },
         {
             title:'Selected Scholar',
             mini:'Yale Young Global Scholars',
             desc:'Selected to join a competitive global academic programme.',
-            image:'images/yygs.jpg',
+            image:'images/Achivements/yygs/yygs.png',
             gallery:[
-                'images/yygs-1.jpg',
-                'images/yygs-2.jpg'
+                'images/Achivements/YYGS/01.jpg'
+            ],
+            galleryStories:[
+                ''
             ],
             body:'Add the YYGS experience, academic interests, programme moments and related opportunities here.',
             facts:[
@@ -2434,36 +2731,35 @@ const DATA={
                 ],
                 [
                     'Focus',
-                    'Academic / Global'
+                    'Academic'
                 ],
                 [
                     'Year',
-                    ''
+                    '2026'
                 ]
             ],
             links:[
                 [
                     'YYGS',
-                    'Add programme website',
                     'yygs.com'
-                ],
-                [
-                    'Experience',
-                    'Add related page',
-                    ''
                 ]
             ],
-            linkTitle:'Explore more about YYGS',
-            journeyTitle:'Explore more about this journey'
         },
         {
             title:'Regional Champion',
-            mini:'Rajshahi Science & Innovation Fair · 2022',
+            mini:'Bkash BigganChinta Biggan Utsob',
             desc:'Took the top overall project award in the region.',
-            image:'images/rajshahi-fair.jpg',
+            image:'images/Achivements/bigganutsob/logo.jpg',
             gallery:[
-                'images/rajshahi-1.jpg',
-                'images/rajshahi-2.jpg'
+                'images/Achivements/bigganutsob/01.jpg',
+                'images/Achivements/bigganutsob/02.jpg',
+                'images/Achivements/bigganutsob/03.jpg',
+                'images/Achivements/bigganutsob/04.jpg',
+                'images/Achivements/bigganutsob/05.jpg'
+            ],
+            galleryStories:[
+                '',
+                ''
             ],
             body:'The early competition chapter — useful for showing where the journey started before the larger international milestones.',
             facts:[
@@ -2487,22 +2783,24 @@ const DATA={
             links:[
                 [
                     'Event website',
-                    'Add official website',
-                    ''
+                    'https://www.bigganchinta.com/topic/%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8-%E0%A6%89%E0%A7%8E%E0%A6%B8%E0%A6%AC-%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%E0%A6%9A%E0%A6%BF%E0%A6%A8%E0%A7%8D%E0%A6%A4%E0%A6%BE'
                 ],
                 [
                     'Certificate',
-                    'Add certificate URL',
                     ''
                 ],
                 [
                     'News',
-                    'Add article URL',
                     ''
                 ]
             ],
             linkTitle:'Explore more about this achievement',
-            journeyTitle:'Explore more about this journey'
+            news:[
+                {
+                    title:'Early innovation journey featured',
+                    url:''
+                }
+            ],
         }
     ],
     projects:[
@@ -2708,75 +3006,81 @@ const DATA={
         }
     ],
     moments:[
-        [
-            'images/moment-1.jpg',
-            'A competition day'
-        ],
-        [
-            'images/moment-2.jpg',
-            'Team & teammates'
-        ],
-        [
-            'images/moment-3.jpg',
-            'Prototype work'
-        ],
-        [
-            'images/moment-4.jpg',
-            'On stage'
-        ],
-        [
-            'images/moment-5.jpg',
-            'Workshop'
-        ],
-        [
-            'images/moment-6.jpg',
-            'A moment between builds'
-        ]
-    ],
-    journey:[
-        [
-            '2022',
-            'First competitions',
-            'Science and innovation competitions became a serious part of the journey.'
-        ],
-        [
-            '2023',
-            'ROBO Superior',
-            'Founded ROBO Superior and began combining robotics building with leadership and mentoring.'
-        ],
-        [
-            '2023–24',
-            'Conrad Challenge',
-            'Coordinated Team Exo Max and Smart Road Safety Beast through the international finals.'
-        ],
-        [
-            '2024',
-            'Robotics mentoring',
-            'Expanded hands-on robotics training and started helping other students prepare for competitions.'
-        ],
-        [
-            '2025',
-            'International stage',
-            'Led Bangladesh at IOCE and received the Outstanding Presentation Award.'
-        ],
-        [
-            '2025',
-            'Research & impact',
-            'Joined research and assistive-technology initiatives while continuing robotics and community work.'
-        ],
-        [
-            '2026',
-            'A bigger archive',
-            'Continuing to build, compete, mentor and document the journey in one place.'
-        ]
+        {
+            image:'images/moment/01.jpg',
+            title:'A Moment In Space Center Houston raising Bangladeshi Flag For The First Time',
+            story:'Write the short story behind this moment here.',
+            iframe:''
+        },
+        {
+            image:'images/moment/02.jpg',
+            title:'The Prime Ministers Program',
+            story:'Write who was there, what happened and why this moment matters.',
+            iframe:''
+        },
+        {
+            image:'images/moment/03.jpg',
+            title:'A moment between builds',
+            story:'Write the story of what you were building or testing.',
+            iframe:''
+        },
+        {
+            image:'images/moment/04.jpg',
+            title:'Teaching Senior Students',
+            story:'Write the story behind this presentation or event.',
+            iframe:''
+        },
+        {
+            image:'images/moment/05.jpg',
+            title:'Drone Workshop Students of NSU',
+            story:'Write what you learned or built during this workshop.',
+            iframe:''
+        },
+        {
+            image:'images/moment/06.jpg',
+            title:'Noble neiturate Proffesor Mohammad Yunus',
+            story:'Write the personal story behind this photograph.',
+            iframe:''
+        },
+         {
+            image:'images/moment/07.jpg',
+            title:'Its judgement time',
+            story:'Write the personal story behind this photograph.',
+            iframe:''
+        },
+        {
+            image:'images/moment/08.jpg',
+            title:'Leading My Team',
+            story:'Write the personal story behind this photograph.',
+            iframe:''
+        },
+        {
+            image:'images/moment/09.jpg',
+            title:'US Embassy Featuring Us',
+            story:'Optional short note about why this coverage matters.',
+            iframe:''
+        }
     ],
     experience:[
+        {
+            role:'Organizer',
+            org:'Bangladesh Olympiad On Climate Change & Environmental Issues 2026',
+            period:'2026 — Present',
+            detail:'Organizing the olympiad i got prize in last year',
+            image:'images/experience/boce.jpg',
+            links:[
+                [
+                    'Institution website',
+                    'https://www.slsn.community/boce'
+                ]
+            ]
+        },
         {
             role:'Senior Executive',
             org:'Oxygen Robotics',
             period:'2026 — Present',
             detail:'Contributing to a student-led international robotics R&D organization.',
-            image:'images/experience-oxygen.jpg',
+            image:'images/experience/oxygen.jpg',
             links:[
                 [
                     'Institution website',
@@ -2785,45 +3089,28 @@ const DATA={
             ]
         },
         {
-            role:'Co-Founder & CEO',
-            org:'ROBO Superior',
-            period:'2023 — 2025',
-            detail:'Led a robotics venture centered on competition robotics, mentoring and community-focused problem solving.',
-            image:'images/experience-robo-superior.jpg',
+            role:'R&D / IT Executive',
+            org:'Pet-Tivist Foundation',
+            period:'2025 — 2026',
+            detail:'Develops technology supporting a youth-led animal rescue and welfare initiative.',
+            image:'images/experience/pettivist.jpg',
             links:[
                 [
-                    'Organisation website',
-                    ''
-                ]
-            ]
-        },
-        {
-            role:'Robotics Trainer',
-            org:'Robodemy',
-            period:'2024 — Present',
-            detail:'Teach robotics fundamentals through hands-on workshops across schools in Dhaka; mentees have advanced to national robotics finals.',
-            image:'images/experience-robodemy.jpg',
-            links:[
-                [
-                    'Robodemy website',
-                    'robodemy.com'
-                ],
-                [
-                    'Workshop / profile',
-                    ''
+                    'Foundation website',
+                    'https://www.pettivist.com/'
                 ]
             ]
         },
         {
             role:'Research Fellow',
             org:'The New York Academy of Sciences',
-            period:'2025 — Present',
+            period:'2025 — 2025',
             detail:'Contributing to a research project on solar energy infrastructure.',
-            image:'images/experience-nyas.jpg',
+            image:'images/experience/nyas.png',
             links:[
                 [
                     'Institution website',
-                    ''
+                    'https://www.nyas.org/'
                 ],
                 [
                     'Research / project',
@@ -2833,27 +3120,14 @@ const DATA={
         },
         {
             role:'Team Coordinator',
-            org:'Team Exo Max — Conrad Challenge',
-            period:'2023 — 2024',
-            detail:"Coordinated a student team's Smart Road Safety Beast project through to the international finals.",
-            image:'images/experience-conrad.jpg',
-            links:[
-                [
-                    'Conrad Challenge',
-                    'https://conrad.spacecenter.org/'
-                ]
-            ]
-        },
-        {
-            role:'Team Coordinator',
             org:'Team Bangladesh — IOCE',
             period:'2025',
             detail:"Led Bangladesh's delegation at an international climate and environment olympiad.",
-            image:'images/experience-ioce.jpg',
+            image:'images/experience/ioce.svg',
             links:[
                 [
                     'IOCE website',
-                    ''
+                    'https://ioce.siriusolymp.ru/'
                 ],
                 [
                     'Team page',
@@ -2862,83 +3136,49 @@ const DATA={
             ]
         },
         {
-            role:'Technical Analytics Lead',
-            org:'More Tech BD',
-            period:'',
-            detail:'Directed technical planning for assistive robotics devices, including low-cost smart wheelchairs.',
-            image:'images/experience-moretech.jpg',
+            role:'Robotics Trainer',
+            org:'Robodemy',
+            period:'2024 — 2026',
+            detail:'Teach robotics fundamentals through hands-on workshops across schools in Dhaka; mentees have advanced to national robotics finals.',
+            image:'images/experience/robodemy.jpg',
             links:[
                 [
-                    'More Tech BD',
-                    ''
+                    'Robodemy website',
+                    'www.robodemybd.com'
                 ],
                 [
-                    'Project / impact page',
+                    'Workshop / profile',
                     ''
                 ]
             ]
         },
         {
-            role:'R&D / IT Executive',
-            org:'Pet-Tivist Foundation',
-            period:'2025 — Present',
-            detail:'Develops technology supporting a youth-led animal rescue and welfare initiative.',
-            image:'images/experience-pettivist.jpg',
+            role:'Team Coordinator',
+            org:'Team Exo Max — Conrad Challenge',
+            period:'2023 — 2024',
+            detail:"Coordinated a student team's Smart Road Safety Beast project through to the international finals.",
+            image:'images/experience/conrad.webp',
             links:[
                 [
-                    'Foundation website',
-                    ''
+                    'Conrad Challenge',
+                    'https://conrad.spacecenter.org/'
                 ]
             ]
         },
         {
-            role:'Founding President',
-            org:'NGBHS Debating Club',
-            period:'2023',
-            detail:'Founded a school debate club focused on public speaking and critical thinking.',
-            image:'images/experience-debate.jpg',
+            role:'Co-Founder & CEO',
+            org:'ROBO Superior',
+            period:'2023 — 2025',
+            detail:'Led a robotics venture centered on competition robotics, mentoring and community-focused problem solving.',
+            image:'images/experience/robo_superior.jpg',
             links:[
                 [
-                    'Club / school page',
-                    ''
+                    'Organisation website',
+                    'www.robosuperior.org'
                 ]
             ]
         }
-    ],
-    news:[
-        // Put the real article URL here. If the publication allows embedding, the article will appear as a live preview inside the modal.
-        {
-            date:'ADD ARTICLE',
-            title:'The Daily Star feature',
-            desc:'Add your Daily Star article URL here. The website will try to show the original page inside the portfolio before visitors open the full story.',
-            image:'images/news-dailystar.jpg',
-            url:'',
-            source:'The Daily Star'
-        },
-        {
-            date:'ADD ARTICLE',
-            title:'Conrad Challenge feature',
-            desc:'Add the article, announcement, interview or media story covering the Conrad journey.',
-            image:'images/news-conrad.jpg',
-            url:'',
-            source:'News / Media'
-        },
-        {
-            date:'ADD ARTICLE',
-            title:'IOCE / Bangladesh coverage',
-            desc:'Add news about the international delegation and Outstanding Presentation Award.',
-            image:'images/news-ioce.jpg',
-            url:'',
-            source:'News / Media'
-        },
-        {
-            date:'ADD PODCAST',
-            title:'Podcast / interview',
-            desc:'Add a podcast or interview where I talk about the journey.',
-            image:'images/news-podcast.jpg',
-            url:'',
-            source:'Podcast'
-        }
+        
     ],
     socials:[
         [
@@ -2962,7 +3202,7 @@ const DATA={
             'https://www.facebook.com/mahdibinferdaus'
         ],
         [
-            'X / Twitter',
+            'X',
             'https://x.com/mahdibinferdaus'
         ]
     ],
@@ -3005,84 +3245,156 @@ function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&l
 function imageTag(src,label,cls=''){return `<img class="${cls}" src="${src}" alt="${esc(label)}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="fallback" style="display:none">${esc((label||'MF').slice(0,2).toUpperCase())}</div>`}
 function linkButton(item){const label=item[0]||'Link';const url=item.length>=3?item[2]:item[1];const note=item.length>=3?item[1]:'Open link';return url?`<a class="resource" href="${esc(url)}" target="_blank" rel="noopener"><div><strong>${esc(label)}</strong><small>${esc(note||'Open link')}</small></div><span>↗</span></a>`:`<div class="resource" style="opacity:.65;cursor:default"><div><strong>${esc(label)}</strong><small>${esc(note||'Add URL in the DATA object')}</small></div><span>＋</span></div>`}
 function facts(f){return `<div class="facts">${f.map(x=>`<div class="fact"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('')}</div>`}
-function gallery(images,label){const valid=images||[];return valid.length?`<div class="modal-gallery">${valid.map((x,i)=>`<button onclick="openImage('${esc(x)}','${esc(label)}')">${imageTag(x,label+' '+(i+1))}</button>`).join('')}</div>`:''}
+function gallery(images, label, stories) {
+    const valid = images || [];
+
+    if (!valid.length) {
+        return '';
+    }
+
+    const repeated = [...valid, ...valid];
+    const duration = Math.max(28, valid.length * 4.5);
+
+    return `
+        <div
+            class="modal-gallery"
+            style="--gallery-duration:${duration}s"
+        >
+            <div class="modal-gallery-track">
+                ${repeated.map((x, i) => `
+                    <button
+                        type="button"
+                        onclick="openImage(
+                            '${esc(x)}',
+                            '${esc(label)} · Photo ${((i % valid.length) + 1)}',
+                            '${esc((stories || [])[i % valid.length] || '')}'
+                        )"
+                    >
+                        ${imageTag(
+                            x,
+                            label + ' ' + ((i % valid.length) + 1)
+                        )}
+                    </button>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
 function resources(title,items){if(!items||!items.length)return '';return `<h3 class="resource-title">${esc(title)}</h3><div class="resources">${items.map(linkButton).join('')}</div>`}
 function showModal(kicker,html){document.getElementById('modalKicker').textContent=kicker;document.getElementById('modalContent').innerHTML=html;document.getElementById('modal').classList.add('open');document.body.classList.add('modal-open');document.getElementById('modal').setAttribute('aria-hidden','false')}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.classList.remove('modal-open');document.getElementById('modal').setAttribute('aria-hidden','true')}
-function openImage(src,label){showModal('Photo · '+label,`<img class="modal-hero" src="${esc(src)}" alt="${esc(label)}"><h2>${esc(label)}</h2><p>Add a date, location, people involved and the story behind this photograph in the DATA object.</p>`)}
-function openAchievement(i){const a=DATA.achievements[i];showModal('Achievement · '+a.mini,`${imageTag(a.image,a.title,'modal-hero')}<h2>${esc(a.title)}</h2><p>${esc(a.body)}</p>${facts(a.facts)}${gallery(a.gallery,a.title)}${resources(a.linkTitle,a.links)}${resources(a.journeyTitle,[['Full journey story',''],['Related project story',''],['News & media archive',''],['Podcast / interview','']])}`)}
-function openProject(i){const p=DATA.projects[i];showModal('Project · '+p.tag,`${imageTag(p.image,p.name,'modal-hero')}<h2>${esc(p.name)}</h2><p>${esc(p.body)}</p>${facts(p.facts)}${resources('Explore this project',[['Project gallery',''],['Demo video',''],['Build notes',''],['GitHub / code','']])}`)}
-function openMoment(i){const m=DATA.moments[i];showModal('Moment · Photo archive',`${imageTag(m[0],m[1],'modal-hero')}<h2>${esc(m[1])}</h2><p>Add the story, event, date, location, people and related achievement or project here.</p>${resources('Explore the related story',[['Related achievement',''],['Related project',''],['News / media','']])}`)}
-function openJourney(){showModal('The complete journey',`<h2>Building, failing, learning — and building again.</h2><p>This is the long-form version of the journey. Use it for the complete narrative with chapters, photographs, competition results, project links, news coverage and podcast appearances.</p>${DATA.journey.map((j,i)=>`<div class="modal-story"><b>${esc(j[0])} · ${esc(j[1])}</b><p>${esc(j[2])}</p></div>`).join('')}${resources('Explore more about this journey',[['Journey photo archive',''],['Podcast / interview',''],['News & media archive',''],['Certificates & documents','']])}`)}
-function openExperience(i){const e=DATA.experience[i];showModal('Experience · '+e.org,`${imageTag(e.image,e.org,'modal-hero')}<h2>${esc(e.role)}</h2><p><strong>${esc(e.org)}</strong> · ${esc(e.period)}</p><p>${esc(e.detail)}</p>${resources('Explore the institution & experience',e.links)}${resources('Add more evidence here',[['Working photos',''],['Project / impact page',''],['Certificate / letter',''],['Related news','']])}`)}
-function openNews(i) {
-    const n = DATA.news[i];
+function openImage(src, label, story) {
+    showModal(
+        'Photo · ' + label,
+        `
+            <img class="modal-hero" src="${esc(src)}" alt="${esc(label)}">
+            <h2>${esc(label)}</h2>
+            <p>${esc(story || 'Add the short story for this photograph in the achievement galleryStories array.')}</p>
+        `
+    );
+}
 
-    const preview = n.url
+function renderJourneyNews(news) {
+    if (!news || !news.length) {
+        return '';
+    }
+
+    return `
+        <section class="journey-news">
+            <h3 class="resource-title">News of this journey</h3>
+
+            <div class="journey-news-list">
+                ${news.map((item) => `
+                    <article class="journey-news-item">
+                        <h4>${esc(item.title)}</h4>
+
+                        <a
+                            class="journey-news-frame"
+                            href="${esc(item.url)}"
+                            target="_blank"
+                            rel="noopener"
+                            aria-label="Open ${esc(item.title)}"
+                        >
+                            <iframe
+                                src="${esc(item.url)}"
+                                title="${esc(item.title)}"
+                                loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                            ></iframe>
+
+                            <span class="journey-news-overlay">
+                                Open article ↗
+                            </span>
+                        </a>
+                    </article>
+                `).join('')}
+            </div>
+        </section>
+    `;
+}
+
+function openAchievement(i) {
+    const a = DATA.achievements[i];
+
+    showModal(
+        'Achievement · ' + a.mini,
+        `
+            ${imageTag(a.image, a.title, 'modal-hero')}
+            <h2>${esc(a.title)}</h2>
+            <p>${esc(a.body)}</p>
+            ${facts(a.facts)}
+            ${gallery(a.gallery, a.title, a.galleryStories)}
+            ${resources(a.linkTitle, a.links)}
+            ${renderJourneyNews(a.news)}
+        `
+    );
+}
+
+function openProject(i) {
+    const p = DATA.projects[i];
+    showModal(
+        'Project · ' + p.tag,
+        `${imageTag(p.image,p.name,'modal-hero')}<h2>${esc(p.name)}</h2><p>${esc(p.body)}</p>${facts(p.facts)}${resources('Explore this project',[['Project gallery',''],['Demo video',''],['Build notes',''],['GitHub / code','']])}`
+    );
+}
+
+function openMoment(i) {
+    const m = DATA.moments[i];
+
+    const media = m.iframe
         ? `
-            <div class="news-preview">
-                <div class="news-preview-fallback">
-                    <div>
-                        <strong>${esc(n.source || 'Publication')} preview</strong>
-                        <p>
-                            If this publication blocks embedded pages,
-                            use the button below to open the original article.
-                        </p>
-                    </div>
-                </div>
+            <div class="moment-iframe-modal">
                 <iframe
-                    src="${esc(n.url)}"
-                    title="${esc(n.title)}"
+                    src="${esc(m.iframe)}"
+                    title="${esc(m.title)}"
                     loading="lazy"
                     referrerpolicy="strict-origin-when-cross-origin"
                 ></iframe>
             </div>
         `
-        : '';
-
-    const articleAction = n.url
-        ? `
-            <div class="hero-actions">
-                <a
-                    class="btn btn-primary"
-                    href="${esc(n.url)}"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    Read the full story ↗
-                </a>
-            </div>
-        `
-        : `
-            <div class="modal-story">
-                <p>
-                    Add the original article or podcast URL in DATA.news.
-                    For publications that permit embedding, visitors will see
-                    the actual page here; otherwise the full-story button
-                    remains the reliable route.
-                </p>
-            </div>
-        `;
+        : imageTag(m.image, m.title, 'modal-hero');
 
     showModal(
-        'News & Press · ' + n.date,
-        `${preview}
-            ${!n.url ? imageTag(n.image, n.title, 'modal-hero') : ''}
-            <h2>${esc(n.title)}</h2>
-            <p>${esc(n.desc)}</p>
-            ${articleAction}
+        'Moment · Archive',
+        `
+            ${media}
+            <h2>${esc(m.title)}</h2>
+            <p>${esc(m.story)}</p>
         `
     );
 }
 
+function openExperience(i) {
+    const e=DATA.experience[i];
+    showModal('Experience · '+e.org,`${imageTag(e.image,e.org,'modal-hero')}<h2>${esc(e.role)}</h2><p><strong>${esc(e.org)}</strong> · ${esc(e.period)}</p><p>${esc(e.detail)}</p>${resources('Explore the institution & experience',e.links)}${resources('Add more evidence here',[['Working photos',''],['Project / impact page',''],['Certificate / letter',''],['Related news','']])}`)
+}
 function render(){
  document.getElementById('statsGrid').innerHTML=DATA.stats.map((s,i)=>`<div class="stat reveal d${i}"><b data-count="${parseInt(s[0])||0}">${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('');
  document.getElementById('achievementGrid').innerHTML=DATA.achievements.map((a,i)=>`<button class="achievement reveal d${i%4}" onclick="openAchievement(${i})"><div class="achievement-photo">${imageTag(a.image,a.title)}</div><div class="achievement-content"><span class="mini">${esc(a.mini)}</span><h3>${esc(a.title)}</h3><p>${esc(a.desc)}</p><span class="achievement-open">Touch to explore</span></div></button>`).join('');
  document.getElementById('projectGrid').innerHTML=DATA.projects.map((p,i)=>`<button class="project reveal d${i%4}" onclick="openProject(${i})"><div class="project-photo">${imageTag(p.image,p.name)}</div><div class="project-body"><small>${esc(p.tag)}</small><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p></div><span class="project-arrow">↗</span></button>`).join('');
- document.getElementById('momentsGrid').innerHTML=DATA.moments.map((m,i)=>`<button class="moment reveal d${i%4}" onclick="openMoment(${i})">${imageTag(m[0],m[1])}<span class="moment-label">${esc(m[1])} ↗</span></button>`).join('');
- document.getElementById('journeyGrid').innerHTML=DATA.journey.map(j=>`<div class="journey-item reveal"><div class="journey-dot"></div><div class="journey-year">${esc(j[0])}</div><div><h3>${esc(j[1])}</h3><p>${esc(j[2])}</p></div></div>`).join('');
+ document.getElementById('momentsGrid').innerHTML=DATA.moments.map((m,i)=>m.iframe ? `<div class="moment moment-embed reveal d${i%4}"><iframe src="${esc(m.iframe)}" title="${esc(m.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe><span class="moment-label always">${esc(m.title)}</span></div>` : `<button class="moment reveal d${i%4}" onclick="openMoment(${i})">${imageTag(m.image,m.title)}<span class="moment-label">${esc(m.title)} ↗</span></button>`).join('');
+
  document.getElementById('experienceGrid').innerHTML=DATA.experience.map((e,i)=>`<button class="experience-card reveal d${i%4}" onclick="openExperience(${i})"><div class="experience-photo">${imageTag(e.image,e.org)}</div><div class="experience-main"><small>${esc(e.period)}</small><h3>${esc(e.role)}</h3><div class="experience-org">${esc(e.org)}</div><p>${esc(e.detail)}</p><div class="experience-links"><span class="text-link">View experience ↗</span></div></div></button>`).join('');
- document.getElementById('newsGrid').innerHTML=DATA.news.map((n,i)=>`<button class="news-card reveal d${i%4}" onclick="openNews(${i})"><span class="news-live">${n.url?'Live preview':'Add link'}</span><div class="news-image">${imageTag(n.image,n.title)}</div><div class="news-body"><small>${esc(n.date)} · ${esc(n.source||'Media')}</small><h3>${esc(n.title)}</h3><p>${esc(n.desc)}</p><span class="news-more">${n.url?'Preview story →':'Add story URL →'}</span></div></button>`).join('');
  document.getElementById('skillsGrid').innerHTML=DATA.skills.map(s=>`<div class="skill-box reveal"><h3>${esc(s[0])}</h3>${s.slice(1).map(x=>`<span class="pill">${esc(x)}</span>`).join('')}</div>`).join('');
 }
 
@@ -3090,8 +3402,43 @@ const menu=document.getElementById('menu'),links=document.getElementById('navLin
 const nav=document.getElementById('nav');window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30),{passive:true});
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.12});
-function renderSocials(){const items=DATA.socials;const html=items.map(x=>x[1]?`<a href="${esc(x[1])}" target="_blank" rel="noopener">${esc(x[0])} ↗</a>`:`<span class="social-placeholder" title="Add your ${esc(x[0])} URL in DATA.socials">${esc(x[0])}</span>`).join('');document.getElementById('heroSocials').innerHTML=html;document.getElementById('footerSocials').innerHTML=html;document.getElementById('socialDock').innerHTML=items.filter(x=>x[1]).map(x=>`<a href="${esc(x[1])}" target="_blank" rel="noopener" aria-label="${esc(x[0])}" title="${esc(x[0])}">${esc(x[0].slice(0,2).toUpperCase())}</a>`).join('')}
-render();renderSocials();document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
+function socialIcon(name) {
+    const icons = {
+        LinkedIn: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.2 3.6A2.2 2.2 0 1 1 .8 3.6a2.2 2.2 0 0 1 4.4 0ZM1 8h4.2v13H1V8Zm6.8 0H12v1.8h.1c.6-1.1 2-2.3 4.2-2.3 4.5 0 5.3 2.8 5.3 6.4V21h-4.2v-6.3c0-1.5 0-3.4-2.1-3.4s-2.4 1.6-2.4 3.3V21H7.8V8Z"/></svg>`,
+        Instagram: `<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.7" r="1.2" fill="currentColor"/></svg>`,
+        Facebook: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v4h4v-4h3.3l.7-4H13V9c0-.7.3-1 1-1Z"/></svg>`,
+        YouTube: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.6 7.2a2.9 2.9 0 0 0-2-2C17.8 4.7 12 4.7 12 4.7s-5.8 0-7.6.5a2.9 2.9 0 0 0-2 2C2 9 2 12 2 12s0 3 .4 4.8a2.9 2.9 0 0 0 2 2c1.8.5 7.6.5 7.6.5s5.8 0 7.6-.5a2.9 2.9 0 0 0 2-2C22 15 22 12 22 12s0-3-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"/></svg>`,
+        X: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h4.4l4 5.5L17.2 4H20l-6.3 7.1L20.4 20H16l-4.4-6-5.3 6H3.5l6.6-7.5L4 4Z"/></svg>`,
+        GitHub: `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 0 1.5 1 1.5 1 .9 1.5 2.4 1.1 3 .8.1-.7.3-1.1.6-1.4-2.2-.2-4.5-1.1-4.5-4.8 0-1.1.4-2 1-2.7-.1-.2-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.5 9.5 0 0 1 5 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.5.1 2.7.6.7 1 1.6 1 2.7 0 3.7-2.3 4.6-4.5 4.8.3.3.6.9.6 1.8V21c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>`
+    };
+    return icons[name] || `<span>${esc(name.slice(0,2).toUpperCase())}</span>`;
+}
+
+function renderSocials() {
+    const items = DATA.socials;
+
+    const html = items
+        .filter(x => x[1])
+        .map(x => `
+            <a
+                href="${esc(x[1])}"
+                target="_blank"
+                rel="noopener"
+                aria-label="${esc(x[0])}"
+                title="${esc(x[0])}"
+            >
+                ${socialIcon(x[0])}
+            </a>
+        `)
+        .join('');
+
+    document.getElementById('heroSocials').innerHTML = html;
+    document.getElementById('footerSocials').innerHTML = html;
+    document.getElementById('socialDock').innerHTML = html;
+}
+
+render();
+renderSocials();document.querySelectorAll('.reveal').forEach(x=>observer.observe(x));
 
 const progress=document.getElementById('pageProgress');function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?(scrollY/max)*100:0)+'%'}window.addEventListener('scroll',updateProgress,{passive:true});updateProgress();
 function hideLoader(){const loader=document.getElementById('loader');if(loader)loader.classList.add('hide')}
@@ -3149,7 +3496,29 @@ async function submitForm(
             : 'Send message ↗';
     }
 }
-document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();submitForm(e.currentTarget,FORM_ENDPOINTS.contact,document.getElementById('formStatus'),'Message sent successfully.');});
+document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const status = document.getElementById('formStatus');
+
+    if (!CONTACT_EMAIL || CONTACT_EMAIL.includes('YOUR_EMAIL')) {
+        status.textContent = 'Add your email address to CONTACT_EMAIL near the top of the script first.';
+        return;
+    }
+
+    const subject = encodeURIComponent('Portfolio contact from ' + (data.get('name') || 'Website visitor'));
+    const body = encodeURIComponent(
+        'Name: ' + (data.get('name') || '') + '\\n' +
+        'Email: ' + (data.get('email') || '') + '\\n' +
+        'Mobile: ' + (data.get('Number') || '') + '\\n\\n' +
+        'Message:\\n' + (data.get('message') || '')
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    status.textContent = 'Your email app should now open with the message prepared.';
+});
 document.getElementById('mentoringForm').addEventListener('submit',e=>{e.preventDefault();submitForm(e.currentTarget,FORM_ENDPOINTS.mentoring,document.getElementById('mentoringStatus'),'Your mentoring request was sent successfully.');});
   </script>
  </body>
