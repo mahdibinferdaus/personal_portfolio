@@ -516,8 +516,8 @@ img {
 .moments {
     display:grid;
     grid-template-columns:repeat(12,1fr);
-    grid-auto-rows:145px;
-    gap:12px
+    grid-auto-rows:175px;
+    gap:14px
 }
 .moment {
     position:relative;
@@ -531,10 +531,12 @@ img {
     grid-row:span 2
 }
 .moment:nth-child(2) {
-    grid-column:span 3
+    grid-column:span 3;
+    grid-row:span 2
 }
 .moment:nth-child(3) {
-    grid-column:span 4
+    grid-column:span 4;
+    grid-row:span 2
 }
 .moment:nth-child(4) {
     grid-column:span 4
@@ -544,6 +546,14 @@ img {
 }
 .moment:nth-child(6) {
     grid-column:span 5
+}
+/* The final three photos need a larger frame so their original compositions have room.
+   Earlier photos keep the same grid system and will crop naturally to match. */
+.moment:nth-child(7),
+.moment:nth-child(8),
+.moment:nth-child(9) {
+    grid-column:span 4;
+    grid-row:span 2;
 }
 .moment img {
     width:100%;
@@ -1544,6 +1554,227 @@ body:before {
 .news-preview-fallback strong {
     font:600 25px var(--display)
 }
+
+/* =====================================================
+   MENTORING / INTRO CALL
+   ===================================================== */
+.mentor{
+    background:linear-gradient(135deg,#eef5f0 0%,#fafaf8 48%,#eef2ed 100%);
+}
+.field-static {
+    min-height:52px;
+    box-sizing:border-box;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:15px 16px;
+    background:var(--paper2);
+    color:var(--ink);
+    display:flex;
+    align-items:center;
+    font-weight:600;
+}
+.mentor-intro-head{
+    max-width:760px;
+    margin-bottom:42px;
+}
+.mentor-intro-head .sub{
+    margin-top:18px;
+    max-width:620px;
+}
+.mentor-grid{
+    display:grid;
+    grid-template-columns:.82fr 1.18fr;
+    gap:42px;
+    align-items:start;
+}
+.mentor-side{
+    display:grid;
+    gap:28px;
+}
+.mentor-glance{
+    background:rgba(255,255,255,.88);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 24px;
+}
+.mentor-kicker{
+    margin:0 0 13px;
+    font:10px var(--mono);
+    color:var(--signal);
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+.glance-row{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14px;
+}
+.glance-row span{color:var(--slate);}
+.glance-row strong{text-align:right;font-weight:600;}
+.glance-note{
+    margin:17px 0 0;
+    color:var(--slate);
+    font-size:13px;
+    line-height:1.6;
+}
+.mentor-copy{padding:0 3px;}
+.mentor-copy>p{
+    margin:0;
+    color:var(--slate);
+    font-size:15px;
+    line-height:1.7;
+}
+.mentor-benefits{
+    list-style:none;
+    padding:0;
+    margin:20px 0 0;
+    display:grid;
+    gap:12px;
+}
+.mentor-benefits li{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    font-size:13px;
+    color:#34453b;
+}
+.mentor-benefits li span{color:var(--signal);font-weight:700;}
+.mentor-card{
+    background:white;
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:26px;
+    box-shadow:var(--shadow);
+}
+.mentor-form-head{
+    padding-bottom:20px;
+    margin-bottom:20px;
+    border-bottom:1px solid var(--line);
+}
+.mentor-form-head h3{
+    margin:0 0 7px;
+    font:600 28px/1.1 var(--display);
+    letter-spacing:-.03em;
+}
+.mentor-form-head p:last-child{
+    margin:0;
+    color:var(--slate);
+    font-size:13px;
+}
+.mentor-form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 14px;
+}
+.field{min-width:0;}
+.field label{
+    display:block;
+    margin:0 0 7px;
+    font-size:11px;
+    font-weight:700;
+    color:var(--ink);
+}
+.field label span{color:var(--slate);font-weight:500;}
+.mentor-form textarea,.mentor-form input,.mentor-form select{
+    width:100%;
+    padding:13px 14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:#fff;
+    color:var(--ink);
+    outline:none;
+    font:13px var(--body);
+    transition:.25s ease;
+}
+.mentor-form textarea{
+    min-height:128px;
+    resize:vertical;
+}
+.mentor-form .short-textarea{min-height:92px;}
+.mentor-form input::placeholder,.mentor-form textarea::placeholder{color:#9aa2a8;}
+.mentor-form input:focus,.mentor-form textarea:focus,.mentor-form select:focus{
+    border-color:var(--signal);
+    box-shadow:0 0 0 4px rgba(47,111,82,.08);
+}
+.mentor-submit{margin-top:3px;}
+.mentor-form-note{
+    margin:0;
+    color:var(--slate);
+    font-size:11px;
+    line-height:1.55;
+}
+.mentor-faq{
+    margin-top:54px;
+    display:grid;
+    grid-template-columns:.72fr 1.28fr;
+    gap:55px;
+    padding-top:38px;
+    border-top:1px solid var(--line);
+}
+.faq-intro h3{
+    margin:0;
+    font:600 30px/1.05 var(--display);
+    letter-spacing:-.035em;
+}
+.faq-list{border-top:1px solid var(--line);}
+.faq-list details{border-bottom:1px solid var(--line);}
+.faq-list summary{
+    list-style:none;
+    cursor:pointer;
+    padding:18px 28px 18px 0;
+    position:relative;
+    font-size:14px;
+    font-weight:700;
+}
+.faq-list summary::-webkit-details-marker{display:none;}
+.faq-list summary:after{
+    content:'+';
+    position:absolute;
+    right:2px;
+    top:15px;
+    color:var(--slate);
+    font:18px var(--body);
+    transition:.2s ease;
+}
+.faq-list details[open] summary:after{content:'−';color:var(--signal);}
+.faq-list details p{
+    margin:0 30px 18px 0;
+    color:var(--slate);
+    font-size:13px;
+    line-height:1.65;
+}
+
+/* CONTACT */
+.contact-note{
+    margin-top:30px;
+    padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.12);
+    max-width:430px;
+}
+.contact-note span{
+    display:block;
+    margin-bottom:7px;
+    font:10px var(--mono);
+    color:#9ad0ae;
+    letter-spacing:.12em;
+}
+.contact-note strong{
+    display:block;
+    font:500 16px/1.4 var(--display);
+    color:#e8eee9;
+}
+.contact-fields{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+.contact .field label{color:#fff;}
+.contact .field label span{color:#9aa2a8;}
+.contact .form input,.contact .form textarea{font:13px var(--body);}
+
 .mentor {
     background:linear-gradient(120deg,#e8f1eb 0%,#fafaf8 50%,#edf0ea 100%)
 }
@@ -1771,11 +2002,17 @@ body:before {
         grid-column:span 12!important
     }
     .moments {
-        grid-auto-rows:115px
+        grid-auto-rows:145px
     }
     .moment {
         grid-column:span 6!important;
         grid-row:span 1!important
+    }
+    .moment:nth-child(7),
+    .moment:nth-child(8),
+    .moment:nth-child(9) {
+        grid-column:span 6!important;
+        grid-row:span 2!important;
     }
     .journey:before {
         left:7px
@@ -1955,6 +2192,20 @@ body:before {
     .moment-iframe-modal {
         height:330px;
     }
+}
+
+
+@media(max-width:950px){
+    .mentor-grid{grid-template-columns:1fr;}
+    .mentor-faq{grid-template-columns:1fr;gap:25px;}
+}
+@media(max-width:650px){
+    .mentor-card{padding:18px;}
+    .mentor-form,.contact-fields{grid-template-columns:1fr;}
+    .field.full,.mentor-form .full{grid-column:auto;}
+    .mentor-faq{margin-top:40px;padding-top:30px;}
+    .glance-row{align-items:flex-start;}
+    .glance-row strong{max-width:55%;}
 }
 
 </style>
@@ -2215,100 +2466,144 @@ body:before {
     </div>
    </section>
    <section class="section mentor" id="mentoring">
-    <div class="wrap mentor-grid">
-     <div class="reveal">
-      <p class="eyebrow">
-       07 · Conrad Challenge Mentoring
-      </p>
-      <h2 class="title">
-       Bring me your idea. Let's make it stronger.
-      </h2>
+    <div class="wrap">
+     <div class="mentor-intro-head reveal">
+      <p class="eyebrow">07 · Get started</p>
+      <h2 class="title">Request an intro call</h2>
       <p class="sub">
-       A dedicated mentoring space for students and teams preparing for the Conrad Challenge.
+       1:1 guidance for Conrad Challenge teams — starting with a free 30-minute conversation.
       </p>
-      <div class="mentor-meta">
-       <div>
-        <b>
-         Best for
-        </b>
-        <span>
-         Conrad Challenge · Project development · Presentation · Pitch
-        </span>
+     </div>
+
+     <div class="mentor-grid">
+      <div class="mentor-side reveal">
+       <div class="mentor-glance">
+        <p class="mentor-kicker">At a glance</p>
+        <div class="glance-row"><span>Format</span><strong>1:1 video call</strong></div>
+        <div class="glance-row"><span>Session length</span><strong>30 min</strong></div>
+        <div class="glance-row"><span>Scheduling</span><strong>Choose an available time</strong></div>
+        <div class="glance-row"><span>Cost</span><strong>Free intro call</strong></div>
+        <p class="glance-note">
+         Anything beyond the intro call is discussed afterward, based on what you actually need.
+        </p>
        </div>
-       <div>
-        <b>
-         What to include
-        </b>
-        <span>
-         Your Conrad team, project stage, deadline and the specific help you need.
-        </span>
+
+       <div class="mentor-copy">
+        <p>
+         This is for Conrad Challenge teams who want a second pair of eyes on their project, strategy, pitch or competition preparation.
+        </p>
+        <ul class="mentor-benefits">
+         <li><span>✓</span> A focused 30-minute introductory call</li>
+         <li><span>✓</span> A clear read on where you're stuck and what to focus on next</li>
+         <li><span>✓</span> An honest assessment of whether ongoing mentoring makes sense</li>
+         <li><span>✓</span> A clear next step after the conversation</li>
+        </ul>
        </div>
       </div>
+
+      <div class="mentor-card reveal d1">
+       <div class="mentor-form-head">
+        <p class="mentor-kicker">Introductory session</p>
+        <h3>Tell me about your Conrad Challenge team.</h3>
+        <p>I’ll review these details before the call so I can decide whether I’m the right mentor for your team and make the conversation useful from minute one.</p>
+       </div>
+
+       <form class="mentor-form" id="mentoringForm">
+        <div class="field">
+         <label for="mentorName">Name</label>
+         <input id="mentorName" name="name" placeholder="Your name" required/>
+        </div>
+        <div class="field">
+         <label for="mentorEmail">Email</label>
+         <input id="mentorEmail" name="email" placeholder="you@example.com" required type="email"/>
+        </div>
+        <div class="field">
+         <label for="mentorTeamName">Team name</label>
+         <input id="mentorTeamName" name="team_name" placeholder="Your Conrad Challenge team name" required/>
+        </div>
+        <div class="field">
+         <label for="mentorProject">Project title</label>
+         <input id="mentorProject" name="project_title" placeholder="Your project name" required/>
+        </div>
+        <input type="hidden" name="competition" value="Conrad Challenge"/>
+        <div class="field full">
+         <label for="mentorCover">Tell me about your project and what you need help with</label>
+         <textarea id="mentorCover" name="message" placeholder="Briefly describe what you're building, where you are right now, and what you'd like feedback or guidance on." required></textarea>
+        </div>
+        <div class="field full">
+         <label for="mentorLink">Project / portfolio link <span>(optional)</span></label>
+         <input id="mentorLink" name="project_link" placeholder="https://..."/>
+        </div>
+        <button class="btn btn-primary full mentor-submit" type="submit">Submit &amp; schedule intro call ↗</button>
+        <p class="mentor-form-note full">
+         I’ll review your request first. If it looks like a good fit, you’ll be taken to the scheduling page to choose an available time.
+        </p>
+        <span class="status full" id="mentoringStatus" aria-live="polite"></span>
+       </form>
+      </div>
      </div>
-     <div class="mentor-card reveal d1">
-      <form class="mentor-form" id="mentoringForm">
-       <input name="name" placeholder="Your name" required=""/>
-       <input name="Institution" placeholder="Your Academic institution" required=""/>
-       <input name="Competition Name" placeholder="Where are you applying at?" required=""/>
-       <input name="Mobile Number" placeholder="Mobile Number Contains Whatsapp Preferred" required=""/>
-       <input name="email" placeholder="Email address" required="" type="email"/>
-       <select name="topic" required="">
-        <option value="">
-        What do you need help with?
-        </option>
-        <option>
-        Full Competition Guidance
-        </option>
-        <option>
-        Project review
-        </option>
-        <option>
-        Presentation / pitch
-        </option>
-        <option>
-        Technical problem
-        </option>
-        <option>
-        Other
-        </option>
-       </select>
-       <input name="deadline" placeholder="Submission Deadline"/>
-       <textarea name="message" placeholder="Tell me about your project, what you have tried, and where you need help..." required="">
-</textarea>
-       <input class="full" name="link" placeholder="Project or portfolio link (optional)"/>
-       <button class="btn btn-primary full" type="submit">
-        Request a mentoring conversation ↗
-       </button>
-       <span class="status full" id="mentoringStatus">
-       </span>
-      </form>
+
+     <div class="mentor-faq reveal">
+      <div class="faq-intro">
+       <p class="mentor-kicker">Before you request</p>
+       <h3>What happens next?</h3>
+      </div>
+      <div class="faq-list">
+       <details open>
+        <summary>What happens on the intro call?</summary>
+        <p>We spend 30 minutes going through what you're building, where you're stuck, what you've already tried, and whether ongoing mentoring makes sense for your goals.</p>
+       </details>
+       <details>
+        <summary>Who is this mentoring for?</summary>
+        <p>For Conrad Challenge teams looking for practical feedback on their project, strategy, technical direction, pitch or competition preparation. I’ll review your request first to decide whether I’m a good fit for your team.</p>
+       </details>
+       <details>
+        <summary>Is there a cost?</summary>
+        <p>The 30-minute introductory call is free. If you need ongoing mentoring afterward, we can discuss the scope and terms based on what you actually need.</p>
+       </details>
+       <details>
+        <summary>What happens after I submit the form?</summary>
+        <p>I’ll receive your information and review it. You’ll then be taken to the scheduling page, where you can choose one of the available times and receive the meeting details.</p>
+       </details>
+      </div>
      </div>
     </div>
    </section>
    <section class="section contact" id="contact">
     <div class="wrap contact-grid">
      <div class="reveal">
-      <p class="eyebrow">
-       08 · Contact
-      </p>
-      <h2 class="title">
-       Have something to talk with me?
-      </h2>
+      <p class="eyebrow">08 · Contact</p>
+      <h2 class="title">Have something to talk with me?</h2>
       <p class="sub">
-       For collaborations, partnerships or an interesting problem — send me the details and it will be prepared as an email to me.
+       For collaborations, partnerships, questions or an interesting problem — send me the details and I'll get back to you.
       </p>
+      <div class="contact-note">
+       <span>DIRECT MESSAGE</span>
+       <strong>Your message will come directly to me, and I’ll get back to you.</strong>
+      </div>
      </div>
      <form class="form reveal d1" id="contactForm">
-      <input name="name" placeholder="Your name" required=""/>
-      <input name="email" placeholder="Email address" required="" type="email"/>
-      <input name="Number" placeholder="Mobile Number" required="" type="number"/>
-      <textarea name="message" placeholder="Tell me what's on your mind..." required="">
-</textarea>
-      <button class="btn btn-primary" type="submit">
-       Send message ↗
-      </button>
-      <span class="status" id="formStatus">
-      </span>
+      <div class="contact-fields">
+       <div class="field">
+        <label for="contactName">Name</label>
+        <input id="contactName" name="name" placeholder="Your name" required/>
+       </div>
+       <div class="field">
+        <label for="contactEmail">Email</label>
+        <input id="contactEmail" name="email" placeholder="you@example.com" required type="email"/>
+       </div>
+      </div>
+      <div class="field">
+       <label for="contactPhone">Phone / WhatsApp <span>(optional)</span></label>
+       <input id="contactPhone" name="phone" placeholder="Your number"/>
+      </div>
+      <div class="field">
+       <label for="contactMessage">Message</label>
+       <textarea id="contactMessage" name="message" placeholder="Tell me what's on your mind..." required></textarea>
+      </div>
+      <input type="hidden" name="_subject" value="Portfolio contact — Mahdi Bin Ferdaus"/>
+      <button class="btn btn-primary" type="submit">Send message ↗</button>
+      <span class="status" id="formStatus" aria-live="polite"></span>
      </form>
     </div>
    </section>
@@ -2354,11 +2649,11 @@ body:before {
    - Add photos under /images/ and put their filenames in DATA below.
    ===================================================== */
 const FORM_ENDPOINTS = {
-  mentoring: '' // Add the separate form endpoint you will use for Conrad mentoring.
+  contact: 'https://formspree.io/f/mvkpbzpo',
+  mentoring: 'https://formspree.io/f/xqpzdavw'
 };
 
-// Put your email address here. Contact messages will open a prepared email with all form details.
-const CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
+const CALENDLY_URL = 'https://calendly.com/ibnemahdi5/30min';
 
 const DATA={
     stats:[
@@ -2403,7 +2698,7 @@ const DATA={
                 'The Ending Ceremory',
                 'Our Full Group at Ending Ceremony'
             ],
-            body:'The Conrad Challenge chapter can hold the complete story: how Team Exo Max formed, how Smart Road Safety Beast evolved, the feedback and iterations, the international-final experience, and what the journey taught me.',
+            body:'',
             facts:[
                 [
                     'Project',
@@ -2473,7 +2768,7 @@ const DATA={
             title:'Outstanding Presentation Award',
             mini:'IOCE · 2025',
             desc:"Led Bangladesh's delegation and received the Outstanding Presentation Award.",
-            image:'images/Achivements/IOCE/ioce.svg',
+            image:'images/Achivements/IOCE/logo.jpg',
             gallery:[
                 'images/Achivements/IOCE/01.jpg',
                 'images/Achivements/IOCE/02.jpg',
@@ -2522,7 +2817,7 @@ const DATA={
                 'We are preparing for Tree Plantation',
                 'Tree Plantation happening'
             ],
-            body:'A dedicated IOCE story can include the preparation, Bangladesh delegation, international experience, presentation, award moment and the climate/environment work behind it.',
+            body:'',
             facts:[
                 [
                     'Event',
@@ -2544,7 +2839,7 @@ const DATA={
             links:[
                 [
                     'Official event',
-                    'Add official website',
+                    '',
                     'https://ioce.siriusolymp.ru/'
                 ],
                 [
@@ -2564,10 +2859,28 @@ const DATA={
                 },
                 {
                     title:'Bangladesh team featured in Russian Embassy Bangladesh',
-                    url:'https://www.facebook.com/share/p/19JqypHGdB/'
+                    url:'https://bangladesh.mid.ru/en/press-centre/news/bangladeshi_student_wins_gold_at_the_international_olympiad_on_climate_change_and_environmental_issues/'
+                },
+                {
+                    title:'Bangladesh team featured in The Daily Star',
+                    url:'https://www.thedailystar.net/rising-stars/stars-the-rise/news/bangladeshi-student-wins-gold-international-climate-change?fbclid=IwcGRvZgVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEe6pMf3l-u2-zcXz0cdu6_aB0VmMsVzMQhkSpfZynMtC2ohaVBEgD0aONSiFI_aem_2leisJs2J3Ou2dCrRNh4yQ'
+                },
+                {
+                    title:'Bangladesh team featured in Times of Bangladesh',
+                    url:'https://tob.news/bangladeshs-tasin-mohammad-wins-gold-at-ioce-in-russia/'
+                },
+                {
+                    title:'Bangladesh team featured in BigganChinta',
+                    url:'https://www.bigganchinta.com/events/ugo01kuj7y'
+                },
+                {
+                    title:'Bangladesh team featured in Prothom Alo',
+                    url:'https://www.prothomalo.com/bangladesh/f6qhjx40kn'
+                },
+                {
+                    title:'Bangladesh team featured in Jugantor',
+                    url:'https://www.jugantor.com/campus/1006670'
                 }
-                
-
             ],
         },
         {
@@ -2585,7 +2898,7 @@ const DATA={
                 '',
                 ''
             ],
-            body:'Use this chapter for the Autonomous Saliva Collector story, the competition process, prototype work, testing and the final recognition.',
+            body:'',
             facts:[
                 [
                     'Project',
@@ -2607,7 +2920,7 @@ const DATA={
             links:[
                 [
                     'Competition website',
-                    'Add official website',
+                    '',
                     'https://bmie-challenge.com/2026/'
                 ],
                 [
@@ -2620,7 +2933,7 @@ const DATA={
             title:'Top 100 Emerging Innovators',
             mini:'Emerging Innovators · 2026',
             desc:'National recognition for contributions to innovation and technology.',
-            image:'images/Achivements/EIA/emerging.png',
+            image:'images/Achivements/EIA/logo.png',
             gallery:[
                 'images/Achivements/EIA/01.jpeg',
                 'images/Achivements/EIA/02.jpg',
@@ -2631,10 +2944,10 @@ const DATA={
                 'images/Achivements/EIA/07.jpg'
             ],
             galleryStories:[
-                'Write the story behind this Emerging Innovators photo.',
-                'Write the story behind this Emerging Innovators photo.'
+                '',
+                ''
             ],
-            body:'Add the nomination, selection process, innovation work, event photographs and media coverage here.',
+            body:'',
             facts:[
                 [
                     'Recognition',
@@ -2656,7 +2969,7 @@ const DATA={
             links:[
                 [
                     'Official award page',
-                    'Add official website',
+                    '',
                     'https://emerginginnovatorawards.org/'
                 ],
                 [
@@ -2676,13 +2989,16 @@ const DATA={
             image:'images/Achivements/springboard/logo.png',
             gallery:[
                 'images/Achivements/Springboard/01.jpg',
-                'images/Achivements/Springboard/02.jpg'
+                'images/Achivements/Springboard/02.jpg',
+                'images/Achivements/Springboard/03.jpg',
+                'images/Achivements/Springboard/04.jpg',
+                'images/Achivements/Springboard/05.jpg'
             ],
             galleryStories:[
                 '',
                 ''
             ],
-            body:'Use this space for the initiative, selection journey, pitch, team, programme experience and related media.',
+            body:'',
             facts:[
                 [
                     'Programme',
@@ -2707,19 +3023,50 @@ const DATA={
                     'https://www.youthcolab.org/springboard'
                 ],
             ],
+             linkTitle:'Explore more News about Youth Co:Lab Springboard 7.0',
+            news:[
+                {
+                    title:'Bangladesh team featured in The TBS News',
+                    url:'https://www.tbsnews.net/economy/corporates/youth-colab-springboard-70-honours-young-changemakers-1101081'
+                },
+                {
+                    title:'Bangladesh team featured in Dhaka Tribune',
+                    url:'https://www.dhakatribune.com/entertainment/377437/202503271306'
+                },
+                {
+                    title:'Bangladesh team featured in Samakal',
+                    url:' https://en.samakal.com/tech/170838910/young-social-entrepreneurs-'
+                },
+                {
+                    title:'Bangladesh team featured in The Business Standard',
+                    url:'https://www.tbsnews.net/economy/corporates/youth-colab-springboard-70-honours-young-changemakers-1101081'
+                },
+                {
+                    title:'Bangladesh team featured in Asian Age',
+                    url:'https://dailyasianage.com/news/335791/youth-colab-springboard-70-young-social-entrepreneurs-recognized-for-leading-the-way-in-innovation-and-impact'
+                },
+                {
+                    title:'Bangladesh team featured in Ittefaq',
+                    url:'https://www.ittefaq.com.bd/726133'
+                },
+                {
+                    title:'Bangladesh team featured in Manabzamin',
+                    url:'https://mzamin.com/news.php?news=155234'
+                }
+            ],
         },
         {
             title:'Selected Scholar',
             mini:'Yale Young Global Scholars',
             desc:'Selected to join a competitive global academic programme.',
-            image:'images/Achivements/yygs/yygs.png',
+            image:'images/Achivements/yygs/logo.jpg',
             gallery:[
                 'images/Achivements/YYGS/01.jpg'
             ],
             galleryStories:[
                 ''
             ],
-            body:'Add the YYGS experience, academic interests, programme moments and related opportunities here.',
+            body:'',
             facts:[
                 [
                     'Programme',
@@ -2789,17 +3136,6 @@ const DATA={
                     'Certificate',
                     ''
                 ],
-                [
-                    'News',
-                    ''
-                ]
-            ],
-            linkTitle:'Explore more about this achievement',
-            news:[
-                {
-                    title:'Early innovation journey featured',
-                    url:''
-                }
             ],
         }
     ],
@@ -2880,7 +3216,7 @@ const DATA={
             ]
         },
         {
-            name:'Overlord',
+            name:'Overlord Prevention Circuit',
             tag:'Electronics · Bluetooth',
             desc:'Short-circuit prevention and live current monitoring.',
             image:'images/overlord.jpg',
@@ -3009,55 +3345,55 @@ const DATA={
         {
             image:'images/moment/01.jpg',
             title:'A Moment In Space Center Houston raising Bangladeshi Flag For The First Time',
-            story:'Write the short story behind this moment here.',
+            story:'',
             iframe:''
         },
         {
             image:'images/moment/02.jpg',
             title:'The Prime Ministers Program',
-            story:'Write who was there, what happened and why this moment matters.',
+            story:'',
             iframe:''
         },
         {
             image:'images/moment/03.jpg',
             title:'A moment between builds',
-            story:'Write the story of what you were building or testing.',
+            story:'',
             iframe:''
         },
         {
             image:'images/moment/04.jpg',
             title:'Teaching Senior Students',
-            story:'Write the story behind this presentation or event.',
+            story:'',
             iframe:''
         },
         {
             image:'images/moment/05.jpg',
             title:'Drone Workshop Students of NSU',
-            story:'Write what you learned or built during this workshop.',
+            story:'',
             iframe:''
         },
         {
             image:'images/moment/06.jpg',
             title:'Noble neiturate Proffesor Mohammad Yunus',
-            story:'Write the personal story behind this photograph.',
+            story:'',
             iframe:''
         },
          {
             image:'images/moment/07.jpg',
             title:'Its judgement time',
-            story:'Write the personal story behind this photograph.',
+            story:'',
             iframe:''
         },
         {
             image:'images/moment/08.jpg',
             title:'Leading My Team',
-            story:'Write the personal story behind this photograph.',
+            story:'',
             iframe:''
         },
         {
             image:'images/moment/09.jpg',
             title:'US Embassy Featuring Us',
-            story:'Optional short note about why this coverage matters.',
+            story:'',
             iframe:''
         }
     ],
@@ -3112,10 +3448,6 @@ const DATA={
                     'Institution website',
                     'https://www.nyas.org/'
                 ],
-                [
-                    'Research / project',
-                    ''
-                ]
             ]
         },
         {
@@ -3123,7 +3455,7 @@ const DATA={
             org:'Team Bangladesh — IOCE',
             period:'2025',
             detail:"Led Bangladesh's delegation at an international climate and environment olympiad.",
-            image:'images/experience/ioce.svg',
+            image:'images/experience/ioce.jpg',
             links:[
                 [
                     'IOCE website',
@@ -3131,7 +3463,7 @@ const DATA={
                 ],
                 [
                     'Team page',
-                    ''
+                    'https://www.facebook.com/slsn.community'
                 ]
             ]
         },
@@ -3146,10 +3478,6 @@ const DATA={
                     'Robodemy website',
                     'www.robodemybd.com'
                 ],
-                [
-                    'Workshop / profile',
-                    ''
-                ]
             ]
         },
         {
@@ -3162,6 +3490,10 @@ const DATA={
                 [
                     'Conrad Challenge',
                     'https://conrad.spacecenter.org/'
+                ],
+                [
+                    'Team page',
+                    'https://www.facebook.com/profile.php?id=61555697092873'
                 ]
             ]
         },
@@ -3243,7 +3575,7 @@ const DATA={
 ;
 function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
 function imageTag(src,label,cls=''){return `<img class="${cls}" src="${src}" alt="${esc(label)}" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"><div class="fallback" style="display:none">${esc((label||'MF').slice(0,2).toUpperCase())}</div>`}
-function linkButton(item){const label=item[0]||'Link';const url=item.length>=3?item[2]:item[1];const note=item.length>=3?item[1]:'Open link';return url?`<a class="resource" href="${esc(url)}" target="_blank" rel="noopener"><div><strong>${esc(label)}</strong><small>${esc(note||'Open link')}</small></div><span>↗</span></a>`:`<div class="resource" style="opacity:.65;cursor:default"><div><strong>${esc(label)}</strong><small>${esc(note||'Add URL in the DATA object')}</small></div><span>＋</span></div>`}
+function linkButton(item){const label=item[0]||'Link';const url=item.length>=3?item[2]:item[1];const note=item.length>=3?item[1]:'Open link';return url?`<a class="resource" href="${esc(url)}" target="_blank" rel="noopener"><div><strong>${esc(label)}</strong><small>${esc(note||'Open link')}</small></div><span>↗</span></a>`:`<div class="resource" style="opacity:.65;cursor:default"><div><strong>${esc(label)}</strong><small>${esc(note||'')}</small></div><span>＋</span></div>`}
 function facts(f){return `<div class="facts">${f.map(x=>`<div class="fact"><b>${esc(x[0])}</b><span>${esc(x[1])}</span></div>`).join('')}</div>`}
 function gallery(images, label, stories) {
     const valid = images || [];
@@ -3289,7 +3621,7 @@ function openImage(src, label, story) {
         `
             <img class="modal-hero" src="${esc(src)}" alt="${esc(label)}">
             <h2>${esc(label)}</h2>
-            <p>${esc(story || 'Add the short story for this photograph in the achievement galleryStories array.')}</p>
+            <p>${esc(story || '')}</p>
         `
     );
 }
@@ -3352,9 +3684,13 @@ function openAchievement(i) {
 
 function openProject(i) {
     const p = DATA.projects[i];
+
+    // Project links/resources intentionally left out for now.
+    // Add the project gallery, demo video, build notes and GitHub/code links here later.
+
     showModal(
         'Project · ' + p.tag,
-        `${imageTag(p.image,p.name,'modal-hero')}<h2>${esc(p.name)}</h2><p>${esc(p.body)}</p>${facts(p.facts)}${resources('Explore this project',[['Project gallery',''],['Demo video',''],['Build notes',''],['GitHub / code','']])}`
+        `${imageTag(p.image,p.name,'modal-hero')}<h2>${esc(p.name)}</h2><p>${esc(p.body)}</p>${facts(p.facts)}`
     );
 }
 
@@ -3454,22 +3790,11 @@ window.addEventListener('scroll',()=>{const hero=document.querySelector('.hero-p
 // Lightweight 3D tilt on pointer-capable screens.
 if(matchMedia('(pointer:fine)').matches){document.querySelectorAll('.achievement,.project,.experience-card,.news-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${y*-2}deg) rotateY(${x*2}deg) translateY(-8px) scale(1.008)`});card.addEventListener('pointerleave',()=>card.style.transform='')})}
 
-async function submitForm(
-    form,
-    endpoint,
-    statusEl,
-    successText
-) {
-    if (!endpoint) {
-        statusEl.textContent =
-            'The form is live on the website. Add your Formspree endpoint '
-            + 'in FORM_ENDPOINTS at the top of the script to receive submissions.';
-        return;
-    }
-
+async function submitForm(form, endpoint, statusEl, successText, redirectUrl='') {
     const button = form.querySelector('button[type=submit]');
     button.disabled = true;
     button.textContent = 'Sending…';
+    statusEl.textContent = '';
 
     try {
         const response = await fetch(endpoint, {
@@ -3486,40 +3811,43 @@ async function submitForm(
 
         form.reset();
         statusEl.textContent = successText;
+
+        if (redirectUrl) {
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 450);
+        }
     } catch (error) {
         statusEl.textContent =
-            'Something went wrong. Please try again or use the social links below.';
+            'Something went wrong. Please try again. Your information was not submitted.';
     } finally {
         button.disabled = false;
-        button.textContent = successText.includes('mentoring')
-            ? 'Request a mentoring conversation ↗'
+        button.textContent = form.id === 'mentoringForm'
+            ? 'Submit & schedule intro call ↗'
             : 'Send message ↗';
     }
 }
+
 document.getElementById('contactForm').addEventListener('submit', e => {
     e.preventDefault();
-
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const status = document.getElementById('formStatus');
-
-    if (!CONTACT_EMAIL || CONTACT_EMAIL.includes('YOUR_EMAIL')) {
-        status.textContent = 'Add your email address to CONTACT_EMAIL near the top of the script first.';
-        return;
-    }
-
-    const subject = encodeURIComponent('Portfolio contact from ' + (data.get('name') || 'Website visitor'));
-    const body = encodeURIComponent(
-        'Name: ' + (data.get('name') || '') + '\\n' +
-        'Email: ' + (data.get('email') || '') + '\\n' +
-        'Mobile: ' + (data.get('Number') || '') + '\\n\\n' +
-        'Message:\\n' + (data.get('message') || '')
+    submitForm(
+        e.currentTarget,
+        FORM_ENDPOINTS.contact,
+        document.getElementById('formStatus'),
+        'Message sent successfully. Thank you — I’ll get back to you soon.'
     );
-
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    status.textContent = 'Your email app should now open with the message prepared.';
 });
-document.getElementById('mentoringForm').addEventListener('submit',e=>{e.preventDefault();submitForm(e.currentTarget,FORM_ENDPOINTS.mentoring,document.getElementById('mentoringStatus'),'Your mentoring request was sent successfully.');});
-  </script>
+
+document.getElementById('mentoringForm').addEventListener('submit', e => {
+    e.preventDefault();
+    submitForm(
+        e.currentTarget,
+        FORM_ENDPOINTS.mentoring,
+        document.getElementById('mentoringStatus'),
+        'Request saved. Opening Calendly so you can choose an available time…',
+        CALENDLY_URL
+    );
+});
+</script>
  </body>
 </html>
