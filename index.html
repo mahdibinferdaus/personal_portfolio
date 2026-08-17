@@ -512,47 +512,37 @@ img {
     place-items:center;
     color:var(--signal)
 }
-/* MOMENTS */
+/* MOMENTS — natural masonry collage */
 .moments {
-    display:grid;
-    grid-template-columns:repeat(12,1fr);
-    grid-auto-rows:145px;
-    gap:12px
+    columns:3 280px;
+    column-gap:14px;
+    width:100%;
 }
 .moment {
     position:relative;
+    display:block;
+    width:100%;
+    min-width:0;
+    margin:0 0 14px;
     overflow:hidden;
-    border-radius:14px;
+    break-inside:avoid;
+    border-radius:16px;
     background:var(--paper2);
-    border:1px solid var(--line)
-}
-.moment:nth-child(1) {
-    grid-column:span 5;
-    grid-row:span 2
-}
-.moment:nth-child(2) {
-    grid-column:span 3
-}
-.moment:nth-child(3) {
-    grid-column:span 4
-}
-.moment:nth-child(4) {
-    grid-column:span 4
-}
-.moment:nth-child(5) {
-    grid-column:span 3
-}
-.moment:nth-child(6) {
-    grid-column:span 5
+    border:1px solid var(--line);
+    box-shadow:0 8px 24px rgba(20,23,27,.04);
 }
 .moment img {
+    display:block;
     width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:.7s var(--ease)
+    height:auto;
+    max-height:none;
+    object-fit:contain;
+    background:var(--paper2);
+    transition:transform .7s var(--ease),filter .7s var(--ease);
 }
 .moment:hover img {
-    transform:scale(1.07)
+    transform:scale(1.025);
+    filter:saturate(1.04);
 }
 .moment-label {
     position:absolute;
@@ -1771,11 +1761,12 @@ body:before {
         grid-column:span 12!important
     }
     .moments {
-        grid-auto-rows:115px
+        columns:2 180px;
+        column-gap:10px;
     }
     .moment {
-        grid-column:span 6!important;
-        grid-row:span 1!important
+        margin-bottom:10px;
+        border-radius:13px;
     }
     .journey:before {
         left:7px
