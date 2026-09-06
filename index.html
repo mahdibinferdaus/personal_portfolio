@@ -1948,6 +1948,49 @@ body:before {
     }
 }
 
+
+/* PROFESSIONAL FOOTER + THEME SYSTEM */
+:root{--theme-accent:#2F6F52}
+body{transition:background .3s var(--ease),color .3s var(--ease)}
+.nav-controls{display:flex;align-items:center;gap:12px}
+.theme-toggle{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72);font:10px var(--mono);letter-spacing:.06em;text-transform:uppercase;transition:.3s var(--ease)}
+.theme-toggle:hover{border-color:var(--signal);color:var(--signal);transform:translateY(-2px)}
+.theme-icon{font-size:16px;line-height:1}
+.site-footer{padding:0;background:#0f1418;color:#aeb7bd}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1.25fr 1fr;gap:38px;padding:58px 0 42px}
+.footer-brand{font:600 24px var(--display);color:#fff}
+.footer-intro p{max-width:410px;font-size:13px;line-height:1.7;margin:10px 0 15px}
+.footer-email{font:12px var(--mono);color:#cf9d7b;word-break:break-word}
+.footer-column{display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.footer-label{margin-bottom:4px;color:#fff;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.footer-column>a{font-size:13px;transition:.25s}
+.footer-column>a:hover,.footer-email:hover{color:#fff}
+.footer-socials{display:flex;gap:8px;flex-wrap:wrap}
+.footer-socials a{width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);border-radius:50%;transition:.3s}
+.footer-socials a:hover{border-color:#cf9d7b;color:#cf9d7b;transform:translateY(-3px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;padding:20px 0;border-top:1px solid rgba(255,255,255,.09);font-size:11px;color:#77828a}
+.legal-section{padding:72px 0;background:var(--paper2);border-top:1px solid var(--line)}
+.legal-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px}
+.legal-section h2{font:600 clamp(32px,4vw,48px)/1 var(--display);letter-spacing:-.045em;margin:0}
+.legal-copy h3{font:600 18px var(--display);margin:0 0 7px}
+.legal-copy p{margin:0 0 24px;color:var(--slate);font-size:13px}
+html[data-theme="dark"]{color-scheme:dark;--paper:#0C1519;--paper2:#162127;--ink:#F2EEE9;--slate:#B8C0C2;--line:#3A3534;--signal:#CF9D7B;--signal2:#E0B18F;--signal-dim:#243136;--white:#162127;--shadow:0 18px 50px -20px rgba(0,0,0,.65)}
+html[data-theme="dark"] body{background:#0C1519;color:#F2EEE9}
+html[data-theme="dark"] .nav{background:rgba(12,21,25,.88)}
+html[data-theme="dark"] .btn-outline,html[data-theme="dark"] .project,html[data-theme="dark"] .experience-card,html[data-theme="dark"] .news-card,html[data-theme="dark"] .skill-box,html[data-theme="dark"] .resource,html[data-theme="dark"] .mentor-card{background:#162127}
+html[data-theme="dark"] .hero{background:radial-gradient(circle at 85% 20%,rgba(207,157,123,.10),transparent 30%),#0C1519}
+html[data-theme="dark"] .hero:before{border-color:rgba(207,157,123,.18);box-shadow:0 0 0 65px rgba(207,157,123,.035),0 0 0 130px rgba(207,157,123,.02)}
+html[data-theme="dark"] .theme-toggle{background:#162127}
+html[data-theme="dark"] .section.alt,html[data-theme="dark"] .legal-section{background:#162127}
+html[data-theme="dark"] .mentor{background:linear-gradient(120deg,#162127,#0C1519 55%,#3A3534)}
+html[data-theme="dark"] .mentor-form textarea,html[data-theme="dark"] .mentor-form input,html[data-theme="dark"] .mentor-form select{background:#0C1519;color:#F2EEE9}
+html[data-theme="dark"] .modal-panel{background:#162127}
+html[data-theme="dark"] .moment,html[data-theme="dark"] .journey-news-item{background:#162127}
+html[data-theme="dark"] .hero-note{background:rgba(22,33,39,.92)}
+html[data-theme="dark"] .site-footer{background:#0C1519}
+@media(max-width:950px){.footer-top{grid-template-columns:1.5fr 1fr 1fr}.footer-intro{grid-column:1/-1}.legal-grid{grid-template-columns:1fr}}
+@media(max-width:650px){.theme-text{display:none}.theme-toggle{padding:8px 10px}.footer-top{grid-template-columns:1fr 1fr;gap:28px}.footer-intro{grid-column:1/-1}.footer-bottom{display:block}.footer-bottom small{display:block;margin:5px 0}.legal-section{padding:54px 0}}
+
 </style>
  </head>
  <body>
@@ -2000,13 +2043,12 @@ body:before {
       Mentoring
      </a>
     </div>
-    <button aria-label="Open menu" class="menu" id="menu">
-     ☰
-    </button>
+    <div class="nav-controls">
+     <button aria-label="Toggle dark mode" class="theme-toggle" id="themeToggle" title="Toggle theme"><span class="theme-icon">◐</span><span class="theme-text">Theme</span></button>
+     <button aria-label="Open menu" class="menu" id="menu">☰</button>
+    </div>
    </div>
   </nav>
-  <div aria-label="Social media" class="social-dock" id="socialDock">
-  </div>
   <main id="top">
    <header class="hero">
     <div class="wrap hero-grid">
@@ -2030,8 +2072,6 @@ body:before {
        <a class="btn btn-outline" href="#experience">
         See the experience
        </a>
-      </div>
-      <div class="hero-socials reveal d4" id="heroSocials">
       </div>
      </div>
      <div class="hero-portrait reveal d2">
@@ -2291,23 +2331,35 @@ body:before {
     </div>
    </section>
   </main>
-  <footer>
-   <div class="wrap footer-grid">
-    <div>
-     <div class="footer-brand">
-      Mahdi Bin Ferdaus
-     </div>
-     <small>
-      Robotics builder, innovator, mentor.
-     </small>
+  <section class="legal-section" id="privacy">
+   <div class="wrap legal-grid">
+    <div><p class="eyebrow">Privacy & Legal</p><h2>Clear, simple and professional.</h2></div>
+    <div class="legal-copy"><h3>Privacy</h3><p>This website is a personal portfolio. Information submitted through contact or mentoring forms is used only to respond to the enquiry or manage the requested conversation. It is not sold or shared for unrelated marketing.</p><h3 id="terms">Terms of Use</h3><p>Unless otherwise stated, the content, project documentation and original design on this website are the work of Mahdi Bin Ferdaus. Please request permission before reproducing substantial content or presenting it as your own.</p></div>
+   </div>
+  </section>
+  <footer class="site-footer">
+   <div class="wrap footer-top">
+    <div class="footer-intro">
+     <div class="footer-brand">Mahdi Bin Ferdaus</div>
+     <p>Robotics builder, innovator and mentor focused on turning ideas into tangible systems and impact.</p>
+     <a class="footer-email" href="mailto:contact@mahdibinferdaus.com">contact@mahdibinferdaus.com</a>
     </div>
-    <div>
-     <div class="socials" id="footerSocials">
-     </div>
-     <small style="display:block;margin-top:12px;color:#77817a">
-      Find me across the web · links open in a new tab
-     </small>
+    <div class="footer-column">
+     <span class="footer-label">Explore</span>
+     <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#mentoring">Mentoring</a>
     </div>
+    <div class="footer-column">
+     <span class="footer-label">Connect</span>
+     <div class="footer-socials" id="footerSocials"></div>
+    </div>
+    <div class="footer-column">
+     <span class="footer-label">Legal</span>
+     <a href="#privacy">Privacy</a><a href="#terms">Terms of Use</a><a href="#contact">Contact</a>
+    </div>
+   </div>
+   <div class="wrap footer-bottom">
+    <small>© <span id="copyrightYear"></span> Mahdi Bin Ferdaus. All rights reserved.</small>
+    <small>Designed as a personal portfolio and professional archive.</small>
    </div>
   </footer>
   <div aria-hidden="true" class="modal" id="modal">
@@ -2336,7 +2388,7 @@ const FORM_ENDPOINTS = {
 };
 
 // Put your email address here. Contact messages will open a prepared email with all form details.
-const CONTACT_EMAIL = 'ibnemahdi5@gmail.com';
+const CONTACT_EMAIL = 'contact@mahdibinferdaus.com';
 
 const DATA={
     stats:[
@@ -2827,7 +2879,7 @@ const DATA={
             name:'Smart Road Safety Beast',
             tag:'Safety · IoT',
             desc:'Real-time road-hazard detection and response system.',
-            image:'images/Projects/SRSB.jpg',
+            image:'images/Projects/srsb.jpg',
             body:'A road-safety system combining sensor-based hazard detection with automated emergency response, built to cut down on accidents and wasted fuel.',
             facts:[
                 [
@@ -3447,9 +3499,7 @@ function renderSocials() {
         `)
         .join('');
 
-    document.getElementById('heroSocials').innerHTML = html;
     document.getElementById('footerSocials').innerHTML = html;
-    document.getElementById('socialDock').innerHTML = html;
 }
 
 render();
@@ -3468,6 +3518,27 @@ window.addEventListener('scroll',()=>{const hero=document.querySelector('.hero-p
 
 // Lightweight 3D tilt on pointer-capable screens.
 if(matchMedia('(pointer:fine)').matches){document.querySelectorAll('.achievement,.project,.experience-card,.news-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${y*-2}deg) rotateY(${x*2}deg) translateY(-8px) scale(1.008)`});card.addEventListener('pointerleave',()=>card.style.transform='')})}
+
+
+// Theme preference: saved locally and defaults to the visitor's system setting.
+const themeToggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('mbf-theme');
+const preferredTheme = savedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+document.documentElement.dataset.theme = preferredTheme;
+function updateThemeControl(){
+  const dark = document.documentElement.dataset.theme === 'dark';
+  themeToggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  themeToggle.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+  themeToggle.querySelector('.theme-icon').textContent = dark ? '☀' : '◐';
+}
+updateThemeControl();
+themeToggle.addEventListener('click',()=>{
+  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem('mbf-theme',next);
+  updateThemeControl();
+});
+document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
 async function submitForm(
     form,
