@@ -1965,6 +1965,10 @@ body{transition:background .3s var(--ease),color .3s var(--ease)}
 .footer-label{margin-bottom:4px;color:#fff;font:10px var(--mono);letter-spacing:.12em;text-transform:uppercase}
 .footer-column>a{font-size:13px;transition:.25s}
 .footer-column>a:hover,.footer-email:hover{color:#fff}
+.footer-action{padding:9px 14px;border:1px solid rgba(255,255,255,.2);border-radius:999px;color:#fff;font:10px var(--mono);letter-spacing:.07em;text-transform:uppercase;transition:.3s;background:transparent}
+.footer-action:hover{border-color:#CF9D7B;color:#CF9D7B;transform:translateY(-2px)}
+.footer-link-btn{padding:0;color:inherit;font-size:13px;text-align:left}
+.footer-legal-note{font-size:11px;line-height:1.6;color:#77828a;margin:5px 0 0;max-width:230px}
 .footer-socials{display:flex;gap:8px;flex-wrap:wrap}
 .footer-socials a{width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.15);border-radius:50%;transition:.3s}
 .footer-socials a:hover{border-color:#cf9d7b;color:#cf9d7b;transform:translateY(-3px)}
@@ -1989,7 +1993,31 @@ html[data-theme="dark"] .moment,html[data-theme="dark"] .journey-news-item{backg
 html[data-theme="dark"] .hero-note{background:rgba(22,33,39,.92)}
 html[data-theme="dark"] .site-footer{background:#0C1519}
 @media(max-width:950px){.footer-top{grid-template-columns:1.5fr 1fr 1fr}.footer-intro{grid-column:1/-1}.legal-grid{grid-template-columns:1fr}}
+
 @media(max-width:650px){.theme-text{display:none}.theme-toggle{padding:8px 10px}.footer-top{grid-template-columns:1fr 1fr;gap:28px}.footer-intro{grid-column:1/-1}.footer-bottom{display:block}.footer-bottom small{display:block;margin:5px 0}.legal-section{padding:54px 0}}
+
+/* FINAL VISUAL REFINEMENT — CONSISTENCY, HIERARCHY & FOOTER */
+.section-head{align-items:flex-end}.section-head .eyebrow{margin-bottom:10px}.title{max-width:760px}.sub{margin:12px 0 0}
+.section.alt{border-top:1px solid rgba(20,23,27,.025);border-bottom:1px solid rgba(20,23,27,.025)}
+.project,.experience-card,.news-card,.skill-box,.mentor-card{box-shadow:0 8px 26px rgba(20,23,27,.035)}
+.project:hover,.experience-card:hover,.news-card:hover{border-color:rgba(47,111,82,.35)}
+.achievement,.project,.experience-card,.news-card,.skill-box,.mentor-card{border-radius:18px}
+.site-footer{position:relative;overflow:hidden;background:linear-gradient(135deg,#0c1114 0%,#10181d 55%,#0c1114 100%);color:#aab4ba}
+.site-footer:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 8% 0%,rgba(207,157,123,.11),transparent 27%),radial-gradient(circle at 100% 100%,rgba(47,111,82,.12),transparent 30%)}
+.site-footer .wrap{position:relative;z-index:1}
+.footer-top{grid-template-columns:1.7fr .8fr 1.25fr 1fr;gap:46px;padding:68px 0 48px}
+.footer-intro{padding-right:14px}.footer-brand{font-size:26px;letter-spacing:-.045em}.footer-brand:after{content:'';display:block;width:42px;height:2px;margin-top:14px;background:linear-gradient(90deg,#CF9D7B,transparent)}
+.footer-intro p{margin-top:16px;color:#8e9aa1;font-size:13px;line-height:1.8}
+.footer-label{color:#fff;font-size:9px;letter-spacing:.16em;margin-bottom:9px}.footer-column{gap:11px}.footer-column>a,.footer-link-btn{color:#9da8ae;font-size:13px;transition:color .25s,transform .25s}.footer-column>a:hover,.footer-link-btn:hover{color:#fff;transform:translateX(3px)}
+.footer-connect-copy{font-size:12px;line-height:1.6;color:#7e8a91;margin:0 0 3px;max-width:270px}
+.footer-socials-primary{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.footer-socials-primary #footerSocials{display:flex;gap:8px;flex-wrap:wrap}.footer-socials-primary a,.footer-socials-primary #footerSocials a{width:38px;height:38px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.14);border-radius:50%;color:#b8c1c5;background:rgba(255,255,255,.025);transition:.3s var(--ease)}
+.footer-socials-primary a:hover,.footer-socials-primary #footerSocials a:hover{border-color:#CF9D7B;color:#CF9D7B;background:rgba(207,157,123,.08);transform:translateY(-3px)}
+.footer-socials-primary svg{width:17px;height:17px}.footer-email{font:11px var(--mono);letter-spacing:.015em;color:#CF9D7B!important;padding:3px 0}.footer-email:hover{color:#f1c4a4!important;transform:none!important}
+.footer-action{margin-top:3px;display:inline-flex;align-items:center;gap:9px;padding:10px 14px;border-color:rgba(207,157,123,.38);background:rgba(207,157,123,.06);color:#f3eee9}.footer-action span{font-size:14px;transition:transform .25s}.footer-action:hover{background:rgba(207,157,123,.12)}.footer-action:hover span{transform:translate(2px,-2px)}
+.footer-legal{padding-left:4px}.footer-legal-note{margin-top:8px;color:#707c83;max-width:220px}.footer-bottom{padding:22px 0 26px;color:#66737a}.footer-bottom small:last-child{letter-spacing:.02em}
+html[data-theme="dark"] .section.alt{border-color:rgba(255,255,255,.025)}html[data-theme="dark"] .project:hover,html[data-theme="dark"] .experience-card:hover,html[data-theme="dark"] .news-card:hover{border-color:rgba(207,157,123,.38)}html[data-theme="dark"] .site-footer{background:linear-gradient(135deg,#091116,#0C1519 58%,#10191d)}
+@media(max-width:950px){.footer-top{grid-template-columns:1.3fr 1fr 1.15fr;gap:34px}.footer-intro{grid-column:1/-1;padding-right:0}.footer-intro p{max-width:600px}.footer-legal{padding-left:0}}
+@media(max-width:650px){.footer-top{grid-template-columns:1fr;gap:30px;padding:50px 0 32px}.footer-intro{grid-column:auto}.footer-brand{font-size:24px}.footer-column{gap:9px}.footer-bottom{padding:17px 0 22px}.footer-bottom small:last-child{margin-top:8px}.footer-socials-primary a,.footer-socials-primary #footerSocials a{width:36px;height:36px}}
 
 </style>
  </head>
@@ -2081,7 +2109,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
       </div>
       <div class="hero-note">
        <strong>
-        Builder · Innovator · Mentor
+        Builder · Innovator
        </strong>
        <small>
         Bangladesh · International experience
@@ -2099,7 +2127,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
      <div class="section-head reveal">
       <div>
        <p class="eyebrow">
-        01 · About
+        About
        </p>
        <h2 class="title">
         More than a list of achievements.
@@ -2154,7 +2182,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
      <div class="section-head reveal">
       <div>
        <p class="eyebrow">
-        02 · Recognition
+        Recognition
        </p>
        <h2 class="title">
         Milestones with a story.
@@ -2173,7 +2201,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
      <div class="section-head reveal">
       <div>
        <p class="eyebrow">
-        03 · Projects
+        Projects
        </p>
        <h2 class="title">
         Things I've built.
@@ -2192,7 +2220,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
      <div class="section-head reveal">
       <div>
        <p class="eyebrow">
-        04 · Moments
+        Moments
        </p>
        <h2 class="title">
         The parts that don't fit on a CV.
@@ -2211,7 +2239,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
      <div class="section-head reveal">
       <div>
        <p class="eyebrow">
-        05 · Skills
+        Skills
        </p>
        <h2 class="title">
         What I work with.
@@ -2231,7 +2259,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
      <div class="section-head reveal">
       <div>
        <p class="eyebrow">
-        06 · Experience
+        Experience
        </p>
        <h2 class="title">
         Where I've learned by doing.
@@ -2249,7 +2277,7 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
     <div class="wrap mentor-grid">
      <div class="reveal">
       <p class="eyebrow">
-       07 · Conrad Challenge Mentoring
+       Conrad Challenge Mentoring
       </p>
       <h2 class="title">
        Building for Conrad? Let's make your project stronger.
@@ -2303,63 +2331,36 @@ html[data-theme="dark"] .site-footer{background:#0C1519}
      </div>
     </div>
    </section>
-   <section class="section contact" id="contact">
-    <div class="wrap contact-grid">
-     <div class="reveal">
-      <p class="eyebrow">
-       08 · Contact
-      </p>
-      <h2 class="title">
-       Have something to talk with me?
-      </h2>
-      <p class="sub">
-       For collaborations, partnerships or an interesting problem — send me the details and it will be prepared as an email to me.
-      </p>
-     </div>
-     <form class="form reveal d1" id="contactForm">
-      <input name="name" placeholder="Your name" required=""/>
-      <input name="email" placeholder="Email address" required="" type="email"/>
-      <input name="Number" placeholder="Mobile Number" required="" type="number"/>
-      <textarea name="message" placeholder="Tell me what's on your mind..." required="">
-</textarea>
-      <button class="btn btn-primary" type="submit">
-       Send message ↗
-      </button>
-      <span class="status" id="formStatus">
-      </span>
-     </form>
-    </div>
-   </section>
   </main>
-  <section class="legal-section" id="privacy">
-   <div class="wrap legal-grid">
-    <div><p class="eyebrow">Privacy & Legal</p><h2>Clear, simple and professional.</h2></div>
-    <div class="legal-copy"><h3>Privacy</h3><p>This website is a personal portfolio. Information submitted through contact or mentoring forms is used only to respond to the enquiry or manage the requested conversation. It is not sold or shared for unrelated marketing.</p><h3 id="terms">Terms of Use</h3><p>Unless otherwise stated, the content, project documentation and original design on this website are the work of Mahdi Bin Ferdaus. Please request permission before reproducing substantial content or presenting it as your own.</p></div>
-   </div>
-  </section>
   <footer class="site-footer">
    <div class="wrap footer-top">
     <div class="footer-intro">
      <div class="footer-brand">Mahdi Bin Ferdaus</div>
-     <p>Robotics builder, innovator and mentor focused on turning ideas into tangible systems and impact.</p>
-     <a class="footer-email" href="mailto:contact@mahdibinferdaus.com">contact@mahdibinferdaus.com</a>
+     <p>Robotics builder, innovator and mentor focused on turning ideas into tangible systems and meaningful impact.</p>
     </div>
     <div class="footer-column">
      <span class="footer-label">Explore</span>
      <a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#mentoring">Mentoring</a>
     </div>
-    <div class="footer-column">
+    <div class="footer-column footer-connect">
      <span class="footer-label">Connect</span>
-     <div class="footer-socials" id="footerSocials"></div>
+     <p class="footer-connect-copy">Open to meaningful collaborations, ambitious ideas, and opportunities where technology can create real impact.</p>
+     <div class="footer-socials footer-socials-primary">
+      <div id="footerSocials"></div>
+     </div>
+     <a class="footer-email" href="mailto:contact@mahdibinferdaus.com">contact@mahdibinferdaus.com</a>
+     <button class="footer-action" type="button" onclick="openContactModal()">Start a conversation <span aria-hidden="true">↗</span></button>
     </div>
-    <div class="footer-column">
-     <span class="footer-label">Legal</span>
-     <a href="#privacy">Privacy</a><a href="#terms">Terms of Use</a><a href="#contact">Contact</a>
+    <div class="footer-column footer-legal">
+     <span class="footer-label">Privacy &amp; Legal</span>
+     <button class="footer-link-btn" type="button" onclick="openPrivacyModal()">Privacy Policy</button>
+     <button class="footer-link-btn" type="button" onclick="openTermsModal()">Terms of Use</button>
+     <p class="footer-legal-note">Clear information about privacy, website use and intellectual property.</p>
     </div>
    </div>
    <div class="wrap footer-bottom">
     <small>© <span id="copyrightYear"></span> Mahdi Bin Ferdaus. All rights reserved.</small>
-    <small>Designed as a personal portfolio and professional archive.</small>
+    <small>Personal portfolio · Robotics · Innovation · Engineering</small>
    </div>
   </footer>
   <div aria-hidden="true" class="modal" id="modal">
@@ -2879,7 +2880,7 @@ const DATA={
             name:'Smart Road Safety Beast',
             tag:'Safety · IoT',
             desc:'Real-time road-hazard detection and response system.',
-            image:'images/Projects/srsb.jpg',
+            image:'images/Projects/SRSB.jpg',
             body:'A road-safety system combining sensor-based hazard detection with automated emergency response, built to cut down on accidents and wasted fuel.',
             facts:[
                 [
@@ -3582,7 +3583,30 @@ async function submitForm(
             : 'Send message ↗';
     }
 }
-document.getElementById('contactForm').addEventListener('submit', e => {
+function openFooterModal(kicker, title, html){
+  document.getElementById('modalKicker').textContent = kicker;
+  document.getElementById('modalContent').innerHTML = '<h2>'+title+'</h2>'+html;
+  document.getElementById('modal').classList.add('open');
+  document.body.classList.add('modal-open');
+}
+function openContactModal(){
+  openFooterModal('Get in touch','Contact',`<p>Have a project, collaboration, mentoring question or opportunity in mind? Send a message directly.</p><form class="form" id="footerContactForm"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Your email" required><input name="Number" placeholder="Phone number (optional)"><textarea name="message" placeholder="Your message" required></textarea><button class="btn btn-primary" type="submit">Send message ↗</button><div class="status" id="footerFormStatus"></div></form>`);
+  document.getElementById('footerContactForm').addEventListener('submit',e=>{
+    e.preventDefault(); const d=new FormData(e.currentTarget);
+    const subject=encodeURIComponent('Portfolio contact from '+(d.get('name')||'Website visitor'));
+    const body=encodeURIComponent('Name: '+(d.get('name')||'')+'\nEmail: '+(d.get('email')||'')+'\nMobile: '+(d.get('Number')||'')+'\n\nMessage:\n'+(d.get('message')||''));
+    window.location.href=`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    document.getElementById('footerFormStatus').textContent='Your email app should now open with the message prepared.';
+  });
+}
+function openPrivacyModal(){
+  openFooterModal('Privacy & Legal','Privacy Policy',`<div class="legal-copy"><h3>Information collected</h3><p>This website may receive basic information that you voluntarily submit through contact or mentoring forms, such as your name, email address and message.</p><h3>How information is used</h3><p>Submitted information is used only to respond to enquiries, discuss mentoring or collaborations, and communicate about relevant requests.</p><h3>Cookies and analytics</h3><p>The website may use essential browser storage to remember preferences such as your selected light or dark theme. Third-party services embedded on the site may apply their own privacy practices.</p><h3>Data sharing</h3><p>Personal information is not sold. Information is only shared when reasonably necessary to provide a requested service or when required by applicable law.</p><h3>Contact</h3><p>For privacy questions, use the Contact button or email contact@mahdibinferdaus.com.</p></div>`);
+}
+function openTermsModal(){
+  openFooterModal('Privacy & Legal','Terms of Use',`<div class="legal-copy"><h3>Website content</h3><p>This portfolio is provided for informational and professional purposes. Project descriptions, achievements and materials may be updated as work develops.</p><h3>Intellectual property</h3><p>Unless otherwise stated, original text, designs, photographs and project documentation belong to their respective creators and may not be reproduced or redistributed without permission.</p><h3>External links</h3><p>This website may link to external websites and platforms. Their content, availability and privacy practices are outside this website's control.</p><h3>No guarantees</h3><p>Reasonable effort is made to keep information accurate, but the website does not guarantee that every page is complete, current or error-free.</p><h3>Changes</h3><p>These terms may be updated when the website or its services change. Continued use of the website means you accept the current version.</p></div>`);
+}
+const contactForm = document.getElementById('contactForm');
+if (contactForm) contactForm.addEventListener('submit', e => {
     e.preventDefault();
 
     const form = e.currentTarget;
